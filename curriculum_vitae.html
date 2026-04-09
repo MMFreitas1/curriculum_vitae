@@ -4,6 +4,21 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Miguel G.M. Freitas — ML Engineer</title>
+
+<!-- Open Graph / Social preview -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Miguel G.M. Freitas — ML Engineer" />
+<meta property="og:description" content="ML Engineer specialising in machine learning, data engineering, and software development." />
+<meta property="og:url" content="https://mmfreitas1.github.io/curriculum_vitae/" />
+<meta property="og:image" content="https://mmfreitas1.github.io/curriculum_vitae/preview.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<!-- Twitter / X card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Miguel G.M. Freitas — ML Engineer" />
+<meta name="twitter:description" content="ML Engineer specialising in machine learning, data engineering, and software development." />
+<meta name="twitter:image" content="https://mmfreitas1.github.io/curriculum_vitae/preview.png" />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:wght@300;400;500&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet"/>
 <style>
   :root {
@@ -397,6 +412,59 @@
     nav .nav-links { display: none; }
     section { padding: 4rem 6vw; }
     #pdf-preview-panel { width: 90vw; }
+  }
+
+  @media print {
+    /* Hide interactive / screen-only elements */
+    nav, .scroll-hint, #pdf-preview-panel, #lost-cert-modal,
+    body::before, .coin-back { display: none !important; }
+
+    /* Reset body for print */
+    body { font-size: 11pt; line-height: 1.6; background: #0a0a08; color: #f0ead6; }
+
+    /* Make all animated elements visible */
+    .tl-item, .edu-card { opacity: 1 !important; transform: none !important; }
+
+    /* Compact hero */
+    .hero {
+      padding: 2rem 8vw 1.5rem;
+      min-height: unset;
+      flex-direction: row;
+      align-items: center;
+      gap: 2rem;
+      page-break-after: avoid;
+    }
+    .hero-content h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+    .hero-photo { display: none; }
+    .hero-meta a { color: var(--muted); }
+
+    /* Sections */
+    section { padding: 1.5rem 8vw; }
+    hr.fancy { margin: 0.5rem 8vw; }
+
+    /* Timeline */
+    .tl-item { break-inside: avoid; margin-bottom: 1.2rem; }
+    .tl-highlight { break-inside: avoid; }
+
+    /* Education grid — single column */
+    .edu-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+    .edu-card { break-inside: avoid; padding: 1rem 1.2rem; }
+
+    /* Skills — tighter wrap */
+    .skills-grid { gap: 0.4rem; }
+    .skill-pill { font-size: 0.6rem; padding: 0.25rem 0.6rem; }
+    .skill-tip { display: none !important; }
+
+    /* Certs */
+    .certs-list { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+    .cert-item { padding: 0.6rem 0.8rem; }
+
+    /* Footer */
+    footer { padding: 1.5rem 8vw; }
+    .footer-links a { color: var(--muted); }
+
+    /* Page breaks */
+    #education, #stack, #certs { break-before: auto; }
   }
 </style>
 </head>

@@ -203,6 +203,8 @@
   .tl-tag:hover { color: var(--gold2); border-color: var(--gold); }
   .tl-tag:hover .skill-tip { opacity: 1; }
 
+  .sector-pill { display: inline-block; font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.08em; color: var(--gold2); background: rgba(201,168,76,0.14); border: 1px solid rgba(201,168,76,0.35); padding: 0.15rem 0.55rem; border-radius: 2px; margin-right: 0.45rem; vertical-align: middle; }
+
   .tl-highlight { background: rgba(201,168,76,0.06); border-left: 2px solid var(--gold); padding: 0.8rem 1.2rem; margin-top: 1rem; font-style: italic; font-size: 0.9rem; color: var(--gold2); }
   .tl-highlight.warm { background: rgba(176,124,90,0.06); border-left-color: #b07c5a; color: #d4a882; }
   .tl-highlight[data-pdf]:hover, .tl-highlight[data-secret]:hover { background: rgba(201,168,76,0.14); border-left-color: var(--gold2); box-shadow: inset 0 0 0 1px rgba(201,168,76,0.18); transition: background 0.2s, border-left-color 0.2s, box-shadow 0.2s; }
@@ -590,10 +592,10 @@
       <div class="tl-company">Capgemini</div>
       <div class="tl-role">Data Scientist · Machine Learning Engineer</div>
       <div class="tl-body">
-        <p><strong style="color:var(--cream)">Life-sciences:</strong> <span data-i18n="tl-cap-lifesci">Led a +2,000-product pharmaceutical forecasting initiative. Built an end-to-end Python pipeline (Oracle DB extraction, cleaning, iterative GBR+SARIMAX training) with batching and parallelization — generating six-month forecasts and achieving production-ready results for over 50% of products. A JSON-driven orchestration script automated two-day processing runs with robust error handling, automated fine-tuning per product, and hyperparameter registration for full reproducibility.</span></p>
-        <p><strong style="color:var(--cream)">Banking:</strong> <span data-i18n="tl-cap-banking">Reviewed legacy orchestration software reporting flows — from XMLs to database operations — and drafted a modernized Oracle DB approach. Designed, maintained, and modernized ETL flows using PL/SQL, refactoring stored procedures and optimizing complex queries. Collaborated with an international team on as-is assessments in preparation for full system modernization.</span></p>
-        <p><strong style="color:var(--cream)">Public sector:</strong> <span data-i18n="tl-cap-pub">Implemented an Azure API-based computer-vision and machine translation pipeline that automatically extracts textual content from policy documents and translates it in a domain-specific context — achieving a 98% success rate.</span></p>
-        <p><strong style="color:var(--cream)">Automotive:</strong> <span data-i18n="tl-cap-auto">Developed a price-forecast segmented regression model applied creatively to an internship-exam challenge — achieving 90% explained variance with marginal errors across all vehicle segments.</span></p>
+        <p><span class="sector-pill">Life-sciences · Generis</span> <span data-i18n="tl-cap-lifesci">Led a +2,000-product pharmaceutical forecasting initiative. Built an end-to-end Python pipeline (Oracle DB extraction, cleaning, iterative GBR+SARIMAX training) with batching and parallelization — generating six-month forecasts and achieving production-ready results for over 50% of products. A JSON-driven orchestration script automated two-day processing runs with robust error handling, automated fine-tuning per product, and hyperparameter registration for full reproducibility.</span></p>
+        <p><span class="sector-pill">Banking · BNA</span> <span data-i18n="tl-cap-banking">Reviewed legacy orchestration software reporting flows — from XMLs to database operations — and drafted a modernized Oracle DB approach. Designed, maintained, and modernized ETL flows using PL/SQL, refactoring stored procedures and optimizing complex queries. Collaborated with an international team on as-is assessments in preparation for full system modernization.</span></p>
+        <p><span class="sector-pill">Public Sector · IPQ</span> <span data-i18n="tl-cap-pub">Implemented an Azure API-based computer-vision and machine translation pipeline that automatically extracts textual content from policy documents and translates it in a domain-specific context — achieving a 98% success rate.</span></p>
+        <p><span class="sector-pill">Automotive · Mockup</span> <span data-i18n="tl-cap-auto">Developed a price-forecast segmented regression model applied creatively to an internship-exam challenge — achieving 90% explained variance with marginal errors across all vehicle segments.</span></p>
       </div>
       <div class="tl-tags"><span class="tl-tag">Python</span><span class="tl-tag">Time Series</span><span class="tl-tag">GBR · SARIMAX</span><span class="tl-tag">ETL · PL/SQL</span><span class="tl-tag">Oracle DB</span><span class="tl-tag">Computer Vision</span><span class="tl-tag">Azure</span><span class="tl-tag">Regression</span><span class="tl-tag">MLOps</span></div>
     </div>
@@ -628,8 +630,9 @@
       <div class="tl-role life">Photographer · Visual Artist</div>
       <div class="tl-body">
         <p data-i18n="tl-photo-body">Self-taught practice in composition, light, and visual storytelling. Post-processing with Adobe Lightroom and Photoshop — the same eye for signal-in-noise that drives data work, applied to a frame.</p>
+        <p data-i18n="tl-photo-workshop">Conducted an astrophotography workshop for Câmara Municipal de Sines — covering night-sky composition, long-exposure technique, and an introduction to post-processing.</p>
       </div>
-      <div class="tl-tags"><span class="tl-tag warm">Composition</span><span class="tl-tag warm">Adobe Lightroom</span><span class="tl-tag warm">Adobe Photoshop</span><span class="tl-tag warm">Visual Storytelling</span></div>
+      <div class="tl-tags"><span class="tl-tag warm">Composition</span><span class="tl-tag warm">Adobe Lightroom</span><span class="tl-tag warm">Adobe Photoshop</span><span class="tl-tag warm">Visual Storytelling</span><span class="tl-tag warm">Astrophotography</span><span class="tl-tag warm">Workshop</span></div>
     </div>
 
     <div class="tl-item">
@@ -660,11 +663,13 @@
       <div class="tl-company">Genesis Digital Solutions</div>
       <div class="tl-role green">AI Engineer</div>
       <div class="tl-body">
-        <p><strong style="color:var(--cream)">Finance:</strong> <span data-i18n="tl-genesis-fin">Architected a multi-source RAG chatbot backend on Microsoft Azure, orchestrating MySQL databases and real-time web scraping with semantic search — achieving 40%+ higher accuracy than baseline models.</span></p>
-        <p><strong style="color:var(--cream)">Marketing:</strong> <span data-i18n="tl-genesis-mkt">Implemented client-specific business rules in Dataform/BigQuery pipelines — customizing data transformations per client, handling metric filtering and investment calculation logic. Diagnosed and resolved data quality issues across 40+ forms end-to-end: analyzing multi-table dependencies, identifying grain mismatches, and applying corrective SQL logic to ensure accurate data integrity.</span></p>
+        <p><span class="sector-pill">Finance · MoneyFlix</span> <span data-i18n="tl-genesis-fin">Architected a multi-source RAG chatbot backend on Microsoft Azure, orchestrating MySQL databases and real-time web scraping with semantic search — achieving 40%+ higher accuracy than baseline models.</span></p>
+        <p><span class="sector-pill">Marketing · Havas</span> <span data-i18n="tl-genesis-mkt">Implemented client-specific business rules in Dataform/BigQuery pipelines — customizing data transformations per client, handling metric filtering and investment calculation logic. Diagnosed and resolved data quality issues across 40+ forms end-to-end: analyzing multi-table dependencies, identifying grain mismatches, and applying corrective SQL logic to ensure accurate data integrity.</span></p>
+        <p><span class="sector-pill">Public Sector · ProcurifAI</span> <span data-i18n="tl-genesis-pubsec2">Scaled a public-contracting platform from POC to cloud MVP on Azure, connecting public entities to private providers across a dual-platform, three-role, multi-tenant architecture — six services per platform, each carrying a persistent JSON payload forwarding the state of its predecessor. GPT-5.4 handles legal reasoning and contract generation from a law corpus and deterministic templates; GPT-5.1 mini routes lighter tasks across a turn-based multi-chat interface. Non-sequential phase purchases are guided through natural language interaction, deterministically fulfilling the required JSON payload, with full production observability via Langfuse and Sentry.</span></p>
+        <p><span class="sector-pill">Public Sector · Dell</span> <span data-i18n="tl-genesis-pubsec1">Deployed a document-processing POC on a Dell GB10 edge appliance (Ubuntu, ARMx64) to absorb post-storm Kristin subsidy-entitlement volume across Portuguese parishes. Built an ingestion pipeline combining image preprocessing, Tesseract OCR, and GWEN vision-model inference — Langchain agents classify damage types and verify legal document completeness against applicable reimbursement budgets. JSON payloads and deterministic templates auto-populate inventory spreadsheets and generate legally-reasoned email drafts for parish technical staff; ThreadPooling parallelization delivered 10–18× faster throughput over manual handling — a result that converted the initial POC into a formal services contract.</span></p>
         <div class="tl-highlight" data-i18n="tl-genesis-hl">Cost-optimization framework cutting expenses 6-fold — $0.005 per interaction across 10,000+ monthly queries.</div>
       </div>
-      <div class="tl-tags"><span class="tl-tag">RAG</span><span class="tl-tag">LLM</span><span class="tl-tag">Azure</span><span class="tl-tag">BigQuery</span><span class="tl-tag">Dataform</span><span class="tl-tag">Chatbots</span><span class="tl-tag">MySQL</span><span class="tl-tag">Semantic Search</span></div>
+      <div class="tl-tags"><span class="tl-tag">RAG</span><span class="tl-tag">LLM</span><span class="tl-tag">Azure</span><span class="tl-tag">BigQuery</span><span class="tl-tag">Dataform</span><span class="tl-tag">Chatbots</span><span class="tl-tag">MySQL</span><span class="tl-tag">Semantic Search</span><span class="tl-tag">FastAPI</span><span class="tl-tag">Multi-Agent</span><span class="tl-tag">Langfuse</span><span class="tl-tag">Sentry</span><span class="tl-tag">GaleneAI</span><span class="tl-tag">GWEN</span><span class="tl-tag">Tesseract</span><span class="tl-tag">ThreadPooling</span><span class="tl-tag">OpenAI</span><span class="tl-tag">Claude</span><span class="tl-tag">Langchain</span><span class="tl-tag">Agentic Architectures</span><span class="tl-tag">Ruff</span><span class="tl-tag">Mypy</span><span class="tl-tag">CI/CD</span><span class="tl-tag">HTML</span><span class="tl-tag">GitHub</span><span class="tl-tag">Azure Foundry</span></div>
     </div>
 
   </div>
@@ -723,7 +728,7 @@
     <div class="skill-pill">Statsmodels<span class="skill-tip">Statistical modeling and time series analysis</span></div>
     <div class="skill-pill">NLTK<span class="skill-tip">Classical NLP toolkit for text processing</span></div>
     <div class="skill-pill">spaCy<span class="skill-tip">Industrial-strength NLP for production pipelines</span></div>
-    <div class="skill-pill">OpenAI API<span class="skill-tip">LLM integration for generative AI applications</span></div>
+    <div class="skill-pill">OpenAI<span class="skill-tip">LLM integration and generative AI application development</span></div>
     <div class="skill-pill">ChromaDB<span class="skill-tip">Vector database for semantic search and RAG</span></div>
     <div class="skill-pill">Microsoft Azure<span class="skill-tip">Cloud platform for AI and data services</span></div>
     <div class="skill-pill">Oracle DB<span class="skill-tip">Enterprise relational database management</span></div>
@@ -750,6 +755,22 @@
     <div class="skill-pill">Clustering<span class="skill-tip">Unsupervised learning for data segmentation</span></div>
     <div class="skill-pill">Ensembles<span class="skill-tip">Boosting, bagging, and model combination methods</span></div>
     <div class="skill-pill">Web Scraping<span class="skill-tip">Automated data extraction from online sources</span></div>
+    <div class="skill-pill">Langchain<span class="skill-tip">LLM orchestration framework for agent and RAG pipelines</span></div>
+    <div class="skill-pill">Multi-Agent<span class="skill-tip">Orchestrating multiple AI agents in coordinated pipelines</span></div>
+    <div class="skill-pill">Langfuse<span class="skill-tip">LLM observability — tracing and prompt management in production</span></div>
+    <div class="skill-pill">Sentry<span class="skill-tip">Error monitoring and performance tracking in production</span></div>
+    <div class="skill-pill">GaleneAI<span class="skill-tip">On-prem AI inference platform for edge deployments</span></div>
+    <div class="skill-pill">GWEN<span class="skill-tip">Vision-language model for image understanding and classification</span></div>
+    <div class="skill-pill">Tesseract<span class="skill-tip">Open-source OCR engine for text extraction from images</span></div>
+    <div class="skill-pill">ThreadPooling<span class="skill-tip">Python concurrent.futures-based parallel task execution</span></div>
+    <div class="skill-pill">Claude<span class="skill-tip">Anthropic's frontier AI model for intelligent applications</span></div>
+    <div class="skill-pill">Agentic Architectures<span class="skill-tip">Autonomous AI systems that plan, reason, and act across steps</span></div>
+    <div class="skill-pill">Ruff<span class="skill-tip">Extremely fast Python linter and code formatter</span></div>
+    <div class="skill-pill">Mypy<span class="skill-tip">Static type checking for Python codebases</span></div>
+    <div class="skill-pill">CI/CD<span class="skill-tip">Continuous integration and deployment pipeline automation</span></div>
+    <div class="skill-pill">HTML<span class="skill-tip">Semantic web markup and front-end structure</span></div>
+    <div class="skill-pill">GitHub<span class="skill-tip">Version control, collaboration, and code hosting</span></div>
+    <div class="skill-pill">Azure Foundry<span class="skill-tip">Enterprise AI model deployment and management on Azure</span></div>
     <div class="skill-pill creative">Adobe Lightroom<span class="skill-tip">Professional photo editing and color grading</span></div>
     <div class="skill-pill creative">Adobe Photoshop<span class="skill-tip">Advanced image manipulation and compositing</span></div>
   </div>
@@ -937,6 +958,25 @@
     'Regression':         'Supervised modeling of continuous output variables',
     'Segmentation':       'Partitioning data into meaningful behavioral groups',
     'Sequence Modeling':  'RNNs, LSTMs, and Transformers for sequential data',
+    'Multi-Agent':        'Orchestrating multiple AI agents in coordinated pipelines',
+    'Langfuse':           'LLM observability — tracing and prompt management in production',
+    'Sentry':             'Error monitoring and performance tracking in production',
+    'GaleneAI':           'On-prem AI inference platform for edge deployments',
+    'GWEN':               'Vision-language model for image understanding and classification',
+    'Tesseract':          'Open-source OCR engine for text extraction from images',
+    'ThreadPooling':      'Python concurrent.futures-based parallel task execution',
+    'Langchain':          'LLM orchestration framework for agent and RAG pipelines',
+    'OpenAI':             'LLM integration and generative AI application development',
+    'Claude':             'Anthropic\'s frontier AI model for intelligent applications',
+    'Agentic Architectures': 'Autonomous AI systems that plan, reason, and act across steps',
+    'Ruff':               'Extremely fast Python linter and code formatter',
+    'Mypy':               'Static type checking for Python codebases',
+    'CI/CD':              'Continuous integration and deployment pipeline automation',
+    'HTML':               'Semantic web markup and front-end structure',
+    'GitHub':             'Version control, collaboration, and code hosting',
+    'Azure Foundry':      'Enterprise AI model deployment and management on Azure',
+    'Astrophotography':   'Night-sky photography — long exposure, composition, and light capture',
+    'Workshop':           'Public teaching and knowledge transfer',
   };
 
   document.querySelectorAll('.tl-tag').forEach(tag => {
@@ -982,11 +1022,14 @@
       'tl-goparity-body': 'Acted as an external consultant and data scientist. Designed a customer-segmentation solution recommending and implementing K-prototypes clustering to surface 5 distinct actionable personas across the entire active customer base. Built an end-to-end Python pipeline (Jupyter / VS Code) to ingest, clean, and transform records — experimenting across multiple cluster configurations to validate results.',
       'tl-goparity-hl':   'Authored an 80-page deliverable: methodology, data-processing workflows, 5 validated cluster profiles, and recommended next steps for marketing, operations, and risk strategies.',
       'tl-photo-body':    'Self-taught practice in composition, light, and visual storytelling. Post-processing with Adobe Lightroom and Photoshop — the same eye for signal-in-noise that drives data work, applied to a frame.',
+      'tl-photo-workshop': 'Conducted an astrophotography workshop for Câmara Municipal de Sines — covering night-sky composition, long-exposure technique, and an introduction to post-processing.',
       'tl-ist-body':      "Formal deep learning training at one of Portugal's top technical universities. Neural architectures, sequence modeling, and computer vision — the highest GPA of his academic career.",
       'tl-coffee-body':   'One day a week, intentionally analog. Serving at tables in a Porto specialty roastery — a deliberate counterweight to a week spent in data and abstraction. Coffee, people, presence.',
       'tl-genesis-fin':   'Architected a multi-source RAG chatbot backend on Microsoft Azure, orchestrating MySQL databases and real-time web scraping with semantic search — achieving 40%+ higher accuracy than baseline models.',
       'tl-genesis-mkt':   'Implemented client-specific business rules in Dataform/BigQuery pipelines — customizing data transformations per client, handling metric filtering and investment calculation logic. Diagnosed and resolved data quality issues across 40+ forms end-to-end: analyzing multi-table dependencies, identifying grain mismatches, and applying corrective SQL logic to ensure accurate data integrity.',
       'tl-genesis-hl':    'Cost-optimization framework cutting expenses 6-fold — $0.005 per interaction across 10,000+ monthly queries.',
+      'tl-genesis-pubsec2': 'Scaled a public-contracting platform from POC to cloud MVP on Azure, connecting public entities to private providers across a dual-platform, three-role, multi-tenant architecture — six services per platform, each carrying a persistent JSON payload forwarding the state of its predecessor. GPT-5.4 handles legal reasoning and contract generation from a law corpus and deterministic templates; GPT-5.1 mini routes lighter tasks across a turn-based multi-chat interface. Non-sequential phase purchases are guided through natural language interaction, deterministically fulfilling the required JSON payload, with full production observability via Langfuse and Sentry.',
+      'tl-genesis-pubsec1': 'Deployed a document-processing POC on a Dell GB10 edge appliance (Ubuntu, ARMx64) to absorb post-storm Kristin subsidy-entitlement volume across Portuguese parishes. Built an ingestion pipeline combining image preprocessing, Tesseract OCR, and GWEN vision-model inference — Langchain agents classify damage types and verify legal document completeness against applicable reimbursement budgets. JSON payloads and deterministic templates auto-populate inventory spreadsheets and generate legally-reasoned email drafts for parish technical staff; ThreadPooling parallelization delivered 10–18× faster throughput over manual handling — a result that converted the initial POC into a formal services contract.',
       /* education */
       'edu-ist-degree':   'Deep Learning Specialization',
       'edu-nova-degree':  'MSc Impact Entrepreneurship &amp; Innovation',
@@ -1026,11 +1069,14 @@
       'tl-goparity-body': 'Atuou como consultor externo e cientista de dados. Concebeu uma solução de segmentação de clientes, recomendando e implementando o algoritmo K-prototypes para identificar 5 personas acionáveis distintas na totalidade da base de clientes ativos. Construiu um pipeline Python end-to-end (Jupyter / VS Code) para ingestão, limpeza e transformação de dados — experimentando múltiplas configurações de clusters para validar os resultados.',
       'tl-goparity-hl':   'Elaborou um relatório final de 80 páginas: metodologia, fluxos de processamento de dados, 5 perfis de clusters validados e recomendações para as estratégias de marketing, operações e risco.',
       'tl-photo-body':    'Prática autodidata em composição, luz e narrativa visual. Pós-processamento com Adobe Lightroom e Photoshop — o mesmo olhar para o sinal no ruído que orienta o trabalho com dados, aplicado a uma fotografia.',
+      'tl-photo-workshop': 'Conduziu um workshop de astrofotografia para a Câmara Municipal de Sines — abordando composição de céu noturno, técnica de longa exposição e uma introdução ao pós-processamento.',
       'tl-ist-body':      'Formação formal em deep learning numa das melhores universidades técnicas de Portugal. Arquiteturas neurais, modelação de sequências e visão computacional — o melhor GPA de toda a carreira académica.',
       'tl-coffee-body':   'Um dia por semana, intencionalmente analógico. A servir às mesas numa torrefadora especializada do Porto — um contrapeso deliberado a uma semana passada entre dados e abstração. Café, pessoas, presença.',
       'tl-genesis-fin':   'Arquitetou o backend de um chatbot RAG multi-fonte no Microsoft Azure, com orquestração inteligente de dados entre bases de dados MySQL e web scraping HTML em tempo real, implementando pesquisa semântica e capacidades de consulta em direto para fornecer respostas contextualizadas com mais de 40% de precisão superior aos modelos de referência.',
       'tl-genesis-mkt':   'Implementou regras de negócio específicas por cliente em pipelines Dataform/BigQuery — personalizando transformações de dados, tratando a filtragem de métricas e a lógica de cálculo de investimentos. Diagnosticou e resolveu problemas de qualidade de dados em mais de 40 formulários end-to-end: analisando dependências entre múltiplas tabelas, identificando inconsistências de granularidade e aplicando lógica SQL corretiva para garantir a integridade dos dados.',
       'tl-genesis-hl':    'Framework de otimização de custos que reduziu as despesas 6× — $0,005 por interação em mais de 10.000 consultas mensais.',
+      'tl-genesis-pubsec2': 'Escalou uma plataforma de contratação pública de POC a MVP cloud no Azure, ligando entidades públicas a fornecedores privados numa arquitetura multi-tenant de duas plataformas, três perfis e seis serviços por plataforma — cada serviço com um JSON payload persistente que propaga o estado do seu predecessor. O GPT-5.4 trata do raciocínio jurídico e da geração de contratos a partir de um corpus legal e templates determinísticos; o GPT-5.1 mini encaminha tarefas mais leves numa interface multi-chat com fluxo por turnos. A aquisição de fases não consecutivas é guiada por interação em linguagem natural, preenchendo deterministicamente o JSON payload, com observabilidade em produção via Langfuse e Sentry.',
+      'tl-genesis-pubsec1': 'Implementou um POC de processamento documental numa appliance Dell GB10 (Ubuntu, ARMx64) para absorver o volume de candidaturas a subsídios pós-tempestade Kristin nas freguesias portuguesas. Construiu um pipeline de ingestão com pré-processamento de imagem, OCR Tesseract e modelos de visão GWEN — agentes Langchain classificam os tipos de danos e verificam a completude documental face aos requisitos legais e orçamentos de reembolso. JSON payloads e templates determinísticos preenchem automaticamente folhas de inventário e geram rascunhos de email com fundamentação jurídica para os técnicos de freguesia; a paralelização via ThreadPooling alcançou uma velocidade 10–18× superior ao processamento manual — um resultado que converteu o POC inicial num contrato de serviços formal.',
       /* education */
       'edu-ist-degree':   'Especialização em Deep Learning',
       'edu-nova-degree':  'MSc em Empreendedorismo de Impacto e Inovação',
@@ -1070,11 +1116,14 @@
       'tl-goparity-body': 'Actuó como consultor externo y científico de datos. Diseñó una solución de segmentación de clientes, recomendando e implementando el algoritmo K-prototypes para identificar 5 personas distintas y accionables en toda la base de clientes activos. Construyó un pipeline Python end-to-end (Jupyter / VS Code) para ingestión, limpieza y transformación de datos — experimentando con múltiples configuraciones de clústeres para validar los resultados.',
       'tl-goparity-hl':   'Elaboró un informe final de 80 páginas: metodología, flujos de procesamiento de datos, 5 perfiles de clústeres validados y recomendaciones para las estrategias de marketing, operaciones y riesgo.',
       'tl-photo-body':    'Práctica autodidacta en composición, luz y narrativa visual. Postprocesado con Adobe Lightroom y Photoshop — la misma capacidad de distinguir señal del ruido que impulsa el trabajo con datos, aplicada a un encuadre.',
+      'tl-photo-workshop': 'Impartió un taller de astrofotografía para el Câmara Municipal de Sines — cubriendo composición de cielo nocturno, técnica de larga exposición e introducción al postprocesado.',
       'tl-ist-body':      'Formación formal en deep learning en una de las mejores universidades técnicas de Portugal. Arquitecturas neuronales, modelado de secuencias y visión por computadora — el mejor GPA de toda la carrera académica.',
       'tl-coffee-body':   'Un día a la semana, intencionalmente analógico. Sirviendo en las mesas de una tostadora especializada de Oporto — un contrapeso deliberado a una semana inmerso en datos y abstracción. Café, personas, presencia.',
       'tl-genesis-fin':   'Arquitectó el backend de un chatbot RAG multifuente en Microsoft Azure, con orquestación inteligente de datos entre bases de datos MySQL y web scraping HTML en tiempo real, implementando búsqueda semántica y capacidades de consulta en vivo para ofrecer respuestas contextualizadas con más de un 40% de mayor precisión que los modelos de referencia.',
       'tl-genesis-mkt':   'Implementó reglas de negocio específicas por cliente en pipelines Dataform/BigQuery — personalizando transformaciones de datos, gestionando el filtrado de métricas y la lógica de cálculo de inversiones. Diagnosticó y resolvió problemas de calidad de datos en más de 40 formularios end-to-end: analizando dependencias entre múltiples tablas, identificando discrepancias de granularidad y aplicando lógica SQL correctiva para garantizar la integridad de los datos.',
       'tl-genesis-hl':    'Framework de optimización de costes que redujo los gastos 6× — $0,005 por interacción en más de 10.000 consultas mensuales.',
+      'tl-genesis-pubsec2': 'Escaló una plataforma de contratación pública de POC a MVP cloud en Azure, conectando entidades públicas con proveedores privados en una arquitectura multi-tenant de dos plataformas, tres roles y seis servicios por plataforma — cada servicio con un JSON payload persistente que propaga el estado de su predecesor. GPT-5.4 gestiona el razonamiento jurídico y la generación de contratos a partir de un corpus legal y plantillas determinísticas; GPT-5.1 mini enruta tareas más ligeras en una interfaz multi-chat con flujo por turnos. Las compras de fases no consecutivas se guían mediante interacción en lenguaje natural, cumplimentando determinísticamente el JSON payload, con observabilidad en producción vía Langfuse y Sentry.',
+      'tl-genesis-pubsec1': 'Desplegó un POC de procesamiento documental en un appliance Dell GB10 (Ubuntu, ARMx64) para absorber el volumen de solicitudes de subsidios post-tormenta Kristin en las parroquias portuguesas. Construyó un pipeline de ingestión con preprocesamiento de imagen, OCR Tesseract y modelos de visión GWEN — agentes Langchain clasifican los tipos de daños y verifican la completitud documental frente a los requisitos legales y presupuestos de reembolso. Los JSON payloads y plantillas determinísticas rellenan automáticamente hojas de inventario y generan borradores de correo con razonamiento jurídico para los técnicos de parroquia; la paralelización mediante ThreadPooling alcanzó una velocidad 10–18× superior al procesamiento manual — un resultado que convirtió el POC inicial en un contrato de servicios formal.',
       /* education */
       'edu-ist-degree':   'Especialización en Deep Learning',
       'edu-nova-degree':  'MSc en Emprendimiento de Impacto e Innovación',

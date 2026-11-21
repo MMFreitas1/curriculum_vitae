@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CV Workbench</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e0d0b; --bg2: #171512; --bg3: #1f1c18; --line: #2c2823;
+    --cream: #ede6d6; --muted: #9a9486; --gold: #c9a84c; --gold2: #e8c97a;
+    --green: #6f9e7e; --red: #c0705a;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--cream); font: 15px/1.55 'DM Sans', system-ui, sans-serif; }
+  header { position: sticky; top: 0; z-index: 5; background: rgba(14,13,11,.94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  .bar { max-width: 1100px; margin: 0 auto; padding: 14px 16px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  h1 { font: 700 1.35rem 'Playfair Display', serif; margin: 0; }
+  h1 span { color: var(--gold); }
+  .grow { flex: 1; }
+  .mono { font-family: 'DM Mono', monospace; }
+  input[type=search] { background: var(--bg2); border: 1px solid var(--line); color: var(--cream); padding: 7px 10px; border-radius: 6px; font: 13px 'DM Mono', monospace; width: 200px; }
+  label.toggle { font: 12px 'DM Mono', monospace; color: var(--muted); display: flex; gap: 6px; align-items: center; cursor: pointer; }
+  button { font: 500 13px 'DM Mono', monospace; border-radius: 6px; padding: 8px 14px; cursor: pointer; border: 1px solid var(--line); background: var(--bg2); color: var(--cream); }
+  button:hover { border-color: var(--gold); }
+  button.primary { background: var(--gold); color: #17140f; border-color: var(--gold); }
+  button.primary:disabled { opacity: .4; cursor: default; }
+  .status { font: 12px 'DM Mono', monospace; padding: 4px 10px; border-radius: 99px; border: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
+  .status.pending { color: var(--gold2); border-color: var(--gold); }
+  .status.applied { color: var(--green); border-color: var(--green); }
+  .status.error { color: var(--red); border-color: var(--red); }
+  main { max-width: 1100px; margin: 0 auto; padding: 20px 16px 80px; }
+  .note-box { background: var(--bg2); border: 1px solid var(--line); border-radius: 10px; padding: 14px; margin-bottom: 24px; }
+  .note-box h2, .group h2 { font: 500 11px 'DM Mono', monospace; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin: 0 0 8px; }
+  .group { margin-bottom: 28px; }
+  .group h2 { border-bottom: 1px solid var(--line); padding-bottom: 6px; }
+  .field { background: var(--bg2); border: 1px solid var(--line); border-left: 3px solid var(--line); border-radius: 8px; padding: 10px 12px; margin-bottom: 10px; }
+  .field.changed { border-left-color: var(--gold); }
+  .field-head { display: flex; gap: 8px; align-items: center; margin-bottom: 6px; }
+  .key { font: 12px 'DM Mono', monospace; color: var(--muted); }
+  .field-head .grow { flex: 1; }
+  .mini { padding: 3px 8px; font-size: 11px; }
+  textarea { width: 100%; background: var(--bg3); border: 1px solid var(--line); color: var(--cream); border-radius: 6px; padding: 8px 10px; font: 14px/1.5 'DM Sans', sans-serif; resize: vertical; min-height: 38px; }
+  textarea:focus { outline: none; border-color: var(--gold); }
+  details { margin-top: 6px; }
+  summary { font: 11px 'DM Mono', monospace; color: var(--muted); cursor: pointer; }
+  .ref { font-size: 13px; color: var(--muted); margin: 6px 0 0; }
+  .ref b { font: 500 11px 'DM Mono', monospace; color: var(--gold); margin-right: 6px; }
+  .empty { color: var(--muted); font-family: 'DM Mono', monospace; text-align: center; padding: 40px 0; }
+  @media (max-width: 640px) { input[type=search] { width: 100%; } .bar { gap: 8px; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <h1>CV <span>Workbench</span></h1>
+    <span class="grow"></span>
+    <input type="search" id="q" placeholder="filtrar…">
+    <label class="toggle"><input type="checkbox" id="only"> só alterados</label>
+    <span class="status" id="status">a carregar…</span>
+    <a href="/index.html" target="_blank"><button>Pré-visualizar CV ↗</button></a>
+    <button class="primary" id="save" disabled>Guardar → Claude (⌘S)</button>
+  </div>
+</header>
+<main>
+  <div class="note-box">
+    <h2>Nota para o Claude</h2>
+    <textarea id="note" rows="2" placeholder="Instruções gerais para este envio (opcional)…"></textarea>
+  </div>
+  <div id="groups"></div>
+</main>
+<script>
+const DRAFT_KEY = 'cv-workbench-draft';
+let T = null, original = {}, draft = {}, lastStatus = null;
+
+const $ = id => document.getElementById(id);
+const store = {
+  get() { try { return JSON.parse(localStorage.getItem(DRAFT_KEY)) || {}; } catch (_) { return {}; } },
+  set(v) { try { localStorage.setItem(DRAFT_KEY, JSON.stringify(v)); } catch (_) {} },
+  clear() { try { localStorage.removeItem(DRAFT_KEY); } catch (_) {} },
+};
+
+function extractTranslations(src) {
+  const start = src.indexOf('const translations = {');
+  if (start < 0) throw new Error('translations object not found in index.html');
+  const i = src.indexOf('{', start);
+  let depth = 0, q = null, esc = false, j = i;
+  for (; j < src.length; j++) {
+    const c = src[j];
+    if (q) { if (esc) esc = false; else if (c === '\\') esc = true; else if (c === q) q = null; continue; }
+    if (c === '/' && src[j + 1] === '*') { j = src.indexOf('*/', j + 2) + 1; continue; }
+    if (c === '/' && src[j + 1] === '/') { j = src.indexOf('\n', j); continue; }
+    if (c === '"' || c === "'" || c === '`') { q = c; continue; }
+    if (c === '{') depth++;
+    else if (c === '}' && --depth === 0) break;
+  }
+  return new Function('return ' + src.slice(i, j + 1))();
+}
+
+function groupOf(key) {
+  const p = key.split('-');
+  if (p[0] === 'tl') return 'Journey · ' + p[1];
+  const names = { nav: 'Navegação', hero: 'Hero', section: 'Secções', secret: 'Modais secretos', net: 'Constellation', pdf: 'PDF', edu: 'Education', cert: 'Certs', stack: 'Stack', scroll: 'Hero' };
+  return names[p[0]] || p[0];
+}
+
+async function load() {
+  const src = await (await fetch('/index.html', { cache: 'no-store' })).text();
+  T = extractTranslations(src);
+  original = { ...T.pt };
+  const saved = store.get();
+  draft = {};
+  for (const k in saved) if (k in original && saved[k] !== original[k]) draft[k] = saved[k];
+  render();
+}
+
+function keys() {
+  const seen = new Set(), out = [];
+  for (const lang of ['en', 'pt', 'es']) for (const k in T[lang]) if (!seen.has(k)) { seen.add(k); out.push(k); }
+  return out;
+}
+
+function esc(s) { return String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])); }
+
+function render() {
+  const q = $('q').value.toLowerCase(), only = $('only').checked;
+  const groups = new Map();
+  for (const k of keys()) {
+    const val = k in draft ? draft[k] : (original[k] ?? '');
+    if (only && !(k in draft)) continue;
+    if (q && ![k, val, T.en[k], T.es[k]].some(s => String(s ?? '').toLowerCase().includes(q))) continue;
+    const g = groupOf(k);
+    if (!groups.has(g)) groups.set(g, []);
+    groups.get(g).push(k);
+  }
+  const root = $('groups');
+  root.innerHTML = groups.size ? '' : '<div class="empty">Nada para mostrar.</div>';
+  for (const [g, ks] of groups) {
+    const sec = document.createElement('section');
+    sec.className = 'group';
+    sec.innerHTML = `<h2>${esc(g)}</h2>`;
+    for (const k of ks) {
+      const changed = k in draft;
+      const div = document.createElement('div');
+      div.className = 'field' + (changed ? ' changed' : '');
+      div.innerHTML = `
+        <div class="field-head"><span class="key">${esc(k)}</span><span class="grow"></span>
+          ${changed ? '<button class="mini" data-revert>reverter</button>' : ''}</div>
+        <textarea rows="1">${esc(changed ? draft[k] : original[k] ?? '')}</textarea>
+        <details><summary>EN / ES atuais</summary>
+          <p class="ref"><b>EN</b>${esc(T.en[k] ?? '—')}</p>
+          <p class="ref"><b>ES</b>${esc(T.es[k] ?? '—')}</p>
+        </details>`;
+      const ta = div.querySelector('textarea');
+      const fit = () => { ta.style.height = 'auto'; ta.style.height = ta.scrollHeight + 2 + 'px'; };
+      ta.addEventListener('input', () => {
+        if (ta.value === (original[k] ?? '')) delete draft[k]; else draft[k] = ta.value;
+        div.classList.toggle('changed', k in draft);
+        store.set(draft); updateSave();
+      });
+      ta.addEventListener('change', () => { if (only) render(); });
+      div.querySelector('[data-revert]')?.addEventListener('click', () => { delete draft[k]; store.set(draft); render(); });
+      sec.appendChild(div);
+      requestAnimationFrame(fit);
+    }
+    root.appendChild(sec);
+  }
+  updateSave();
+}
+
+function updateSave() {
+  const n = Object.keys(draft).length;
+  $('save').disabled = !n && !$('note').value.trim();
+  $('save').textContent = n ? `Guardar ${n} → Claude (⌘S)` : 'Guardar → Claude (⌘S)';
+}
+
+function setStatus(text, cls) { const s = $('status'); s.textContent = text; s.className = 'status ' + (cls || ''); }
+
+async function save() {
+  if ($('save').disabled) return;
+  const edits = Object.entries(draft).map(([key, pt_after]) => ({
+    key, pt_before: original[key] ?? null, pt_after, en_current: T.en[key] ?? null, es_current: T.es[key] ?? null,
+  }));
+  try {
+    const r = await fetch('/api/stage', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ edits, note: $('note').value }) });
+    const job = await r.json();
+    if (!r.ok) throw new Error(job.error || r.status);
+    lastStatus = job;
+    $('note').value = '';
+    setStatus(`enviado · ${job.edits.length} alterações · à espera do Claude`, 'pending');
+  } catch (e) { setStatus('erro: ' + e.message, 'error'); }
+}
+
+async function poll() {
+  try {
+    const s = await (await fetch('/api/status', { cache: 'no-store' })).json();
+    if (s.status === 'pending') setStatus(`à espera do Claude · ${s.edits.length} alterações`, 'pending');
+    else if (s.status === 'applied') {
+      if (lastStatus && lastStatus.status === 'pending' && lastStatus.id === s.id) {
+        store.clear(); await load();
+      }
+      setStatus('aplicado ✓ ' + (s.applied_at || '').replace('T', ' ').slice(0, 16), 'applied');
+    } else if (s.status === 'empty') setStatus('sem envios', '');
+    else setStatus(s.status, s.status === 'error' ? 'error' : '');
+    lastStatus = s;
+  } catch (_) { setStatus('servidor offline', 'error'); }
+}
+
+$('q').addEventListener('input', render);
+$('only').addEventListener('change', render);
+$('note').addEventListener('input', updateSave);
+$('save').addEventListener('click', save);
+document.addEventListener('keydown', e => { if ((e.metaKey || e.ctrlKey) && e.key === 's') { e.preventDefault(); save(); } });
+
+load().then(poll).catch(e => setStatus('erro: ' + e.message, 'error'));
+setInterval(poll, 3000);
+</script>
+</body>
+</html>

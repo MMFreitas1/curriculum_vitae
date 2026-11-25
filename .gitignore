@@ -1,2 +1,7 @@
 tools/workbench/staging.json
 tools/workbench/staging.tmp
+tools/workbench/server.log
+resources/living-cv-handoff.zip
+tools/pdf/node_modules/
+tools/pdf/*.html
+__pycache__/

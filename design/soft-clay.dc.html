@@ -1,0 +1,790 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Miguel Freitas — CV · Soft Clay</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#E6DED5}
+.theme{--sx:1;--sy:1;--base:#E6DED5;--sh-d:#C4B8AB;--sh-d2:#B3A596;--sh-l:#FFFFFF;--muted:#65574C;--accent:#9C4A2A;--text:#2F2621;--body2:#4A3E35;--body:#3E332C;--terra:#C8643A;--terra-hi:#D9784C;--peach:#EBA77A;--emboss:#E9E2DA;--track:#D6CABD;--grid:#CFC3B6;--dot:#B9AA9B;--punch-hi:#0B4A4F;--on-punch:#FFFFFF;--hdr-sh:rgba(196,184,171,0.55);--grain-o:.55;transition:background-color .45s ease,color .45s ease}
+.theme[data-theme="dark"]{--base:#2B2622;--sh-d:#1B1715;--sh-d2:#151210;--sh-l:#3B342F;--muted:#A99B8E;--accent:#E3956D;--text:#F2EAE2;--body2:#D6CABE;--body:#DDD2C6;--terra:#D9784C;--terra-hi:#E89066;--peach:#B9805A;--emboss:#2E2925;--track:#3A332E;--grid:#4A423B;--dot:#6B5F55;--punch:#3FC6BA !important;--punch-hi:#7BE0D6;--on-punch:#0E201E;--hdr-sh:rgba(0,0,0,0.45);--grain-o:.3}
+.theme a{color:var(--punch)}.theme a:hover{color:var(--punch-hi)}
+.grain::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;background-image:url(assets/img/grain.png);background-size:256px 256px;opacity:var(--grain-o)}
+.lift{transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.lift:hover{transform:translateY(-4px)}
+@media (max-width:820px){.lens{grid-template-columns:1fr !important;grid-auto-rows:260px !important}.lens>*{grid-column:auto !important;grid-row:auto !important}}
+@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes rise{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.marq{animation:marq 50s linear infinite}
+.marq:hover{animation-play-state:paused}
+.rise{animation:rise .5s cubic-bezier(.2,.7,.2,1) both}
+.pulse{animation:pulse 1.8s ease-in-out infinite}
+@keyframes blink{50%{opacity:0}}
+.blink{animation:blink 1s steps(1) infinite}
+.press{transition:box-shadow .2s}
+.press:active{box-shadow:inset calc(var(--sx) * 5px) calc(var(--sy) * 5px) 10px var(--sh-d), inset calc(var(--sx) * -5px) calc(var(--sy) * -5px) 10px var(--sh-l) !important}
+button:focus-visible,a:focus-visible{outline:2px solid var(--punch);outline-offset:3px}
+@media (max-width:820px){.hide-sm{display:none !important}.emboss{font-size:30vw !important}.seq-sticky{padding:130px 20px 24px !important}}
+@media (prefers-reduced-motion:reduce){.marq,.rise,.pulse,.blink{animation:none}}
+</style>
+</helmet>
+<div class="theme grain" data-theme="{{theme}}" ref="{{setEl}}" onScroll="{{onScroll}}" onMouseMove="{{onMove}}" onMouseLeave="{{onLeave}}" style="height: 100vh; overflow-y: auto; overflow-x: hidden; position: relative; background: var(--base); color: var(--text); font-family: Manrope, system-ui, sans-serif; --punch: {{punchRaw}}">
+<div class="light" style="display: contents; --sx: 1; --sy: 1">
+
+<header style="position: sticky; top: 0; z-index: 20; background: var(--base); box-shadow: 0 10px 24px var(--hdr-sh)">
+<div style="max-width: 1320px; margin: 0 auto; padding: 14px 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px">
+<div style="width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: Sora, sans-serif; font-weight: 800; font-size: 15px; color: var(--accent); box-shadow: calc(var(--sx) * 6px) calc(var(--sy) * 6px) 14px var(--sh-d), calc(var(--sx) * -6px) calc(var(--sy) * -6px) 14px var(--sh-l)">MF</div>
+<div style="font-family: Sora, sans-serif; font-weight: 700; font-size: 18px; letter-spacing: -0.01em">Miguel Freitas</div>
+<button type="button" role="switch" aria-checked="{{numbersChecked}}" aria-label="Show the numbers" onClick="{{toggleTab}}" style="min-height: 48px; display: inline-flex; align-items: center; gap: 12px; padding: 0 4px; background: none; border: 0; cursor: pointer; font: 700 14px Manrope, sans-serif">
+<span style="color: {{storyFg}}; transition: color .3s">Story</span>
+<span style="position: relative; display: block; width: 68px; height: 36px; border-radius: 999px; box-shadow: inset calc(var(--sx) * 4px) calc(var(--sy) * 4px) 9px var(--sh-d), inset calc(var(--sx) * -4px) calc(var(--sy) * -4px) 9px var(--sh-l)">
+<span style="position: absolute; top: 5px; left: 5px; width: 26px; height: 26px; border-radius: 50%; background: var(--punch); box-shadow: calc(var(--sx) * 3px) calc(var(--sy) * 3px) 6px var(--sh-d2), calc(var(--sx) * -2px) calc(var(--sy) * -2px) 5px var(--sh-l); transform: translateX({{knobX}}); transition: transform .35s cubic-bezier(.2,.7,.2,1)"></span>
+</span>
+<span style="color: {{numbersFg}}; transition: color .3s">Numbers</span>
+</button>
+<div style="flex: 1 1 auto"></div>
+<button type="button" onClick="{{toggleTheme}}" aria-pressed="{{darkPressed}}" aria-label="Night mode" style="width: 44px; height: 44px; flex: none; border-radius: 50%; border: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; background: var(--base); color: var(--punch); box-shadow: calc(var(--sx) * 6px) calc(var(--sy) * 6px) 14px var(--sh-d), calc(var(--sx) * -6px) calc(var(--sy) * -6px) 14px var(--sh-l)">
+<sc-if value="{{isDark}}" hint-placeholder-val="{{false}}">
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+</sc-if>
+<sc-if value="{{isLight}}" hint-placeholder-val="{{true}}">
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
+</sc-if>
+</button>
+<div class="hide-sm" style="display: flex; align-items: center; gap: 10px; padding: 10px 16px; border-radius: 999px; box-shadow: inset calc(var(--sx) * 4px) calc(var(--sy) * 4px) 8px var(--sh-d), inset calc(var(--sx) * -4px) calc(var(--sy) * -4px) 8px var(--sh-l); font-family: 'DM Mono', monospace; font-size: 12px; color: var(--muted)">Porto <span style="color: var(--text); font-weight: 500">{{clock}}</span></div>
+<a class="press" href="assets/cv/Miguel-Freitas-CV-SoftClay.pdf" download="Miguel-Freitas-CV-SoftClay.pdf" style="min-height: 44px; display: inline-flex; align-items: center; padding: 0 22px; border-radius: 999px; background: var(--punch); color: var(--on-punch); font-weight: 700; font-size: 14px; text-decoration: none; box-shadow: calc(var(--sx) * 6px) calc(var(--sy) * 6px) 14px var(--sh-d), calc(var(--sx) * -6px) calc(var(--sy) * -6px) 14px var(--sh-l)">Download CV</a>
+</div>
+<div style="max-width: 1320px; margin: 0 auto; padding: 0 32px 14px">
+<div style="display: flex; align-items: center; height: 40px; border-radius: 999px; overflow: hidden; box-shadow: inset calc(var(--sx) * 5px) calc(var(--sy) * 5px) 10px var(--sh-d), inset calc(var(--sx) * -5px) calc(var(--sy) * -5px) 10px var(--sh-l)">
+<div style="flex: none; display: flex; align-items: center; gap: 8px; padding: 0 16px 0 20px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: var(--punch); font-weight: 500"><span class="pulse" style="width: 8px; height: 8px; border-radius: 50%; background: var(--punch); display: inline-block"></span>NOW</div>
+<div style="overflow: hidden; flex: 1 1 auto">
+<div class="marq" style="display: flex; width: max-content">
+<sc-for list="{{nowLoop}}" as="n" hint-placeholder-count="10">
+<div style="display: flex; align-items: center; gap: 10px; padding: 0 24px; white-space: nowrap; font-size: 13px; color: var(--body)"><span style="font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--accent)">{{n.k}}</span>{{n.t}}<span aria-hidden="true" style="color: var(--dot); padding-left: 14px">●</span></div>
+</sc-for>
+</div>
+</div>
+</div>
+</div>
+</header>
+
+<sc-if value="{{isStory}}" hint-placeholder-val="{{true}}">
+<main>
+
+<section data-scene="hero" style="height: 220vh; position: relative">
+<div style="position: sticky; top: 0; height: 100vh; overflow: hidden">
+<div style="position: absolute; inset: 0; padding-top: 140px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center">
+<div aria-hidden="true" style="text-align: center; transform: translateY({{nameY}}); opacity: {{nameO}}">
+<div class="emboss" style="font-family: Sora, sans-serif; font-weight: 800; font-size: min(12vw, 17vh); line-height: 0.86; letter-spacing: -0.05em; color: var(--emboss); text-shadow: calc(var(--sx) * 6px) calc(var(--sy) * 6px) 12px var(--sh-d2), calc(var(--sx) * -6px) calc(var(--sy) * -6px) 12px var(--sh-l); white-space: nowrap">MIGUEL</div>
+<div style="margin-top: 10px; font-family: 'DM Mono', monospace; font-size: 13px; letter-spacing: 0.32em; color: var(--accent)">G.M. FREITAS · AI ENGINEER</div>
+</div>
+<div style="margin-top: 3vh; width: min(380px, 40vh); height: min(380px, 40vh); flex: none; transform: {{discT}}">
+<div style="width: 100%; height: 100%; border-radius: 50%; background: var(--base); box-shadow: {{discShadow}}; display: flex; align-items: center; justify-content: center; position: relative">
+<svg aria-hidden="true" viewBox="0 0 440 440" style="position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg)"><circle cx="220" cy="220" r="206" fill="none" stroke="var(--track)" stroke-width="7"></circle><circle cx="220" cy="220" r="206" fill="none" stroke="var(--punch)" stroke-width="7" stroke-linecap="round" stroke-dasharray="1294" stroke-dashoffset="{{ringOffset}}"></circle></svg>
+<div style="width: 84%; height: 84%; border-radius: 50%; padding: 3.5%; box-sizing: border-box; box-shadow: inset calc(var(--sx) * 10px) calc(var(--sy) * 10px) 22px var(--sh-d), inset calc(var(--sx) * -10px) calc(var(--sy) * -10px) 22px var(--sh-l)">
+<img src="assets/img/portrait.jpg" alt="Portrait of Miguel Freitas, smiling" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; object-position: 50% 38%; display: block">
+</div>
+</div>
+</div>
+</div>
+<div style="position: absolute; left: 0; right: 0; bottom: 5vh; text-align: center; opacity: {{cueO}}">
+<div style="display: inline-flex; align-items: center; gap: 10px; padding: 12px 22px; border-radius: 999px; box-shadow: calc(var(--sx) * 6px) calc(var(--sy) * 6px) 14px var(--sh-d), calc(var(--sx) * -6px) calc(var(--sy) * -6px) 14px var(--sh-l); font-size: 14px; color: var(--body)">Scroll — the story unfolds <span style="color: var(--punch)">↓</span></div>
+</div>
+<div style="position: absolute; right: max(32px, calc((100vw - 1320px) / 2 + 32px)); top: 50%; width: min(560px, 46vw); transform: translateY(calc(-50% + {{copyY}})); opacity: {{copyO}}">
+<div style="display: inline-block; padding: 8px 14px; border-radius: 999px; box-shadow: inset calc(var(--sx) * 4px) calc(var(--sy) * 4px) 8px var(--sh-d), inset calc(var(--sx) * -4px) calc(var(--sy) * -4px) 8px var(--sh-l); font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: var(--punch)">Porto · AI / ML Engineer · Est. 2012</div>
+<h1 style="margin: 22px 0 0; font-family: Sora, sans-serif; font-weight: 800; font-size: clamp(48px, 5.6vw, 84px); line-height: 0.95; letter-spacing: -0.04em">Miguel<br><span style="color: var(--accent)">G.M. Freitas</span></h1>
+<p style="margin: 22px 0 0; font-size: 18px; line-height: 1.6; color: var(--body2)">From managing Mediterranean shipping lanes to architecting AI systems — a story of radical reinvention, scientific rigor, and a drive to build things that matter.</p>
+<div style="margin-top: 28px; display: flex; flex-wrap: wrap; gap: 14px">
+<a class="press" href="#journey" style="min-height: 52px; display: inline-flex; align-items: center; padding: 0 26px; border-radius: 999px; background: var(--punch); color: var(--on-punch); font-weight: 700; text-decoration: none; box-shadow: calc(var(--sx) * 8px) calc(var(--sy) * 8px) 18px var(--sh-d), calc(var(--sx) * -8px) calc(var(--sy) * -8px) 18px var(--sh-l)">See the journey</a>
+<a class="press" href="mailto:miguel_freitas_12@hotmail.com" style="min-height: 52px; display: inline-flex; align-items: center; padding: 0 26px; border-radius: 999px; background: var(--base); color: var(--text); font-weight: 700; text-decoration: none; box-shadow: calc(var(--sx) * 8px) calc(var(--sy) * 8px) 18px var(--sh-d), calc(var(--sx) * -8px) calc(var(--sy) * -8px) 18px var(--sh-l)">Get in touch</a>
+</div>
+</div>
+</div>
+</section>
+
+<section id="journey" data-scene="seq" style="height: 700vh; position: relative">
+<div class="seq-sticky" style="position: sticky; top: 0; height: 100vh; box-sizing: border-box; padding: 150px 32px 36px; max-width: 1320px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 48px">
+<div style="flex: 1 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 16px">
+<h2 style="margin: 0; font-family: Sora, sans-serif; font-weight: 700; font-size: 36px; letter-spacing: -0.03em">The Journey</h2>
+<div style="display: flex; gap: 8px">
+<sc-for list="{{chapters}}" as="d" hint-placeholder-count="8">
+<span style="width: 14px; height: 14px; border-radius: 50%; background: {{d.dotBg}}; box-shadow: {{d.dotShadow}}"></span>
+</sc-for>
+</div>
+</div>
+<div data-list="1" style="position: relative; overflow-y: auto; min-height: 0; flex: 1 1 auto; padding: 36px; margin: -36px; display: flex; flex-direction: column; gap: 10px">
+<sc-for list="{{chapters}}" as="c" hint-placeholder-count="10">
+<div data-row="{{c.idx}}" style="border-radius: 20px; background: var(--base); box-shadow: {{c.cardShadow}}; transition: box-shadow .35s">
+<button type="button" onClick="{{c.pick}}" aria-expanded="{{c.expanded}}" style="width: 100%; min-height: 44px; display: flex; align-items: center; gap: 14px; padding: 6px 20px; background: none; border: 0; cursor: pointer; text-align: left; color: {{c.fg}}; font-family: Manrope, sans-serif">
+<span style="font-family: 'DM Mono', monospace; font-size: 12px; color: {{c.numFg}}">{{c.num}}</span>
+<span style="flex: 1 1 auto; font-size: {{c.size}}; font-weight: 700; letter-spacing: -0.01em; transition: font-size .3s">{{c.org}}</span>
+<span style="font-family: 'DM Mono', monospace; font-size: 12px; color: var(--muted); white-space: nowrap">{{c.yr}}</span>
+</button>
+<sc-if value="{{c.open}}" hint-placeholder-val="{{false}}">
+<div class="rise" style="padding: 0 22px 20px 48px">
+<div style="font-size: 14px; font-weight: 700; color: var(--punch)">{{c.role}}</div>
+<p style="margin: 8px 0 0; font-size: 15px; line-height: 1.6; color: var(--body2)">{{c.body}}</p>
+<div style="margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{c.tags}}" as="t" hint-placeholder-count="3">
+<span style="font-size: 12px; font-weight: 600; padding: 6px 12px; border-radius: 999px; color: var(--body2); box-shadow: inset calc(var(--sx) * 3px) calc(var(--sy) * 3px) 6px var(--sh-d), inset calc(var(--sx) * -3px) calc(var(--sy) * -3px) 6px var(--sh-l)">{{t}}</span>
+</sc-for>
+</div>
+</div>
+</sc-if>
+</div>
+</sc-for>
+</div>
+</div>
+<div class="hide-sm" style="flex: 1 1 400px; min-width: 0; display: flex; align-items: center; justify-content: center">
+<sc-for list="{{chapters}}" as="c" hint-placeholder-count="1">
+<sc-if value="{{c.openPhoto}}" hint-placeholder-val="{{false}}">
+<div class="rise" style="display: flex; flex-direction: column; align-items: center; gap: 24px; width: 100%">
+<div style="width: min(380px, 46vh); max-width: 100%; aspect-ratio: 1; border-radius: 50%; background: var(--base); box-shadow: calc(var(--sx) * 18px) calc(var(--sy) * 18px) 40px var(--sh-d), calc(var(--sx) * -18px) calc(var(--sy) * -18px) 40px var(--sh-l); display: flex; align-items: center; justify-content: center">
+<div style="width: 88%; aspect-ratio: 1; border-radius: 50%; padding: 10px; box-sizing: border-box; box-shadow: inset calc(var(--sx) * 12px) calc(var(--sy) * 12px) 26px var(--sh-d), inset calc(var(--sx) * -12px) calc(var(--sy) * -12px) 26px var(--sh-l)">
+<img src="assets/img/andromeda.jpg" alt="The Andromeda Galaxy with two companion galaxies, photographed by Miguel" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; object-position: 50% 50%; display: block">
+</div>
+</div>
+<div style="text-align: center; max-width: 360px">
+<span style="font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: var(--punch)">{{c.sector}} · ANDROMEDA GALAXY</span>
+<div style="margin-top: 8px; font-size: 15px; line-height: 1.45; color: var(--body)">{{c.cap}}</div>
+<div style="margin-top: 16px; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px">
+<a class="press" href="#lens" style="min-height: 44px; display: inline-flex; align-items: center; padding: 0 18px; border-radius: 999px; background: var(--punch); color: var(--on-punch); font-weight: 700; font-size: 14px; text-decoration: none; box-shadow: calc(var(--sx) * 5px) calc(var(--sy) * 5px) 10px var(--sh-d), calc(var(--sx) * -5px) calc(var(--sy) * -5px) 10px var(--sh-l)">Gallery ↓</a>
+<a class="press" href="{{c.link}}" style="min-height: 44px; display: inline-flex; align-items: center; padding: 0 18px; border-radius: 999px; color: var(--punch); font-weight: 700; font-size: 14px; text-decoration: none; box-shadow: calc(var(--sx) * 5px) calc(var(--sy) * 5px) 10px var(--sh-d), calc(var(--sx) * -5px) calc(var(--sy) * -5px) 10px var(--sh-l)">Instagram →</a>
+</div>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{c.openText}}" hint-placeholder-val="{{false}}">
+<div class="rise" style="width: 420px; max-width: 100%; aspect-ratio: 1; border-radius: 50%; background: var(--base); box-shadow: calc(var(--sx) * 18px) calc(var(--sy) * 18px) 40px var(--sh-d), calc(var(--sx) * -18px) calc(var(--sy) * -18px) 40px var(--sh-l); display: flex; align-items: center; justify-content: center">
+<div style="width: 78%; aspect-ratio: 1; border-radius: 50%; box-shadow: inset calc(var(--sx) * 12px) calc(var(--sy) * 12px) 26px var(--sh-d), inset calc(var(--sx) * -12px) calc(var(--sy) * -12px) 26px var(--sh-l); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 30px; box-sizing: border-box">
+<span style="font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: var(--punch)">{{c.sector}}</span>
+<div style="margin-top: 12px; font-family: Sora, sans-serif; font-weight: 800; font-size: {{c.bigSize}}; line-height: 0.9; letter-spacing: -0.05em; color: var(--accent)">{{c.big}}</div>
+<div style="margin-top: 14px; font-size: 15px; line-height: 1.45; color: var(--body); max-width: 240px">{{c.cap}}</div>
+<sc-if value="{{c.hasLink}}" hint-placeholder-val="{{false}}">
+<a class="press" href="{{c.link}}" style="margin-top: 16px; min-height: 44px; display: inline-flex; align-items: center; padding: 0 18px; border-radius: 999px; color: var(--punch); font-weight: 700; font-size: 14px; text-decoration: none; box-shadow: calc(var(--sx) * 5px) calc(var(--sy) * 5px) 10px var(--sh-d), calc(var(--sx) * -5px) calc(var(--sy) * -5px) 10px var(--sh-l)">{{c.linkText}}</a>
+</sc-if>
+</div>
+</div>
+</sc-if>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section id="lab" style="max-width: 1320px; margin: 0 auto; padding: 120px 32px 20px">
+<div style="font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.16em; color: var(--punch)">MF CONCEPTS · BUILT IN THE LAB</div>
+<h2 style="margin: 12px 0 0; font-family: Sora, sans-serif; font-weight: 700; font-size: 44px; letter-spacing: -0.03em">Two apps I use every day</h2>
+<div style="margin-top: 44px; display: flex; flex-direction: column; gap: 40px">
+
+<article style="display: flex; flex-wrap: wrap; gap: 36px; align-items: center; padding: 28px; border-radius: 34px; box-shadow: calc(var(--sx) * 12px) calc(var(--sy) * 12px) 28px var(--sh-d), calc(var(--sx) * -12px) calc(var(--sy) * -12px) 28px var(--sh-l)">
+<div style="flex: 999 1 560px; min-width: 0; padding: 14px; border-radius: 24px; box-shadow: inset calc(var(--sx) * 6px) calc(var(--sy) * 6px) 14px var(--sh-d), inset calc(var(--sx) * -6px) calc(var(--sy) * -6px) 14px var(--sh-l)">
+<video src="assets/video/aimlr-highlight.mp4" poster="assets/video/aimlr-poster.jpg" autoplay="autoplay" loop="loop" muted="muted" playsinline="playsinline" preload="auto" aria-label="AI-ML Refresher highlights, looping" style="width: 100%; aspect-ratio: 16 / 10; display: block; border-radius: 14px; background: #111"></video>
+<a href="assets/video/aimlr-demo.mp4" target="_blank" rel="noopener" style="margin-top: 12px; display: inline-flex; align-items: center; min-height: 44px; font-family: 'DM Mono', monospace; font-size: 13px; color: var(--punch); text-decoration: none">Watch the full demo · 1:00 →</a>
+</div>
+<div style="flex: 1 1 320px; min-width: 0">
+<div style="font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: var(--accent)">APP 01 · MACOS · WINDOWS · ANDROID</div>
+<h3 style="margin: 10px 0 0; font-family: Sora, sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.03em">AI-ML Refresher</h3>
+<p style="margin: 12px 0 0; font-size: 16px; line-height: 1.6; color: var(--body)">A 15-minute daily reading habit in AI &amp; ML. After noon it gathers what's trending on GitHub, Hugging Face, Hacker News, Reddit and research blogs, ranks it with a fixed formula and keeps the top 15 — on a home-screen widget.</p>
+<p style="margin: 10px 0 0; font-size: 14px; line-height: 1.6; color: var(--muted)">No AI summaries, no API keys: the same inputs always give the same list. Saved items sync across Mac, PC and phone.</p>
+<div style="margin-top: 16px; display: flex; flex-wrap: wrap; gap: 8px">
+<span style="font-size: 12px; font-weight: 600; padding: 6px 12px; border-radius: 999px; color: var(--body); box-shadow: inset calc(var(--sx) * 3px) calc(var(--sy) * 3px) 6px var(--sh-d), inset calc(var(--sx) * -3px) calc(var(--sy) * -3px) 6px var(--sh-l)">SwiftUI · WidgetKit</span>
+<span style="font-size: 12px; font-weight: 600; padding: 6px 12px; border-radius: 999px; color: var(--body); box-shadow: inset calc(var(--sx) * 3px) calc(var(--sy) * 3px) 6px var(--sh-d), inset calc(var(--sx) * -3px) calc(var(--sy) * -3px) 6px var(--sh-l)">C# · .NET · Avalonia</span>
+<span style="font-size: 12px; font-weight: 600; padding: 6px 12px; border-radius: 999px; color: var(--body); box-shadow: inset calc(var(--sx) * 3px) calc(var(--sy) * 3px) 6px var(--sh-d), inset calc(var(--sx) * -3px) calc(var(--sy) * -3px) 6px var(--sh-l)">Kotlin · Jetpack Compose</span>
+</div>
+<a class="press" href="https://github.com/MMFreitas1/AI-ML-refresher" style="margin-top: 22px; min-height: 48px; display: inline-flex; align-items: center; padding: 0 22px; border-radius: 999px; background: var(--punch); color: var(--on-punch); font-weight: 700; text-decoration: none; box-shadow: calc(var(--sx) * 6px) calc(var(--sy) * 6px) 14px var(--sh-d), calc(var(--sx) * -6px) calc(var(--sy) * -6px) 14px var(--sh-l)">View on GitHub →</a>
+</div>
+</article>
+
+<article style="display: flex; flex-wrap: wrap-reverse; flex-direction: row-reverse; gap: 36px; align-items: center; padding: 28px; border-radius: 34px; box-shadow: calc(var(--sx) * 12px) calc(var(--sy) * 12px) 28px var(--sh-d), calc(var(--sx) * -12px) calc(var(--sy) * -12px) 28px var(--sh-l)">
+<div style="flex: 999 1 560px; min-width: 0; padding: 14px; border-radius: 24px; box-shadow: inset calc(var(--sx) * 6px) calc(var(--sy) * 6px) 14px var(--sh-d), inset calc(var(--sx) * -6px) calc(var(--sy) * -6px) 14px var(--sh-l)">
+<video src="assets/video/3dsp-highlight.mp4" poster="assets/video/3dsp-poster.jpg" autoplay="autoplay" loop="loop" muted="muted" playsinline="playsinline" preload="auto" aria-label="3D S&amp;P 500 Visualizer highlights, looping" style="width: 100%; aspect-ratio: 16 / 10; display: block; border-radius: 14px; background: #111"></video>
+<a href="assets/video/3dsp-demo.mp4" target="_blank" rel="noopener" style="margin-top: 12px; display: inline-flex; align-items: center; min-height: 44px; font-family: 'DM Mono', monospace; font-size: 13px; color: var(--punch); text-decoration: none">Watch the full demo · 4:25 →</a>
+</div>
+<div style="flex: 1 1 320px; min-width: 0">
+<div style="font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: var(--accent)">APP 02 · MARKETS IN 3D</div>
+<h3 style="margin: 10px 0 0; font-family: Sora, sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.03em">3D S&amp;P 500 Visualizer</h3>
+<p style="margin: 12px 0 0; font-size: 16px; line-height: 1.6; color: var(--body)">Decades of S&amp;P 500 history as a 3D sector cube and skyline you can scrub through week by week — with sector rotation, warning signs and the market events that moved them, from the dot-com peak onwards.</p>
+<p style="margin: 10px 0 0; font-size: 14px; line-height: 1.6; color: var(--muted)">A built-in analyst assistant reads a stock's fundamentals and the news you pick, over the time frames you choose, and answers short or long.</p>
+<a class="press" href="https://github.com/MMFreitas1/3d-sp500-historical-visualizer" style="margin-top: 22px; min-height: 48px; display: inline-flex; align-items: center; padding: 0 22px; border-radius: 999px; background: var(--punch); color: var(--on-punch); font-weight: 700; text-decoration: none; box-shadow: calc(var(--sx) * 6px) calc(var(--sy) * 6px) 14px var(--sh-d), calc(var(--sx) * -6px) calc(var(--sy) * -6px) 14px var(--sh-l)">View on GitHub →</a>
+</div>
+</article>
+
+</div>
+</section>
+
+<section id="lens" style="max-width: 1320px; margin: 0 auto; padding: 120px 32px 20px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+<div>
+<div style="font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.16em; color: var(--punch)">THROUGH THE LENS · CANON EOS 80D</div>
+<h2 style="margin: 12px 0 0; font-family: Sora, sans-serif; font-weight: 700; font-size: 44px; letter-spacing: -0.03em">Light, at the pixel level</h2>
+</div>
+<a class="press" href="https://www.instagram.com/freitasfazinsta/" style="min-height: 48px; display: inline-flex; align-items: center; padding: 0 22px; border-radius: 999px; color: var(--punch); font-weight: 700; text-decoration: none; box-shadow: calc(var(--sx) * 6px) calc(var(--sy) * 6px) 14px var(--sh-d), calc(var(--sx) * -6px) calc(var(--sy) * -6px) 14px var(--sh-l)">More on Instagram →</a>
+</div>
+<div class="lens" style="margin-top: 44px; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-auto-rows: 200px; gap: 28px">
+<figure class="lift" style="margin: 0; grid-column: 1 / span 7; grid-row: 1 / span 2; padding: 12px; border-radius: 30px; box-shadow: calc(var(--sx) * 12px) calc(var(--sy) * 12px) 28px var(--sh-d), calc(var(--sx) * -12px) calc(var(--sy) * -12px) 28px var(--sh-l); position: relative">
+<img src="assets/img/falls.jpg" alt="A white waterfall falling between dark basalt columns" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px; display: block">
+<figcaption style="position: absolute; left: 28px; bottom: 28px; padding: 6px 12px; border-radius: 999px; background: var(--base); font-family: 'DM Mono', monospace; font-size: 11px; color: var(--body)">Basalt &amp; water</figcaption>
+</figure>
+<figure class="lift" style="margin: 0; grid-column: 8 / span 5; grid-row: 1 / span 3; padding: 12px; border-radius: 30px; box-shadow: calc(var(--sx) * 12px) calc(var(--sy) * 12px) 28px var(--sh-d), calc(var(--sx) * -12px) calc(var(--sy) * -12px) 28px var(--sh-l); position: relative">
+<img src="assets/img/street.jpg" alt="A narrow old-town street of green, coral and white houses under a street lamp" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px; display: block">
+<figcaption style="position: absolute; left: 28px; bottom: 28px; padding: 6px 12px; border-radius: 999px; background: var(--base); font-family: 'DM Mono', monospace; font-size: 11px; color: var(--body)">Old-town light</figcaption>
+</figure>
+<figure class="lift" style="margin: 0; grid-column: 1 / span 7; grid-row: 3 / span 2; padding: 12px; border-radius: 30px; box-shadow: calc(var(--sx) * 12px) calc(var(--sy) * 12px) 28px var(--sh-d), calc(var(--sx) * -12px) calc(var(--sy) * -12px) 28px var(--sh-l); position: relative">
+<img src="assets/img/veil.jpg" alt="The Western and Eastern Veil nebulae in a dense star field" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px; display: block">
+<figcaption style="position: absolute; left: 28px; bottom: 28px; padding: 6px 12px; border-radius: 999px; background: var(--base); font-family: 'DM Mono', monospace; font-size: 11px; color: var(--body)">Western &amp; Eastern Veil Nebulae</figcaption>
+</figure>
+<figure class="lift" style="margin: 0; grid-column: 8 / span 5; grid-row: 4 / span 3; padding: 12px; border-radius: 30px; box-shadow: calc(var(--sx) * 12px) calc(var(--sy) * 12px) 28px var(--sh-d), calc(var(--sx) * -12px) calc(var(--sy) * -12px) 28px var(--sh-l); position: relative">
+<img src="assets/img/doorway.jpg" alt="Black-and-white portrait of a man leaning in a doorway, a small dog resting on a chair beside him" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px; display: block">
+<figcaption style="position: absolute; left: 28px; bottom: 28px; padding: 6px 12px; border-radius: 999px; background: var(--base); font-family: 'DM Mono', monospace; font-size: 11px; color: var(--body)">Doorway, with company</figcaption>
+</figure>
+<figure class="lift" style="margin: 0; grid-column: 1 / span 7; grid-row: 5 / span 2; padding: 12px; border-radius: 30px; box-shadow: calc(var(--sx) * 12px) calc(var(--sy) * 12px) 28px var(--sh-d), calc(var(--sx) * -12px) calc(var(--sy) * -12px) 28px var(--sh-l); position: relative">
+<img src="assets/img/plane.jpg" alt="A green and gold aerobatic plane flying inverted, trailing white smoke" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px; display: block">
+<figcaption style="position: absolute; left: 28px; bottom: 28px; padding: 6px 12px; border-radius: 999px; background: var(--base); font-family: 'DM Mono', monospace; font-size: 11px; color: var(--body)">Inverted pass</figcaption>
+</figure>
+</div>
+</section>
+
+<section style="max-width: 1320px; margin: 0 auto; padding: 120px 32px 40px">
+<div style="font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.16em; color: var(--punch)">TOOLKIT · 57 TOOLS</div>
+<h2 style="margin: 12px 0 40px; font-family: Sora, sans-serif; font-weight: 700; font-size: 44px; letter-spacing: -0.03em">What I build with</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px">
+<sc-for list="{{stack}}" as="g" hint-placeholder-count="6">
+<div style="padding: 28px; border-radius: 28px; box-shadow: calc(var(--sx) * 12px) calc(var(--sy) * 12px) 28px var(--sh-d), calc(var(--sx) * -12px) calc(var(--sy) * -12px) 28px var(--sh-l)">
+<div style="display: flex; align-items: center; gap: 12px"><span style="width: 14px; height: 14px; border-radius: 50%; background: {{g.color}}; box-shadow: calc(var(--sx) * 2px) calc(var(--sy) * 2px) 4px var(--sh-d), calc(var(--sx) * -2px) calc(var(--sy) * -2px) 4px var(--sh-l)"></span><span style="font-weight: 700">{{g.name}}</span><span style="margin-left: auto; font-family: 'DM Mono', monospace; font-size: 12px; color: var(--muted)">{{g.count}}</span></div>
+<div style="margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{g.items}}" as="it" hint-placeholder-count="5">
+<span style="font-size: 13px; font-weight: 600; padding: 7px 12px; border-radius: 999px; color: var(--body); box-shadow: inset calc(var(--sx) * 3px) calc(var(--sy) * 3px) 6px var(--sh-d), inset calc(var(--sx) * -3px) calc(var(--sy) * -3px) 6px var(--sh-l)">{{it}}</span>
+</sc-for>
+</div>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section style="max-width: 1320px; margin: 0 auto; padding: 60px 32px; display: flex; flex-wrap: wrap; gap: 28px">
+<div style="flex: 1 1 520px; min-width: 0; padding: 36px; border-radius: 30px; box-shadow: calc(var(--sx) * 12px) calc(var(--sy) * 12px) 28px var(--sh-d), calc(var(--sx) * -12px) calc(var(--sy) * -12px) 28px var(--sh-l)">
+<h3 style="margin: 0 0 18px; font-family: Sora, sans-serif; font-size: 26px; letter-spacing: -0.02em">Education</h3>
+<sc-for list="{{education}}" as="e" hint-placeholder-count="3">
+<div style="display: flex; gap: 16px; align-items: center; padding: 14px 0">
+<div style="width: 60px; height: 60px; flex: none; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: Sora, sans-serif; font-weight: 800; font-size: 22px; color: var(--accent); box-shadow: inset calc(var(--sx) * 5px) calc(var(--sy) * 5px) 10px var(--sh-d), inset calc(var(--sx) * -5px) calc(var(--sy) * -5px) 10px var(--sh-l)">{{e.gpa}}</div>
+<div><div style="font-weight: 700">{{e.what}}</div><div style="margin-top: 4px; font-size: 13px; color: var(--muted)">{{e.where}} · {{e.when}}</div></div>
+</div>
+</sc-for>
+</div>
+<div style="flex: 1 1 420px; min-width: 0; padding: 36px; border-radius: 30px; box-shadow: calc(var(--sx) * 12px) calc(var(--sy) * 12px) 28px var(--sh-d), calc(var(--sx) * -12px) calc(var(--sy) * -12px) 28px var(--sh-l)">
+<h3 style="margin: 0 0 18px; font-family: Sora, sans-serif; font-size: 26px; letter-spacing: -0.02em">Certificates</h3>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<sc-for list="{{certs}}" as="c" hint-placeholder-count="6">
+<div style="display: flex; justify-content: space-between; gap: 12px; padding: 12px 16px; border-radius: 16px; font-size: 14px; box-shadow: inset calc(var(--sx) * 3px) calc(var(--sy) * 3px) 7px var(--sh-d), inset calc(var(--sx) * -3px) calc(var(--sy) * -3px) 7px var(--sh-l)"><span style="font-weight: 600">{{c.n}}</span><span style="font-family: 'DM Mono', monospace; font-size: 12px; color: var(--muted)">{{c.by}}</span></div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section style="max-width: 1320px; margin: 0 auto; padding: 40px 32px 120px">
+<div style="padding: 18px; border-radius: 40px; box-shadow: calc(var(--sx) * 16px) calc(var(--sy) * 16px) 36px var(--sh-d), calc(var(--sx) * -16px) calc(var(--sy) * -16px) 36px var(--sh-l)">
+<div style="position: relative; border-radius: 28px; overflow: hidden; min-height: 560px; display: flex; align-items: flex-end">
+<img src="assets/img/surf.jpg" alt="Miguel surfing a green wave" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+<div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,14,10,0) 30%, rgba(20,14,10,0.78) 100%)"></div>
+<div style="position: relative; padding: 48px; color: #FFFFFF">
+<p style="margin: 0; max-width: 720px; font-family: Sora, sans-serif; font-weight: 600; font-size: clamp(22px, 2.6vw, 36px); line-height: 1.25; letter-spacing: -0.02em">“Degrees are just tools — it’s through the self-taught path that I’ve gathered what I need to build unique creations.”</p>
+</div>
+</div>
+</div>
+<div style="margin-top: 36px; display: flex; flex-wrap: wrap; gap: 16px; justify-content: center">
+<a class="press" href="mailto:miguel_freitas_12@hotmail.com" style="min-height: 52px; display: inline-flex; align-items: center; padding: 0 28px; border-radius: 999px; background: var(--punch); color: var(--on-punch); font-weight: 700; text-decoration: none; box-shadow: calc(var(--sx) * 8px) calc(var(--sy) * 8px) 18px var(--sh-d), calc(var(--sx) * -8px) calc(var(--sy) * -8px) 18px var(--sh-l)">Email</a>
+<a class="press" href="https://www.linkedin.com/in/miguel-freitas-770205157/" style="min-height: 52px; display: inline-flex; align-items: center; padding: 0 28px; border-radius: 999px; color: var(--text); font-weight: 700; text-decoration: none; box-shadow: calc(var(--sx) * 8px) calc(var(--sy) * 8px) 18px var(--sh-d), calc(var(--sx) * -8px) calc(var(--sy) * -8px) 18px var(--sh-l)">LinkedIn</a>
+<a class="press" href="https://github.com/MMFreitas1" style="min-height: 52px; display: inline-flex; align-items: center; padding: 0 28px; border-radius: 999px; color: var(--text); font-weight: 700; text-decoration: none; box-shadow: calc(var(--sx) * 8px) calc(var(--sy) * 8px) 18px var(--sh-d), calc(var(--sx) * -8px) calc(var(--sy) * -8px) 18px var(--sh-l)">GitHub</a>
+<a class="press" href="https://www.instagram.com/freitasfazinsta/" style="min-height: 52px; display: inline-flex; align-items: center; padding: 0 28px; border-radius: 999px; color: var(--text); font-weight: 700; text-decoration: none; box-shadow: calc(var(--sx) * 8px) calc(var(--sy) * 8px) 18px var(--sh-d), calc(var(--sx) * -8px) calc(var(--sy) * -8px) 18px var(--sh-l)">Instagram</a>
+</div>
+</section>
+</main>
+</sc-if>
+
+<sc-if value="{{isNumbers}}" hint-placeholder-val="{{false}}">
+<main style="max-width: 1320px; margin: 0 auto; padding: 64px 32px 120px">
+<div style="font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.16em; color: var(--punch)">INFOGRAPHICS</div>
+<h1 style="margin: 12px 0 8px; font-family: Sora, sans-serif; font-weight: 800; font-size: clamp(40px, 4.6vw, 64px); letter-spacing: -0.04em">By the numbers</h1>
+<p style="margin: 0 0 44px; color: var(--muted); font-size: 17px">Thirteen projects, fourteen years, one pivot.</p>
+
+<div class="rise" style="padding: 36px; border-radius: 30px; box-shadow: calc(var(--sx) * 12px) calc(var(--sy) * 12px) 28px var(--sh-d), calc(var(--sx) * -12px) calc(var(--sy) * -12px) 28px var(--sh-l)">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+<div><h2 style="margin: 0; font-family: Sora, sans-serif; font-size: 26px; letter-spacing: -0.02em">Projects per year</h2><div style="margin-top: 6px; font-size: 14px; color: var(--muted)">Data &amp; AI builds since the pivot — hover a bar to see which, or the {{nextYear}} bar for the model</div></div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 13px; color: var(--body2)">
+<span style="display: inline-flex; align-items: center; gap: 8px"><span style="width: 14px; height: 14px; border-radius: 4px; background: var(--terra)"></span>Delivered</span>
+<span style="display: inline-flex; align-items: center; gap: 8px"><span style="width: 14px; height: 14px; border-radius: 4px; box-sizing: border-box; background: rgba(200,100,58,0.3); border: 1.5px dashed var(--accent)"></span>Projected</span>
+<span style="display: inline-flex; align-items: center; gap: 8px"><span style="width: 22px; height: 3px; border-radius: 3px; background: var(--punch)"></span>Trend</span>
+</div>
+</div>
+<div role="group" aria-label="Projects per year — {{summary}}" style="margin: 40px 0 0 32px; position: relative; height: 300px">
+<sc-for list="{{ticks}}" as="t" hint-placeholder-count="5">
+<div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: {{t.pos}}; border-top: 1px dashed var(--grid)"><span style="position: absolute; left: -32px; top: -9px; width: 24px; text-align: right; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted)">{{t.v}}</span></div>
+</sc-for>
+<div style="position: absolute; inset: 0; display: flex">
+<sc-for list="{{years}}" as="y" hint-placeholder-count="5">
+<div title="{{y.title}}" style="flex: 1 1 0; min-width: 0; position: relative; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center">
+<div style="position: absolute; left: 0; right: 0; bottom: calc({{y.labelB}} + 12px); text-align: center; font-family: Sora, sans-serif; font-weight: 800; font-size: 20px; color: var(--accent)">{{y.label}}</div>
+<sc-if value="{{y.notForecast}}" hint-placeholder-val="{{true}}">
+<div style="width: 52%; height: {{y.projH}}; border-radius: 12px 12px 0 0; box-sizing: border-box; background: rgba(200,100,58,0.3); border: 1.5px dashed var(--accent); border-bottom: 0"></div>
+<div style="width: 52%; height: {{y.doneH}}; border-radius: 4px; background: linear-gradient(180deg, var(--terra-hi), var(--terra)); box-shadow: 4px 4px 10px var(--sh-d)"></div>
+</sc-if>
+<sc-if value="{{y.isForecast}}" hint-placeholder-val="{{false}}">
+<span aria-hidden="true" style="position: absolute; left: 50%; width: 16px; margin-left: -8px; bottom: {{y.loB}}; height: {{y.whiskH}}; box-sizing: border-box; border-top: 2px solid var(--accent); border-bottom: 2px solid var(--accent); background: linear-gradient(90deg, transparent 7px, var(--accent) 7px, var(--accent) 9px, transparent 9px); opacity: 0.55"></span>
+<div style="width: 52%; height: {{y.fcH}}; box-sizing: border-box; border: 1.5px dashed var(--accent); border-radius: 12px 12px 4px 4px; background: rgba(200,100,58,0.3); cursor: help"></div>
+</sc-if>
+</div>
+</sc-for>
+</div>
+<svg aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none" style="position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none"><path d="{{histPath}}" fill="none" stroke="var(--punch)" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke"></path><path d="{{fcPath}}" fill="none" stroke="var(--punch)" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 7" vector-effect="non-scaling-stroke"></path></svg>
+<sc-for list="{{dots}}" as="d" hint-placeholder-count="5">
+<span aria-hidden="true" style="position: absolute; left: {{d.left}}; bottom: {{d.bottom}}; width: 12px; height: 12px; margin: 0 0 -6px -6px; box-sizing: border-box; border-radius: 50%; background: {{d.bg}}; border: 2.5px solid var(--punch); pointer-events: none"></span>
+</sc-for>
+</div>
+<div aria-hidden="true" style="display: flex; margin: 12px 0 0 32px">
+<sc-for list="{{years}}" as="y" hint-placeholder-count="5">
+<div style="flex: 1 1 0; text-align: center"><div style="font-weight: 700; font-size: 15px">{{y.year}}</div><div style="min-height: 16px; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted)">{{y.sub}}</div></div>
+</sc-for>
+</div>
+</div>
+
+<div style="margin-top: 28px; display: flex; flex-wrap: wrap; gap: 28px">
+<div style="flex: 999 1 560px; min-width: 0; padding: 36px; border-radius: 30px; box-shadow: calc(var(--sx) * 12px) calc(var(--sy) * 12px) 28px var(--sh-d), calc(var(--sx) * -12px) calc(var(--sy) * -12px) 28px var(--sh-l)">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<div><h2 style="margin: 0; font-family: Sora, sans-serif; font-size: 26px; letter-spacing: -0.02em">Where the work landed</h2><div style="margin-top: 6px; font-size: 14px; color: var(--muted)">13 client and research projects, aggregated</div></div>
+<div role="group" aria-label="Group projects by" style="display: flex; gap: 6px; padding: 6px; border-radius: 999px; box-shadow: inset calc(var(--sx) * 5px) calc(var(--sy) * 5px) 10px var(--sh-d), inset calc(var(--sx) * -5px) calc(var(--sy) * -5px) 10px var(--sh-l)">
+<button type="button" onClick="{{bySector}}" aria-pressed="{{sectorPressed}}" style="min-height: 40px; padding: 0 16px; border: 0; border-radius: 999px; cursor: pointer; font: 600 13px Manrope, sans-serif; background: var(--base); color: {{sectorFg}}; box-shadow: {{sectorShadow}}">By sector</button>
+<button type="button" onClick="{{byCap}}" aria-pressed="{{capPressed}}" style="min-height: 40px; padding: 0 16px; border: 0; border-radius: 999px; cursor: pointer; font: 600 13px Manrope, sans-serif; background: var(--base); color: {{capFg}}; box-shadow: {{capShadow}}">By capability</button>
+</div>
+</div>
+<div style="margin-top: 28px; display: flex; flex-direction: column; gap: 18px">
+<sc-for list="{{bars}}" as="b" hint-placeholder-count="7">
+<div class="rise">
+<div style="display: flex; justify-content: space-between; gap: 12px; font-size: 14px"><span style="font-weight: 700">{{b.label}}</span><span style="font-family: 'DM Mono', monospace; color: {{b.text}}; font-weight: 500">{{b.count}}</span></div>
+<div style="margin-top: 8px; height: 18px; border-radius: 18px; padding: 4px; box-sizing: border-box; box-shadow: inset calc(var(--sx) * 4px) calc(var(--sy) * 4px) 8px var(--sh-d), inset calc(var(--sx) * -4px) calc(var(--sy) * -4px) 8px var(--sh-l)"><div style="height: 100%; width: {{b.w}}; border-radius: 10px; background: {{b.color}}; transition: width .5s cubic-bezier(.2,.7,.2,1)"></div></div>
+<div style="margin-top: 6px; font-size: 12px; color: var(--muted)">{{b.names}}</div>
+</div>
+</sc-for>
+</div>
+</div>
+
+<div style="flex: 1 1 380px; min-width: 0; padding: 36px; border-radius: 30px; box-shadow: calc(var(--sx) * 12px) calc(var(--sy) * 12px) 28px var(--sh-d), calc(var(--sx) * -12px) calc(var(--sy) * -12px) 28px var(--sh-l)">
+<h2 style="margin: 0; font-family: Sora, sans-serif; font-size: 26px; letter-spacing: -0.02em">The rigor curve</h2>
+<div style="margin-top: 6px; font-size: 14px; color: var(--muted)">Final grade out of 20, each degree</div>
+<div style="margin-top: 28px; height: 260px; display: flex; align-items: stretch; gap: 22px">
+<sc-for list="{{gpa}}" as="g" hint-placeholder-count="3">
+<div style="flex: 1 1 0; border-radius: 22px; padding: 6px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: flex-end; box-shadow: inset calc(var(--sx) * 5px) calc(var(--sy) * 5px) 10px var(--sh-d), inset calc(var(--sx) * -5px) calc(var(--sy) * -5px) 10px var(--sh-l)">
+<div style="height: {{g.h}}; border-radius: 16px; background: {{g.color}}; display: flex; align-items: flex-start; justify-content: center; padding-top: 12px; box-sizing: border-box; font-family: Sora, sans-serif; font-weight: 800; font-size: 26px; color: {{g.fg}}">{{g.v}}</div>
+</div>
+</sc-for>
+</div>
+<div style="display: flex; gap: 22px; margin-top: 12px">
+<sc-for list="{{gpa}}" as="g" hint-placeholder-count="3">
+<div style="flex: 1 1 0; text-align: center; font-size: 12px; color: var(--muted); line-height: 1.4">{{g.l}}<br>{{g.y}}</div>
+</sc-for>
+</div>
+</div>
+</div>
+
+<div style="margin-top: 28px; padding: 36px; border-radius: 30px; box-shadow: calc(var(--sx) * 12px) calc(var(--sy) * 12px) 28px var(--sh-d), calc(var(--sx) * -12px) calc(var(--sy) * -12px) 28px var(--sh-l)">
+<h2 style="margin: 0; font-family: Sora, sans-serif; font-size: 26px; letter-spacing: -0.02em">Fourteen years, three tides</h2>
+<div style="margin-top: 6px; font-size: 14px; color: var(--muted)">Share of career by domain, 2012 to now</div>
+<div style="margin-top: 28px; display: flex; height: 72px; border-radius: 22px; padding: 6px; gap: 6px; box-sizing: border-box; box-shadow: inset calc(var(--sx) * 5px) calc(var(--sy) * 5px) 10px var(--sh-d), inset calc(var(--sx) * -5px) calc(var(--sy) * -5px) 10px var(--sh-l)">
+<sc-for list="{{eras}}" as="e" hint-placeholder-count="3">
+<div style="width: {{e.w}}; border-radius: 16px; background: {{e.color}}; display: flex; align-items: center; padding: 0 16px; box-sizing: border-box; color: {{e.fg}}; font-weight: 700; font-size: 14px; white-space: nowrap; overflow: hidden">{{e.pct}}</div>
+</sc-for>
+</div>
+<div style="margin-top: 16px; display: flex; flex-wrap: wrap; gap: 12px 32px">
+<sc-for list="{{eras}}" as="e" hint-placeholder-count="3">
+<div style="display: flex; align-items: center; gap: 10px; font-size: 14px"><span style="width: 12px; height: 12px; border-radius: 50%; background: {{e.color}}"></span><span style="font-weight: 600">{{e.l}}</span> <span style="font-family: 'DM Mono', monospace; font-size: 12px; color: var(--muted)">{{e.y}}</span></div>
+</sc-for>
+</div>
+<div style="margin-top: 28px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap">
+<span style="font-size: 14px; color: var(--muted)">Lifeguard summers, alongside it all</span>
+<div style="display: flex; gap: 8px">
+<sc-for list="{{summers}}" as="s" hint-placeholder-count="10">
+<span title="{{s}}" style="width: 18px; height: 18px; border-radius: 50%; background: var(--punch); box-shadow: calc(var(--sx) * 3px) calc(var(--sy) * 3px) 6px var(--sh-d), calc(var(--sx) * -3px) calc(var(--sy) * -3px) 6px var(--sh-l)"></span>
+</sc-for>
+</div>
+<span style="font-family: 'DM Mono', monospace; font-size: 12px; color: var(--muted)">2012 — 2022</span>
+</div>
+</div>
+
+<div style="margin-top: 28px; padding: 36px; border-radius: 30px; box-shadow: calc(var(--sx) * 12px) calc(var(--sy) * 12px) 28px var(--sh-d), calc(var(--sx) * -12px) calc(var(--sy) * -12px) 28px var(--sh-l)">
+<h2 style="margin: 0; font-family: Sora, sans-serif; font-size: 26px; letter-spacing: -0.02em">Toolkit composition</h2>
+<div style="margin-top: 6px; font-size: 14px; color: var(--muted)">57 tools, one bead each — hover a bead for its name</div>
+<div style="margin-top: 28px; display: flex; flex-wrap: wrap; gap: 36px; align-items: flex-start">
+<div style="display: grid; grid-template-columns: repeat(12, 28px); gap: 8px; padding: 18px; border-radius: 24px; box-shadow: inset calc(var(--sx) * 5px) calc(var(--sy) * 5px) 10px var(--sh-d), inset calc(var(--sx) * -5px) calc(var(--sy) * -5px) 10px var(--sh-l)">
+<sc-for list="{{waffle}}" as="w" hint-placeholder-count="57">
+<span title="{{w.t}}" style="width: 28px; height: 28px; border-radius: 50%; background: {{w.c}}; box-shadow: calc(var(--sx) * 2px) calc(var(--sy) * 2px) 5px var(--sh-d), calc(var(--sx) * -2px) calc(var(--sy) * -2px) 5px var(--sh-l)"></span>
+</sc-for>
+</div>
+<div style="display: flex; flex-direction: column; gap: 14px; flex: 1 1 240px">
+<sc-for list="{{stack}}" as="g" hint-placeholder-count="6">
+<div style="display: flex; align-items: center; gap: 10px; font-size: 14px"><span style="width: 14px; height: 14px; border-radius: 50%; background: {{g.color}}"></span><span style="flex: 1 1 auto; font-weight: 600">{{g.name}}</span><span style="font-family: 'DM Mono', monospace; color: var(--muted)">{{g.count}}</span></div>
+</sc-for>
+</div>
+</div>
+</div>
+</main>
+</sc-if>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"punch":{"editor":"color","default":"#11656B","options":["#11656B","#1D5C8C","#2F6B3A"]},"$preview":{"width":1440,"height":900}}'>
+const NOW = [
+  { k: "WORK", t: "AI Engineer at Genesis Digital Solutions" },
+  { k: "LAB", t: "Founding MF Concepts, an independent AI lab" },
+  { k: "SUNDAYS", t: "Front of house at Combi Coffee Roasters, Porto" },
+  { k: "LENS", t: "Freelance photography & astrophotography" }
+];
+const CHAPTERS = [
+  { yr: "2012 — 2015", org: "Escola Superior Náutica", role: "BSc · Port Management", sector: "MARITIME", body: "Three years inside port and vessel operations — supply chains, terminal management and operations research.", big: "14", cap: "final GPA — where the logistics instinct started.", tags: ["Port Operations", "Logistics", "Operations Research"] },
+  { yr: "2012 — 2022", org: "Resgate, ANSLA", role: "Lifeguard · Seasonal", sector: "LIFE", body: "Ten summers on the Atlantic. Rapid, irreversible decisions became second nature — as did staying calm under stress.", big: "20+", cap: "water rescues in rough seas, and 100+ preventions.", tags: ["Crisis Response", "Situational Awareness", "Water Safety"] },
+  { yr: "2015 — 2021", org: "Mediterranean Shipping Company", role: "Shipping Agent", sector: "LOGISTICS", body: "Six years in the 24/7 heartbeat of one of the world's largest container carriers — crew changes, spare parts, bunker operations, 8h to 72h shifts.", big: "−10%", cap: "port-stay turnaround costs, through last-minute problem-solving.", tags: ["Port Operations", "Bunker Operations", "Stakeholders"] },
+  { yr: "2021 — 2023", org: "Universidade Nova de Lisboa", role: "MSc · Impact Entrepreneurship & Innovation", sector: "THE PIVOT", body: "One subject — Data Science for Innovation and Impact — redirected everything. Six months of self-taught programming and statistics, alongside the thesis.", big: "17", cap: "final GPA, plus a Data Science Associate certificate before graduating.", tags: ["Data Science", "Python", "Self-Teaching"] },
+  { yr: "2023 — 2025", org: "Capgemini", role: "Data Scientist · ML Engineer", sector: "CONSULTING", body: "Led a 2,000+ product pharmaceutical forecasting pipeline (GBR + SARIMAX), modernized banking ETL in PL/SQL, and shipped a computer-vision translation pipeline for the public sector.", big: "2,000+", cap: "pharma products forecast in one automated two-day run — across four industries in two years.", tags: ["Time Series", "ETL · PL/SQL", "Computer Vision", "Azure"] },
+  { yr: "Jan 2024 — Jan 2025", org: "Independent Research", role: "Independent Data Scientist", sector: "RESEARCH", body: "Curiosity-driven NLP research: a scraper collected 36 Portuguese news articles a day for a full year, then tokenization, sentiment scoring and topic modeling, stored in ChromaDB.", big: "13k", cap: "news articles, scraped daily for a full year — every insight mapped back to the research questions.", tags: ["NLP", "Web Scraping", "ChromaDB", "Topic Modeling"] },
+  { yr: "Mar 2025 — May 2025", org: "Goparity", role: "ML Engineer · Freelancer", sector: "FINTECH", body: "External consultant on customer segmentation: K-prototypes clustering across the entire active customer base, validated over multiple cluster configurations.", big: "5", cap: "actionable personas discovered — delivered in an 80-page report.", tags: ["K-Prototypes", "Clustering", "Segmentation"] },
+  { yr: "Mar 2025 — Now", isPhoto: true, org: "Freelance Photography", role: "Photographer · Visual Artist", sector: "THE LENS", body: "Self-taught composition, light and visual storytelling, edited in Lightroom and Photoshop — the same work as data, only the table is an RGB tensor.", big: "80D", cap: "Shot on a Canon EOS 80D — plus an astrophotography workshop for Câmara Municipal de Sines.", tags: ["Canon EOS 80D", "Astrophotography", "Lightroom", "Photoshop"], link: "https://www.instagram.com/freitasfazinsta/", linkText: "See the photos →" },
+  { yr: "Dec 2025 — Now", org: "Genesis Digital Solutions", role: "AI Engineer", sector: "AI ENGINEERING", body: "RAG chatbots, a multi-tenant public-procurement platform with GPT routing, Teams agents on Graph API, and an on-prem OCR + VLM pipeline on a Dell GB10 that became a services contract.", big: "6", cap: "client AI systems shipped in under a year — one POC grew into a 20+ project Dell partnership.", tags: ["RAG", "Multi-Agent", "Langchain", "Azure Foundry"] },
+  { yr: "2026 — Now", org: "MF Concepts", role: "Founder · Independent AI Lab", sector: "THE LAB", body: "Where apps are born to solve everyday problems — and where I build the confidence to develop increasingly complex systems, local or in the cloud.", big: "2", cap: "working apps I use every day — built in my own lab.", link: "#lab", linkText: "See the apps ↓", tags: ["Product Building", "Local AI", "Cloud"] }
+];
+const PROJECTS = [
+  { n: "Generis", sec: "Life sciences", cap: "Forecasting" },
+  { n: "BNA", sec: "Finance & banking", cap: "Data engineering" },
+  { n: "IPQ", sec: "Public sector", cap: "Vision & OCR" },
+  { n: "Automotive", sec: "Automotive", cap: "Forecasting" },
+  { n: "News NLP", sec: "Media", cap: "NLP" },
+  { n: "Goparity", sec: "Finance & banking", cap: "Segmentation" },
+  { n: "MoneyFlix", sec: "Finance & banking", cap: "LLM & agents" },
+  { n: "Havas", sec: "Marketing", cap: "Data engineering" },
+  { n: "ProcurifAI", sec: "Public sector", cap: "LLM & agents" },
+  { n: "Dell · Pombal & Leiria", sec: "Public sector", cap: "Vision & OCR" },
+  { n: "Shift Global", sec: "Project management", cap: "LLM & agents" },
+  { n: "Transfim", sec: "Logistics", cap: "LLM & agents" },
+  { n: "MSC", sec: "Logistics", cap: "Operations" }
+];
+const YEARLY = [
+  { y: 2023, items: ["BNA", "IPQ", "Automotive"] },
+  { y: 2024, items: ["Generis · phase I", "News NLP research"] },
+  { y: 2025, items: ["Generis · phase II", "Goparity"] },
+  { y: 2026, items: ["MoneyFlix", "Havas", "ProcurifAI", "Dell · Pombal & Leiria", "Shift Global", "Transfim", "MF Concepts app 1", "MF Concepts app 2"] }
+];
+const CURRENT_YEAR = 2026;
+const HOLT = { alpha: 0.9, beta: 0.5 };
+
+function yearlyForecast() {
+  const now = new Date();
+  const frac = (yr) => {
+    if (now.getFullYear() > yr) return 1;
+    if (now.getFullYear() < yr) return 0.05;
+    const s = new Date(yr, 0, 1).getTime(), t = new Date(yr + 1, 0, 1).getTime();
+    return Math.max(0.05, (now.getTime() - s) / (t - s));
+  };
+  const series = YEARLY.map((r) => {
+    const done = r.items.length;
+    const f = r.y === CURRENT_YEAR ? frac(r.y) : 1;
+    return { y: r.y, items: r.items, done, full: done / f, frac: f };
+  });
+  let lvl = series[0].full, trend = series[1].full - series[0].full;
+  const level = [lvl], errs = [];
+  for (let t = 1; t < series.length; t++) {
+    const obs = series[t].full;
+    errs.push(obs - (lvl + trend));
+    const nl = HOLT.alpha * obs + (1 - HOLT.alpha) * (lvl + trend);
+    trend = HOLT.beta * (nl - lvl) + (1 - HOLT.beta) * trend;
+    lvl = nl;
+    level.push(lvl);
+  }
+  const fc = Math.max(0, lvl + trend);
+  const sigma = Math.sqrt(errs.reduce((s, x) => s + x * x, 0) / errs.length);
+  const lo = Math.max(0, fc - 1.28 * sigma), hi = fc + 1.28 * sigma;
+  const maxY = Math.max(5, Math.ceil(Math.max(hi, ...series.map((r) => r.full)) / 5) * 5);
+  const pct = (v) => ((Math.min(Math.max(v, 0), maxY) / maxY) * 100).toFixed(2) + "%";
+  const n = series.length + 1;
+  const pts = level.concat([fc]).map((v, i) => ({ x: ((i + 0.5) / n) * 100, y: 100 - (Math.min(Math.max(v, 0), maxY) / maxY) * 100 }));
+  const seg = (i) => {
+    const p0 = pts[i - 1] || pts[i], p1 = pts[i], p2 = pts[i + 1], p3 = pts[i + 2] || p2;
+    return " C" + [p1.x + (p2.x - p0.x) / 6, p1.y + (p2.y - p0.y) / 6, p2.x - (p3.x - p1.x) / 6, p2.y - (p3.y - p1.y) / 6, p2.x, p2.y].map((v) => v.toFixed(2)).join(" ");
+  };
+  const mv = (p) => "M" + p.x.toFixed(2) + " " + p.y.toFixed(2);
+  let histPath = mv(pts[0]);
+  for (let i = 0; i < pts.length - 2; i++) histPath += seg(i);
+  const fcPath = mv(pts[pts.length - 2]) + seg(pts.length - 2);
+  const nextYear = YEARLY[YEARLY.length - 1].y + 1;
+  const years = series.map((r) => {
+    const extra = r.full - r.done;
+    return {
+      year: String(r.y), sub: r.y === CURRENT_YEAR ? "in progress" : "", isForecast: false, notForecast: true,
+      doneH: pct(r.done), projH: pct(extra), labelB: pct(r.full),
+      label: extra >= 0.5 ? r.done + " + ~" + Math.round(extra) : String(r.done),
+      title: r.y + ": " + r.items.join(" · ")
+    };
+  }).concat([{
+    year: String(nextYear), sub: "forecast", isForecast: true, notForecast: false,
+    fcH: pct(fc), loB: pct(lo), whiskH: pct(hi - lo), labelB: pct(hi), label: "~" + Math.round(fc),
+    title: "Forecast " + nextYear + ": ~" + Math.round(fc) + " projects (80% interval " + Math.round(lo) + "–" + Math.round(hi) + ")\nHolt’s linear trend — double exponential smoothing\nα = " + HOLT.alpha + " (level), β = " + HOLT.beta + " (trend)\nFitted on " + YEARLY[0].y + "–" + YEARLY[YEARLY.length - 1].y + ", " + CURRENT_YEAR + " annualised from the days so far"
+  }]);
+  const ticks = [];
+  for (let v = 0; v <= maxY; v += 5) ticks.push({ v: String(v), pos: pct(v) });
+  const cur = series[series.length - 1];
+  return {
+    years, ticks, histPath, fcPath,
+    dots: pts.map((p, i) => ({ left: p.x.toFixed(2) + "%", bottom: (100 - p.y).toFixed(2) + "%", fc: i === pts.length - 1 })),
+    fcRound: String(Math.round(fc)), loRound: String(Math.round(lo)), hiRound: String(Math.round(hi)),
+    daysSoFar: String(Math.round(cur.frac * 365)), alphaS: String(HOLT.alpha), betaS: String(HOLT.beta),
+    nextYear: String(nextYear),
+    summary: series.map((r) => r.y + ": " + r.done).join(", ") + ", " + nextYear + " forecast: about " + Math.round(fc)
+  };
+}
+
+const STACK = [
+  { name: "Languages & core", items: ["Python", "SQL / PL·SQL", "Shell", "HTML", "Jupyter"] },
+  { name: "Data & analytics", items: ["Pandas", "NumPy", "Matplotlib", "Seaborn", "Plotly", "Statsmodels", "Oracle DB", "BigQuery", "Dataform", "MySQL", "ETL", "Great Expectations", "Web Scraping", "Time Series", "Clustering", "Ensembles"] },
+  { name: "ML & deep learning", items: ["PyTorch", "Scikit-learn", "Deep Learning", "Computer Vision", "NLP", "NLTK", "spaCy", "Tesseract", "Qwen"] },
+  { name: "LLMs & agents", items: ["OpenAI", "Claude", "RAG · LLM", "Langchain", "Multi-Agent", "Agentic Architectures", "Chatbots", "ChromaDB", "Langfuse", "GaleneAI"] },
+  { name: "Cloud & MLOps", items: ["Azure", "Azure Foundry", "MLOps", "MLFlow", "Docker", "DVC", "FastAPI", "REST API", "GitHub Actions", "CI/CD", "GitHub", "Sentry", "Ruff", "Mypy", "ThreadPooling"] },
+  { name: "Creative", items: ["Lightroom", "Photoshop"] }
+];
+const EDUCATION = [
+  { what: "Deep Learning Specialization", where: "Instituto Superior Técnico", when: "2025", gpa: "18" },
+  { what: "MSc Impact Entrepreneurship & Innovation", where: "Universidade Nova de Lisboa", when: "2021 — 2023", gpa: "17" },
+  { what: "BSc Port Management", where: "Escola Superior Náutica Infante D. Henrique", when: "2012 — 2015", gpa: "14" }
+];
+const CERTS = [
+  { n: "GitHub Copilot", by: "GitHub · 2025" },
+  { n: "Data Science: KDD Process", by: "IST · 2024" },
+  { n: "Azure AI-900", by: "Microsoft · 2023" },
+  { n: "Azure DP-900", by: "Microsoft · 2023" },
+  { n: "PSM I — Scrum Master", by: "Scrum.org · 2023" },
+  { n: "Associate Data Scientist", by: "DataCamp · 2023" }
+];
+const PAL = { base: "var(--base)", text: "var(--text)", muted: "var(--muted)", peach: "var(--peach)", terra: "var(--terra)", sienna: "var(--accent)", sand: "#D8B48A", stone: "#9B8C7E" };
+const RAISED = "calc(var(--sx) * 6px) calc(var(--sy) * 6px) 14px var(--sh-d), calc(var(--sx) * -6px) calc(var(--sy) * -6px) 14px var(--sh-l)";
+const RAISED_LG = "calc(var(--sx) * 12px) calc(var(--sy) * 12px) 28px var(--sh-d), calc(var(--sx) * -12px) calc(var(--sy) * -12px) 28px var(--sh-l)";
+const RAISED_CARD = "calc(var(--sx) * 9px) calc(var(--sy) * 9px) 20px var(--sh-d), calc(var(--sx) * -9px) calc(var(--sy) * -9px) 20px var(--sh-l)";
+const INSET = "inset calc(var(--sx) * 5px) calc(var(--sy) * 5px) 10px var(--sh-d), inset calc(var(--sx) * -5px) calc(var(--sy) * -5px) 10px var(--sh-l)";
+const FLAT = "0 0 0 transparent";
+
+class Component extends DCLogic {
+  setLight(x, y) {
+    const el = this._el && this._el.querySelector(".light");
+    if (!el) return;
+    el.style.setProperty("--sx", x.toFixed(3));
+    el.style.setProperty("--sy", y.toFixed(3));
+  }
+  animateLight() {
+    if (this._lraf) return;
+    const step = () => {
+      const c = this._light, t = this._lightT;
+      c.x += (t.x - c.x) * 0.12;
+      c.y += (t.y - c.y) * 0.12;
+      this.setLight(c.x, c.y);
+      if (Math.abs(t.x - c.x) + Math.abs(t.y - c.y) > 0.004) this._lraf = requestAnimationFrame(step);
+      else this._lraf = 0;
+    };
+    this._lraf = requestAnimationFrame(step);
+  }
+  componentDidMount() {
+    this._light = { x: 1, y: 1 };
+    this._lightT = { x: 1, y: 1 };
+    try { this._still = window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { this._still = false; }
+    try {
+      const saved = window.localStorage.getItem("cv-theme-clay");
+      if (saved === "dark" || saved === "light") this.setState({ theme: saved });
+    } catch (e) {}
+    this._tick = () => {
+      let t = "";
+      try { t = new Date().toLocaleTimeString("en-GB", { timeZone: "Europe/Lisbon", hour: "2-digit", minute: "2-digit" }); } catch (e) { t = ""; }
+      if (t !== (this.state || {}).clock) this.setState({ clock: t });
+    };
+    this._tick();
+    this._timer = setInterval(this._tick, 15000);
+  }
+  componentDidUpdate(pp, ps) {
+    const s = this.state || {};
+    if (!ps || ps.active === s.active || !this._el) return;
+    const list = this._el.querySelector("[data-list]");
+    const row = list && list.querySelector('[data-row="' + s.active + '"]');
+    if (!row) return;
+    const top = row.offsetTop, bottom = top + row.offsetHeight;
+    if (top < list.scrollTop || bottom > list.scrollTop + list.clientHeight) list.scrollTo({ top: Math.max(0, top - 24), behavior: "smooth" });
+  }
+  componentWillUnmount() {
+    clearInterval(this._timer);
+    if (this._raf) cancelAnimationFrame(this._raf);
+    if (this._lraf) cancelAnimationFrame(this._lraf);
+  }
+  measure(el) {
+    const vh = el.clientHeight;
+    const base = el.getBoundingClientRect().top;
+    const prog = (sel) => {
+      const n = el.querySelector(sel);
+      if (!n) return 0;
+      const span = Math.max(1, n.offsetHeight - vh);
+      return Math.min(1, Math.max(0, (base - n.getBoundingClientRect().top) / span));
+    };
+    const heroP = Math.round(prog('[data-scene="hero"]') * 100) / 100;
+    const seqP = Math.round(prog('[data-scene="seq"]') * 200) / 200;
+    const active = Math.min(CHAPTERS.length - 1, Math.floor(seqP * CHAPTERS.length));
+    const s = this.state || {};
+    if (heroP !== s.heroP || seqP !== s.seqP || active !== s.active) this.setState({ heroP, seqP, active });
+  }
+  jump(sel, frac) {
+    const el = this._el;
+    if (!el) return false;
+    const n = el.querySelector(sel);
+    if (!n) return false;
+    const top = n.getBoundingClientRect().top - el.getBoundingClientRect().top + el.scrollTop;
+    el.scrollTo({ top: top + frac * Math.max(0, n.offsetHeight - el.clientHeight), behavior: "smooth" });
+    return true;
+  }
+  renderVals() {
+    const s = this.state || {};
+    const punchRaw = this.props.punch ?? "#11656B";
+    const punch = "var(--punch)";
+    const theme = s.theme === "dark" ? "dark" : "light";
+    const tab = s.tab || "story";
+    const view = s.view || "sector";
+    const p = s.heroP || 0;
+    const active = s.active || 0;
+    const N = CHAPTERS.length;
+    const clamp = (v) => Math.min(1, Math.max(0, v));
+    const copyO = clamp((p - 0.2) / 0.45);
+    const depth = Math.round(18 + 10 * p);
+
+    const chapters = CHAPTERS.map((c, i) => ({
+      ...c,
+      num: String(i + 1).padStart(2, "0"),
+      idx: String(i),
+      bigSize: c.big.length > 4 ? "60px" : "88px",
+      hasLink: !!c.link,
+      open: i === active,
+      openPhoto: i === active && !!c.isPhoto,
+      openText: i === active && !c.isPhoto,
+      expanded: i === active ? "true" : "false",
+      cardShadow: i === active ? RAISED_CARD : (i < active ? INSET : FLAT),
+      fg: i === active ? PAL.text : (i < active ? PAL.muted : "var(--body2)"),
+      numFg: i === active ? punch : PAL.muted,
+      size: i === active ? "22px" : "16px",
+      dotBg: i === active ? punch : (i < active ? PAL.terra : PAL.base),
+      dotShadow: i <= active ? "inset 2px 2px 4px rgba(0,0,0,0.18)" : "calc(var(--sx) * 3px) calc(var(--sy) * 3px) 6px var(--sh-d), calc(var(--sx) * -3px) calc(var(--sy) * -3px) 6px var(--sh-l)",
+      pick: () => { if (!this.jump('[data-scene="seq"]', (i + 0.5) / N)) this.setState({ active: i }); }
+    }));
+
+    const yf = yearlyForecast();
+    const key = view === "sector" ? "sec" : "cap";
+    const groups = {};
+    PROJECTS.forEach((pr) => { (groups[pr[key]] = groups[pr[key]] || []).push(pr.n); });
+    const max = Math.max(...Object.values(groups).map((a) => a.length));
+    const bars = Object.entries(groups)
+      .sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]))
+      .map(([label, names]) => {
+        const top = names.length === max;
+        return { label, count: names.length, names: names.join(" · "), w: Math.round((names.length / max) * 100) + "%", color: top ? punch : "linear-gradient(90deg, var(--peach), var(--terra))", text: top ? punch : PAL.sienna };
+      });
+
+    const groupColors = [PAL.sand, PAL.terra, PAL.sienna, punch, PAL.peach, PAL.stone];
+    const stack = STACK.map((g, i) => ({ ...g, color: groupColors[i], count: g.items.length }));
+    const waffle = [];
+    stack.forEach((g) => g.items.forEach((t) => waffle.push({ t: t + " · " + g.name, c: g.color })));
+
+    const on = (yes) => ({ fg: yes ? punch : PAL.muted, shadow: yes ? RAISED : FLAT, pressed: yes ? "true" : "false" });
+    const tS = on(tab === "story"), tN = on(tab === "numbers"), vS = on(view === "sector"), vC = on(view === "cap");
+
+    return {
+      punch,
+      punchRaw,
+      theme,
+      isDark: theme === "dark",
+      isLight: theme !== "dark",
+      darkPressed: theme === "dark" ? "true" : "false",
+      toggleTheme: () => {
+        const next = theme === "dark" ? "light" : "dark";
+        this.setState({ theme: next });
+        try { window.localStorage.setItem("cv-theme-clay", next); } catch (e) {}
+      },
+      onMove: (ev) => {
+        if (this._still || !this._el) return;
+        const r = this._el.getBoundingClientRect();
+        const vx = (r.width / 2 - (ev.clientX - r.left)) / (r.width / 2);
+        const vy = (r.height / 2 - (ev.clientY - r.top)) / (r.height / 2);
+        const cl = (v) => Math.max(-1, Math.min(1.3, v));
+        this._lightT = { x: cl(0.45 + 0.85 * vx), y: cl(0.45 + 0.85 * vy) };
+        this.animateLight();
+      },
+      onLeave: () => { this._lightT = { x: 1, y: 1 }; this.animateLight(); },
+      clock: s.clock || "—",
+      setEl: (el) => { if (el) this._el = el; },
+      onScroll: (e) => {
+        const el = e.currentTarget;
+        this._el = el;
+        if (this._raf) return;
+        this._raf = requestAnimationFrame(() => { this._raf = 0; this.measure(el); });
+      },
+      isStory: tab === "story",
+      isNumbers: tab === "numbers",
+      storyFg: tS.fg,
+      numbersFg: tN.fg,
+      numbersChecked: tab === "numbers" ? "true" : "false",
+      knobX: tab === "numbers" ? "32px" : "0px",
+      toggleTab: () => {
+        if (tab === "numbers") this.setState({ tab: "story", heroP: 0, active: 0, seqP: 0 });
+        else this.setState({ tab: "numbers" });
+        if (this._el) this._el.scrollTop = 0;
+      },
+      nowLoop: NOW.concat(NOW),
+      discT: "translate3d(" + (-p * 24).toFixed(2) + "vw, " + (-p * 14).toFixed(2) + "vh, 0) scale(" + (1 - 0.08 * p).toFixed(3) + ")",
+      nameY: (-p * 22).toFixed(2) + "vh",
+      nameO: clamp(1 - p * 1.8).toFixed(2),
+      discShadow: "calc(var(--sx) * " + depth + "px) calc(var(--sy) * " + depth + "px) " + (depth * 2) + "px var(--sh-d), calc(var(--sx) * -" + depth + "px) calc(var(--sy) * -" + depth + "px) " + (depth * 2) + "px var(--sh-l)",
+      ringOffset: String(Math.round(1294 * (1 - p))),
+      cueO: clamp(1 - p * 4).toFixed(2),
+      copyO: copyO.toFixed(2),
+      copyY: Math.round((1 - copyO) * 40) + "px",
+      chapters,
+      stack,
+      waffle,
+      education: EDUCATION,
+      certs: CERTS,
+      kpis: [
+        { v: "10–18×", l: "faster document throughput over manual handling", s: "Genesis · Dell GB10", color: punch },
+        { v: "6", l: "client AI systems shipped in under a year", s: "Genesis", color: PAL.sienna },
+        { v: "2,000+", l: "pharma products forecast end to end", s: "Capgemini · Generis", color: PAL.sienna },
+        { v: "~13k", l: "Portuguese news items scraped and modeled", s: "Independent research", color: PAL.sienna },
+        { v: "20+", l: "upcoming projects in the Dell partnership", s: "Genesis", color: punch },
+        { v: "20+", l: "water rescues across ten Atlantic summers", s: "ANSLA", color: PAL.sienna }
+      ],
+      ...yf,
+      dots: yf.dots.map((d) => ({ ...d, bg: d.fc ? PAL.base : punch })),
+      bars,
+      bySector: () => this.setState({ view: "sector" }),
+      byCap: () => this.setState({ view: "cap" }),
+      sectorFg: vS.fg, sectorShadow: vS.shadow, sectorPressed: vS.pressed,
+      capFg: vC.fg, capShadow: vC.shadow, capPressed: vC.pressed,
+      gpa: [
+        { l: "BSc Port Mgmt", y: "2015", v: 14, h: "70%", color: "#C8643A", fg: "#FFFFFF" },
+        { l: "MSc Nova", y: "2023", v: 17, h: "85%", color: "#9C4A2A", fg: "#FFFFFF" },
+        { l: "Deep Learning · IST", y: "2025", v: 18, h: "90%", color: punch, fg: "var(--on-punch)" }
+      ],
+      eras: [
+        { l: "Maritime & operations", y: "2012 — 2021", w: "62%", pct: "62%", color: "#9C4A2A", fg: "#FFFFFF" },
+        { l: "The pivot", y: "2021 — 2023", w: "14%", pct: "14%", color: PAL.peach, fg: PAL.text },
+        { l: "Data & AI", y: "2023 — now", w: "24%", pct: "24%", color: punch, fg: "var(--on-punch)" }
+      ],
+      summers: ["2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021"]
+    };
+  }
+}
+</script>
+</body>
+</html>

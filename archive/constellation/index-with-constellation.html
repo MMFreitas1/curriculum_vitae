@@ -1,0 +1,1714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Miguel G.M. Freitas — ML Engineer</title>
+
+<!-- Open Graph / Social preview -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Miguel G.M. Freitas — ML Engineer" />
+<meta property="og:description" content="ML Engineer specialising in machine learning, data engineering, and software development." />
+<meta property="og:url" content="https://mmfreitas1.github.io/curriculum_vitae/" />
+<meta property="og:image" content="https://mmfreitas1.github.io/curriculum_vitae/preview.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<!-- Twitter / X card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Miguel G.M. Freitas — ML Engineer" />
+<meta name="twitter:description" content="ML Engineer specialising in machine learning, data engineering, and software development." />
+<meta name="twitter:image" content="https://mmfreitas1.github.io/curriculum_vitae/preview.png" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:wght@300;400;500&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #0a0a08;
+    --bg2: #111110;
+    --gold: #c9a84c;
+    --gold2: #e8c97a;
+    --cream: #f0ead6;
+    --muted: #6b6860;
+    --line: #2a2920;
+    --accent: #4a7c59;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--cream);
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+
+  /* ── Nav ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.2rem 8vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(10,10,8,0.92) 0%, transparent 100%);
+    backdrop-filter: blur(2px);
+  }
+
+  .nav-logo { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--muted); text-decoration: none; letter-spacing: 0.12em; transition: color 0.3s; }
+  .nav-links a:hover { color: var(--gold); }
+
+  .lang-switcher { display: flex; align-items: center; gap: 0.4rem; }
+  .lang-btn {
+    font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.12em;
+    color: var(--muted); background: none; border: none; cursor: pointer;
+    padding: 0.2rem 0.4rem; transition: color 0.3s; text-transform: uppercase;
+  }
+  .lang-btn:hover { color: var(--gold); }
+  .lang-btn.active { color: var(--gold); border-bottom: 1px solid var(--gold); }
+  .lang-sep { font-family: 'DM Mono', monospace; font-size: 0.55rem; color: var(--line); }
+
+  /* ── Hero ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    padding: 7rem 8vw 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute; right: -10vw; top: 50%; transform: translateY(-50%);
+    width: 60vw; height: 60vw;
+    background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .hero-content { flex: 1; min-width: 0; }
+
+  .hero-tag { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.22em; color: var(--gold); text-transform: uppercase; margin-bottom: 2rem; opacity: 0; animation: fadeUp 0.8s 0.2s forwards; }
+
+  .hero h1 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(3.5rem, 9vw, 8rem); font-weight: 900; line-height: 0.95; letter-spacing: -0.02em; opacity: 0; animation: fadeUp 0.9s 0.4s forwards; }
+  .hero h1 em { font-style: italic; color: var(--gold); display: block; }
+
+  .hero-sub { margin-top: 2.5rem; max-width: 560px; font-size: 1.1rem; color: #a09e96; font-style: italic; line-height: 1.8; opacity: 0; animation: fadeUp 0.9s 0.6s forwards; }
+
+  .hero-meta { margin-top: 3rem; display: flex; gap: 2rem; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.9s 0.8s forwards; }
+  .hero-meta a, .hero-meta span { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--muted); text-decoration: none; letter-spacing: 0.1em; border-bottom: 1px solid var(--line); padding-bottom: 2px; transition: color 0.3s, border-color 0.3s; }
+  .hero-meta a:hover { color: var(--gold); border-color: var(--gold); }
+
+  .scroll-hint { margin-top: 4rem; font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.2em; color: var(--muted); display: flex; align-items: center; gap: 1rem; opacity: 0; animation: fadeUp 1s 1.2s forwards; }
+  .scroll-hint::after { content: ''; display: block; width: 60px; height: 1px; background: var(--muted); }
+
+  /* ── Coin flip photo ── */
+  .hero-photo {
+    flex-shrink: 0;
+    opacity: 0;
+    animation: fadeUp 1s 0.5s forwards;
+    position: relative;
+    z-index: 1;
+  }
+
+  .coin-container {
+    width: 200px;
+    height: 200px;
+    perspective: 900px;
+    cursor: pointer;
+  }
+
+  .coin {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.85s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 50%;
+  }
+
+  .coin-container:hover .coin {
+    transform: rotateY(180deg);
+  }
+
+  .coin-front, .coin-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border: 1.5px solid rgba(201,168,76,0.5);
+    box-shadow: 0 0 40px rgba(201,168,76,0.12), 0 0 0 4px rgba(201,168,76,0.06);
+  }
+
+  .coin-back {
+    transform: rotateY(180deg);
+  }
+
+  .coin-front img, .coin-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* ── Sections ── */
+  section { padding: 6rem 8vw; position: relative; }
+
+  .section-label { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.25em; color: var(--gold); text-transform: uppercase; margin-bottom: 4rem; display: flex; align-items: center; gap: 1.5rem; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+
+  /* ── Timeline ── */
+  .timeline { position: relative; padding-left: clamp(2rem, 5vw, 5rem); }
+  .timeline::before { content: ''; position: absolute; left: 0; top: 0.6rem; bottom: 0; width: 1px; background: linear-gradient(to bottom, var(--gold) 0%, var(--line) 40%, transparent 100%); }
+
+  .tl-item { position: relative; margin-bottom: 5rem; opacity: 0; transform: translateY(30px); transition: opacity 0.7s, transform 0.7s; }
+  .tl-item.visible { opacity: 1; transform: translateY(0); }
+
+  .tl-dot { position: absolute; left: calc(-1 * clamp(2rem, 5vw, 5rem) - 4px); top: 0.5rem; width: 9px; height: 9px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 14px rgba(201,168,76,0.5); }
+  .tl-dot.dim { background: var(--muted); box-shadow: none; }
+  .tl-dot.life { background: #b07c5a; box-shadow: 0 0 10px rgba(176,124,90,0.4); }
+  .tl-dot.green { background: var(--accent); box-shadow: 0 0 12px rgba(74,124,89,0.5); }
+
+  .tl-year { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.15em; color: var(--muted); margin-bottom: 0.6rem; }
+  .tl-company { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; line-height: 1.2; color: var(--cream); margin-bottom: 0.3rem; }
+  .tl-role { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 1.2rem; }
+  .tl-role.life { color: #c9916a; }
+  .tl-role.green { color: var(--accent); }
+
+  .tl-body { color: #9e9c94; font-size: 0.95rem; line-height: 1.8; max-width: 640px; }
+  .tl-body p { margin-bottom: 0.6rem; }
+
+  .tl-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.2rem; }
+  .tl-tag { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.08em; color: var(--accent); border: 1px solid rgba(74,124,89,0.35); padding: 0.2rem 0.7rem; border-radius: 2px; position: relative; overflow: visible; cursor: default; }
+  .tl-tag.warm { color: #b07c5a; border-color: rgba(176,124,90,0.35); }
+  .tl-tag:hover { color: var(--gold2); border-color: var(--gold); }
+  .tl-tag:hover .skill-tip { opacity: 1; }
+
+  .sector-pill { display: inline-block; font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.08em; color: var(--gold2); background: rgba(201,168,76,0.14); border: 1px solid rgba(201,168,76,0.35); padding: 0.15rem 0.55rem; border-radius: 2px; margin-right: 0.45rem; vertical-align: middle; }
+
+  .tl-highlight { background: rgba(201,168,76,0.06); border-left: 2px solid var(--gold); padding: 0.8rem 1.2rem; margin-top: 1rem; font-style: italic; font-size: 0.9rem; color: var(--gold2); }
+  .tl-highlight.warm { background: rgba(176,124,90,0.06); border-left-color: #b07c5a; color: #d4a882; }
+  .tl-highlight[data-pdf]:hover, .tl-highlight[data-secret]:hover { background: rgba(201,168,76,0.14); border-left-color: var(--gold2); box-shadow: inset 0 0 0 1px rgba(201,168,76,0.18); transition: background 0.2s, border-left-color 0.2s, box-shadow 0.2s; }
+
+  .tl-marker { position: relative; margin: -2rem 0 4rem calc(-1 * clamp(2rem, 5vw, 5rem)); padding: 1rem 0 0 clamp(2rem, 5vw, 5rem); border-top: 1px dashed rgba(201,168,76,0.35); max-width: calc(640px + clamp(2rem, 5vw, 5rem)); font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.08em; line-height: 1.7; color: var(--gold2); }
+  .tl-marker::before { content: ''; position: absolute; left: -5px; top: -6px; width: 9px; height: 9px; transform: rotate(45deg); border: 1px solid var(--gold); background: var(--bg); }
+
+  /* ── Tech Stack ── */
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.6rem; }
+
+  .skill-pill {
+    font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.06em;
+    color: var(--muted); border: 1px solid var(--line); padding: 0.45rem 0.8rem;
+    text-align: center; transition: color 0.3s, border-color 0.3s;
+    position: relative; cursor: default;
+  }
+  .skill-pill:hover { color: var(--gold2); border-color: var(--gold); }
+  .skill-pill.creative { color: #7a6550; border-color: rgba(122,101,80,0.35); }
+  .skill-pill.creative:hover { color: #d4a882; border-color: #b07c5a; }
+
+  .skill-tip {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg2);
+    border: 1px solid var(--gold);
+    color: var(--cream);
+    font-size: 0.58rem;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    padding: 0.4rem 0.75rem;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+    z-index: 200;
+    text-align: left;
+    line-height: 1.4;
+  }
+  .skill-tip::after {
+    content: '';
+    position: absolute;
+    top: 100%; left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: var(--gold);
+  }
+  .skill-pill:hover .skill-tip { opacity: 1; }
+
+  /* ── Education ── */
+  .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; }
+
+  .edu-card {
+    border: 1px solid var(--line); padding: 1.8rem;
+    position: relative; opacity: 0; transform: translateY(20px);
+    transition: opacity 0.6s, transform 0.6s, border-color 0.3s;
+    cursor: pointer;
+  }
+  .edu-card.visible { opacity: 1; transform: translateY(0); }
+  .edu-card:hover { border-color: var(--gold); }
+
+  .edu-gpa {
+    position: absolute; bottom: 1.2rem; right: 1.5rem;
+    font-family: 'DM Mono', monospace; font-size: 0.65rem;
+    color: var(--gold); letter-spacing: 0.1em;
+  }
+  .edu-school { font-family: 'DM Mono', monospace; font-size: 0.62rem; color: var(--muted); letter-spacing: 0.1em; margin-bottom: 0.6rem; }
+  .edu-degree { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-style: italic; line-height: 1.3; margin-bottom: 0.4rem; }
+  .edu-years { font-family: 'DM Mono', monospace; font-size: 0.62rem; color: var(--muted); margin-bottom: 2rem; }
+
+  /* ── Certificates ── */
+  .certs-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
+
+  .cert-item {
+    display: flex; align-items: flex-start; gap: 0.8rem;
+    padding: 1rem; border: 1px solid var(--line);
+    transition: border-color 0.3s;
+    cursor: pointer;
+    position: relative;
+  }
+  .cert-item:hover { border-color: rgba(201,168,76,0.4); }
+  .cert-item[data-pdf]:hover { border-color: var(--gold); }
+
+  .cert-dot { width: 5px; height: 5px; background: var(--gold); border-radius: 50%; margin-top: 0.5rem; flex-shrink: 0; }
+  .cert-name { font-size: 0.88rem; color: var(--cream); line-height: 1.3; }
+  .cert-org { font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--muted); letter-spacing: 0.08em; margin-top: 0.2rem; }
+
+  /* ── PDF Floating Preview ── */
+  #pdf-preview-panel {
+    display: none;
+    position: fixed;
+    z-index: 500;
+    background: var(--bg2);
+    border: 1px solid var(--gold);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.7);
+    flex-direction: column;
+    overflow: hidden;
+    width: 340px;
+    max-height: 460px;
+  }
+
+  #pdf-preview-panel embed {
+    width: 100%;
+    height: 380px;
+    border: none;
+    display: block;
+  }
+
+  .pdf-preview-footer {
+    padding: 0.6rem 1rem;
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid var(--line);
+  }
+
+  .pdf-download-btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 0.3rem 0.8rem;
+    border: 1px solid rgba(201,168,76,0.4);
+    transition: background 0.2s, color 0.2s;
+  }
+  .pdf-download-btn:hover { background: rgba(201,168,76,0.1); }
+
+  /* ── Footer ── */
+  footer {
+    padding: 4rem 8vw;
+    border-top: 1px solid var(--line);
+  }
+
+  .footer-bio {
+    max-width: 680px;
+    font-size: 1rem;
+    color: #7a7870;
+    font-style: italic;
+    line-height: 1.9;
+    margin-bottom: 3rem;
+    border-left: 2px solid var(--line);
+    padding-left: 1.5rem;
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .footer-name { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-style: italic; color: var(--gold); }
+  .footer-links { display: flex; gap: 2rem; flex-wrap: wrap; }
+  .footer-links a { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--muted); text-decoration: none; letter-spacing: 0.1em; transition: color 0.3s; }
+  .footer-links a:hover { color: var(--gold); }
+
+  hr.fancy { border: none; height: 1px; background: linear-gradient(to right, transparent, var(--line), transparent); margin: 0 8vw; }
+
+  /* ── Lost cert modal ── */
+  #lost-cert-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 600;
+    background: rgba(10,10,8,0.88);
+    backdrop-filter: blur(6px);
+    align-items: center;
+    justify-content: center;
+  }
+  #lost-cert-modal.open { display: flex; }
+  .lost-cert-box {
+    background: var(--bg2);
+    border: 1px solid var(--gold);
+    padding: 3rem 3.5rem;
+    max-width: 520px;
+    text-align: center;
+    position: relative;
+    animation: fadeUp 0.4s forwards;
+  }
+  .lost-cert-emoji { font-size: 2.4rem; margin-bottom: 1.2rem; display: block; }
+  .lost-cert-msg {
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 1.05rem;
+    font-style: italic;
+    color: #a09e96;
+    line-height: 1.8;
+  }
+  .lost-cert-close {
+    position: absolute;
+    top: 1rem; right: 1.2rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  .lost-cert-close:hover { color: var(--gold); }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+  @media (max-width: 768px) {
+    .hero { flex-direction: column-reverse; gap: 3rem; padding-top: 8rem; }
+    .hero-photo { align-self: flex-end; }
+    .coin-container { width: 140px; height: 140px; }
+    nav .nav-links { display: none; }
+    section { padding: 4rem 6vw; }
+    #pdf-preview-panel { width: 90vw; }
+  }
+
+  /* ════════ Network Constellation tab ════════ */
+  .net-fab {
+    position: fixed; right: 1.6rem; bottom: 1.6rem; z-index: 90;
+    display: flex; align-items: center; gap: 0.6rem;
+    font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--bg); background: linear-gradient(135deg, var(--gold2), var(--gold));
+    border: none; padding: 0.7rem 1.1rem; cursor: pointer;
+    box-shadow: 0 6px 26px rgba(201,168,76,0.32); border-radius: 2px;
+    transition: transform 0.3s, box-shadow 0.3s; }
+  .net-fab:hover { transform: translateY(-2px); box-shadow: 0 10px 34px rgba(201,168,76,0.45); }
+  .net-fab .net-fab-star { font-size: 0.9rem; line-height: 1; }
+  .net-fab.hidden { display: none; }
+
+  #network-view {
+    position: fixed; inset: 0; z-index: 1000; display: none; flex-direction: column;
+    background: radial-gradient(circle at 50% 40%, rgba(201,168,76,0.06), transparent 62%), var(--bg);
+    opacity: 0; transition: opacity 0.5s cubic-bezier(0.4,0,0.2,1); }
+  #network-view.open { display: flex; opacity: 1; }
+
+  .net-topbar {
+    flex-shrink: 0; display: flex; align-items: center; justify-content: space-between;
+    gap: 1.5rem; padding: 1.1rem clamp(1.2rem, 4vw, 3rem);
+    border-bottom: 1px solid var(--line); position: relative; z-index: 3; }
+  .net-head { display: flex; flex-direction: column; gap: 0.25rem; min-width: 0; }
+  .net-title { font-family: 'Playfair Display', serif; font-size: clamp(1.2rem, 2.4vw, 1.8rem); font-style: italic; color: var(--cream); line-height: 1; }
+  .net-subtitle { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+  .net-lenses { display: flex; gap: 0.4rem; flex-wrap: wrap; justify-content: center; }
+  .net-lens-btn {
+    font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--muted); background: none; border: 1px solid var(--line); padding: 0.45rem 0.9rem;
+    cursor: pointer; transition: color 0.25s, border-color 0.25s, background 0.25s; }
+  .net-lens-btn:hover { color: var(--gold2); border-color: rgba(201,168,76,0.4); }
+  .net-lens-btn.active { color: var(--bg); background: var(--gold); border-color: var(--gold); }
+  .net-close {
+    flex-shrink: 0; font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--muted); background: none; border: 1px solid var(--line);
+    padding: 0.45rem 0.85rem; cursor: pointer; transition: color 0.25s, border-color 0.25s; }
+  .net-close:hover { color: var(--gold); border-color: var(--gold); }
+
+  .net-canvas { position: relative; flex: 1; overflow: hidden; touch-action: none; user-select: none; -webkit-user-select: none; }
+  .net-globe { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); border-radius: 50%; pointer-events: none; z-index: 0;
+    background: radial-gradient(circle at 42% 36%, rgba(201,168,76,0.10) 0%, rgba(201,168,76,0.035) 48%, rgba(201,168,76,0.012) 66%, transparent 74%);
+    box-shadow: inset 0 0 90px rgba(201,168,76,0.09), inset 0 0 28px rgba(232,201,122,0.06); }
+  .net-grid, .net-edges { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  .net-grid { z-index: 0; }
+  .net-grid line { stroke: rgba(201,168,76,0.13); stroke-width: 1; }
+  .net-edges { z-index: 1; }
+  .net-edges line, .net-edges polyline { fill: none; stroke: rgba(201,168,76,0.18); stroke-width: 1; transition: stroke 0.3s, stroke-width 0.3s; }
+  .net-edges line.lit, .net-edges polyline.lit { stroke: rgba(232,201,122,0.82); stroke-width: 1.7; }
+  .net-edges line.dim, .net-edges polyline.dim { stroke: rgba(201,168,76,0.05); }
+
+  .net-node {
+    position: absolute; transform: translate(-50%,-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+    cursor: pointer; user-select: none; transition: opacity 0.18s; }
+  .net-dot {
+    border-radius: 50%; position: relative; flex-shrink: 0;
+    transition: transform 0.25s, box-shadow 0.25s; }
+  .net-node.exp .net-dot { width: 13px; height: 13px; box-shadow: 0 0 8px rgba(201,168,76,0.25); }
+  .net-node.hub .net-dot { width: 17px; height: 17px; background: transparent; border: 1.5px solid currentColor; }
+  .net-node.hub .net-dot::after { content: ''; position: absolute; inset: 4px; border-radius: 50%; background: currentColor; opacity: 0.5; }
+  .net-node.center .net-dot {
+    width: 88px; height: 88px;
+    background: radial-gradient(circle at 38% 32%, var(--gold2), var(--gold) 62%, #9c7f33);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 0 1px rgba(201,168,76,0.5), 0 0 60px rgba(201,168,76,0.3); }
+  .net-center-label { font-family: 'Playfair Display', serif; font-style: italic; font-size: 0.95rem; color: var(--bg); text-align: center; line-height: 1; }
+  .net-node.hub:hover .net-dot, .net-node.hub.lit .net-dot { transform: scale(1.22); box-shadow: 0 0 22px rgba(232,201,122,0.5); }
+  .net-node.exp:hover .net-dot, .net-node.exp.lit .net-dot { transform: scale(1.35); box-shadow: 0 0 18px rgba(232,201,122,0.55); }
+  .net-node.exp.expand .net-dot { transform: scale(2.1); box-shadow: 0 0 26px rgba(232,201,122,0.6); }
+
+  .net-label {
+    font-family: 'DM Mono', monospace; letter-spacing: 0.06em; text-align: center;
+    white-space: nowrap; pointer-events: none; transition: color 0.25s, opacity 0.25s; }
+  .net-node.exp .net-label { font-size: 0.58rem; color: #8a877e; opacity: 0; }
+  .net-node.hub .net-label { font-size: 0.64rem; color: var(--cream); text-transform: uppercase; letter-spacing: 0.1em; }
+  .net-node:hover .net-label, .net-node.lit .net-label { color: var(--gold2); }
+  .net-node.exp.expand .net-label { opacity: 0; }
+
+  .net-desc {
+    position: absolute; top: calc(100% + 13px); left: 50%; transform: translateX(-50%) translateY(4px);
+    width: 168px; background: linear-gradient(180deg, rgba(26,26,24,0.97), rgba(17,17,16,0.97));
+    border: 1px solid rgba(201,168,76,0.32); border-radius: 3px; padding: 0.6rem 0.7rem;
+    display: flex; flex-direction: column; gap: 0.22rem; text-align: center; pointer-events: none;
+    opacity: 0; transition: opacity 0.28s, transform 0.28s; z-index: 6; }
+  .net-desc strong { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700; font-size: 0.74rem; color: var(--cream); line-height: 1.15; }
+  .net-desc span { font-family: 'DM Mono', monospace; font-size: 0.55rem; letter-spacing: 0.03em; color: var(--gold2); line-height: 1.4; }
+  .net-node.exp.expand .net-desc { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  .net-hint {
+    position: absolute; left: 50%; bottom: 1.1rem; transform: translateX(-50%);
+    font-family: 'DM Mono', monospace; font-size: 0.58rem; letter-spacing: 0.12em;
+    color: var(--muted); text-align: center; pointer-events: none; z-index: 2; }
+  .net-legend {
+    position: absolute; left: clamp(1rem,3vw,2rem); top: 1.1rem; display: flex; flex-direction: column; gap: 0.4rem;
+    pointer-events: none; z-index: 2; }
+  .net-legend-row { display: flex; align-items: center; gap: 0.5rem; font-family: 'DM Mono', monospace; font-size: 0.56rem; letter-spacing: 0.08em; color: var(--muted); }
+  .net-legend-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+  .net-panel {
+    position: absolute; top: 0; right: 0; height: 100%; width: min(360px, 86vw);
+    background: linear-gradient(to left, var(--bg2), rgba(17,17,16,0.96));
+    border-left: 1px solid var(--gold); padding: 2rem 1.8rem; z-index: 4;
+    transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+    display: flex; flex-direction: column; gap: 1rem; overflow-y: auto; }
+  .net-panel.open { transform: translateX(0); }
+  .net-panel-close { align-self: flex-end; font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.12em; color: var(--muted); background: none; border: none; cursor: pointer; }
+  .net-panel-close:hover { color: var(--gold); }
+  .net-panel-kicker { font-family: 'DM Mono', monospace; font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; gap: 0.5rem; }
+  .net-panel-kicker .net-legend-dot { width: 9px; height: 9px; }
+  .net-panel-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; line-height: 1.15; color: var(--cream); }
+  .net-panel-meta { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.08em; color: var(--muted); }
+  .net-panel-body { font-size: 0.92rem; line-height: 1.7; color: #9e9c94; }
+  .net-panel-sub { font-family: 'DM Mono', monospace; font-size: 0.56rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-top: 0.4rem; }
+  .net-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .net-chip { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.04em; color: var(--gold2); border: 1px solid rgba(201,168,76,0.3); padding: 0.25rem 0.6rem; cursor: pointer; transition: border-color 0.2s, color 0.2s; }
+  .net-chip:hover { border-color: var(--gold); color: var(--cream); }
+  .net-jump {
+    margin-top: auto; font-family: 'DM Mono', monospace; font-size: 0.64rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--gold); background: rgba(201,168,76,0.08); border: 1px solid var(--gold); padding: 0.7rem 1rem;
+    cursor: pointer; text-align: center; transition: background 0.25s, color 0.25s; }
+  .net-jump:hover { background: var(--gold); color: var(--bg); }
+
+  @keyframes cvFlash {
+    0% { box-shadow: 0 0 0 0 rgba(201,168,76,0); }
+    12% { box-shadow: 0 0 0 2px rgba(201,168,76,0.9), 0 0 34px rgba(201,168,76,0.4); }
+    100% { box-shadow: 0 0 0 0 rgba(201,168,76,0); }
+  }
+  .cv-flash { animation: cvFlash 2.2s ease; border-radius: 4px; }
+  body.net-open { overflow: hidden; }
+
+  @media (max-width: 720px) {
+    .net-topbar { flex-wrap: wrap; gap: 0.8rem; }
+    .net-lenses { order: 3; width: 100%; }
+    .net-legend { display: none; }
+  }
+
+  @media print {
+    /* Hide interactive / screen-only elements */
+    nav, .scroll-hint, #pdf-preview-panel, #lost-cert-modal, #network-view, .net-fab,
+    body::before, .coin-back { display: none !important; }
+
+    /* Reset body for print */
+    body { font-size: 11pt; line-height: 1.6; background: #0a0a08; color: #f0ead6; }
+
+    /* Make all animated elements visible */
+    .tl-item, .edu-card { opacity: 1 !important; transform: none !important; }
+
+    /* Compact hero */
+    .hero {
+      padding: 2rem 8vw 1.5rem;
+      min-height: unset;
+      flex-direction: row;
+      align-items: center;
+      gap: 2rem;
+      page-break-after: avoid;
+    }
+    .hero-content h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+    .hero-photo { display: none; }
+    .hero-meta a { color: var(--muted); }
+
+    /* Sections */
+    section { padding: 1.5rem 8vw; }
+    hr.fancy { margin: 0.5rem 8vw; }
+
+    /* Timeline */
+    .tl-item { break-inside: avoid; margin-bottom: 1.2rem; }
+    .tl-highlight { break-inside: avoid; }
+
+    /* Education grid — single column */
+    .edu-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+    .edu-card { break-inside: avoid; padding: 1rem 1.2rem; }
+
+    /* Skills — tighter wrap */
+    .skills-grid { gap: 0.4rem; }
+    .skill-pill { font-size: 0.6rem; padding: 0.25rem 0.6rem; }
+    .skill-tip { display: none !important; }
+
+    /* Certs */
+    .certs-list { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+    .cert-item { padding: 0.6rem 0.8rem; }
+
+    /* Footer */
+    footer { padding: 1.5rem 8vw; }
+    .footer-links a { color: var(--muted); }
+
+    /* Page breaks */
+    #education, #stack, #certs { break-before: auto; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">MGM Freitas</span>
+  <ul class="nav-links">
+    <li><a href="#journey" data-i18n="nav-journey">Journey</a></li>
+    <li><a href="#education" data-i18n="nav-education">Education</a></li>
+    <li><a href="#stack" data-i18n="nav-stack">Stack</a></li>
+    <li><a href="#certs" data-i18n="nav-certs">Certs</a></li>
+    <li><a href="#" data-net-open data-i18n="nav-network">Network</a></li>
+  </ul>
+  <div class="lang-switcher">
+    <button class="lang-btn active" data-lang="en">EN</button>
+    <span class="lang-sep">·</span>
+    <button class="lang-btn" data-lang="pt">PT</button>
+    <span class="lang-sep">·</span>
+    <button class="lang-btn" data-lang="es">ES</button>
+  </div>
+</nav>
+
+<!-- Network constellation tab -->
+<button class="net-fab" data-net-open><span class="net-fab-star">✦</span><span data-i18n="net-fab">Constellation</span></button>
+<div id="network-view" aria-hidden="true">
+  <div class="net-topbar">
+    <div class="net-head">
+      <div class="net-title" data-i18n="net-title">The Constellation</div>
+      <div class="net-subtitle" data-i18n="net-subtitle">One career, many lenses</div>
+    </div>
+    <div class="net-lenses" id="net-lenses"></div>
+    <button class="net-close" id="net-close" data-i18n="net-close">Close ✕</button>
+  </div>
+  <div class="net-canvas" id="net-canvas">
+    <div class="net-globe" id="net-globe"></div>
+    <svg class="net-grid" id="net-grid"></svg>
+    <svg class="net-edges" id="net-edges"></svg>
+    <div class="net-legend" id="net-legend"></div>
+    <div class="net-hint" data-i18n="net-hint">Hover a category · click a node</div>
+    <div class="net-panel" id="net-panel"></div>
+  </div>
+</div>
+
+<!-- Lost cert modal -->
+<div id="lost-cert-modal">
+  <div class="lost-cert-box">
+    <button class="lost-cert-close" id="lost-cert-close">ESC</button>
+    <span class="lost-cert-emoji" id="secret-modal-emoji">☕️</span>
+    <p class="lost-cert-msg" id="secret-modal-msg"></p>
+  </div>
+</div>
+
+<!-- PDF floating preview panel -->
+<div id="pdf-preview-panel">
+  <embed src="" type="application/pdf"/>
+  <div class="pdf-preview-footer">
+    <a href="#" class="pdf-download-btn" download data-i18n="pdf-download">Download</a>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-tag" data-i18n="hero-tag">Porto, Portugal · AI / ML Engineer · Est. 2012</div>
+    <h1>Miguel<br><em>G.M. Freitas</em></h1>
+    <p class="hero-sub" data-i18n="hero-sub">From managing Mediterranean shipping lanes to architecting AI systems — a story of radical reinvention, scientific rigor, and a relentless drive to build things that matter. Shot through with salt water, coffee, and light.</p>
+    <div class="hero-meta">
+      <a href="mailto:miguel_freitas_12@hotmail.com">Email</a>
+      <a href="https://github.com/MMFreitas1" target="_blank">Github</a>
+      <a href="https://www.linkedin.com/in/miguel-freitas-770205157/" target="_blank">LinkedIn</a>
+      <a href="https://www.instagram.com/freitasfazinsta/" target="_blank">Instagram</a>
+    </div>
+    <div class="scroll-hint" data-i18n="scroll-hint">SCROLL TO EXPLORE</div>
+  </div>
+
+  <div class="hero-photo">
+    <div class="coin-container">
+      <div class="coin">
+        <div class="coin-front">
+          <img src="resources/IMG_0589.jpg" alt="Miguel G.M. Freitas"/>
+        </div>
+        <div class="coin-back">
+          <img src="resources/surf_wow.jpg" alt="Miguel surfing"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="fancy"/>
+
+<section id="journey">
+  <div class="section-label" data-i18n="section-journey">The Journey</div>
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">2012 — 2015</div>
+      <div class="tl-company">Escola Superior Náutica</div>
+      <div class="tl-role">BSc · Port Management</div>
+      <div class="tl-body">
+        <p data-i18n="tl-bsc-body">The beginning. Three years immersed in the practical realities of port and vessel operations. Studying supply chains, logistics operations, terminal management principles, and operations research laid the foundations of what would become my professional path for years to come.</p>
+      </div>
+      <div class="tl-tags"><span class="tl-tag">Port Operations</span><span class="tl-tag">Vessel Management</span><span class="tl-tag">Logistics</span><span class="tl-tag">Organization</span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot life"></div>
+      <div class="tl-year">2012 — 2022 · Seasonal</div>
+      <div class="tl-company">Resgate, ANSLA</div>
+      <div class="tl-role life">Lifeguard</div>
+      <div class="tl-body">
+        <p data-i18n="tl-life-body">Ten summers on the Atlantic. Prevented countless situations with drowning potential and performed more than 20 water rescues in rough seas. Rapid, irreversible decisions became second nature — as did staying calm under stress.</p>
+        <div class="tl-highlight warm" data-i18n="tl-life-hl">100+ preventions. 20+ rescues. Every summer a different lesson in human nature and split-second judgment.</div>
+      </div>
+      <div class="tl-tags"><span class="tl-tag warm">Crisis Response</span><span class="tl-tag warm">Situational Awareness</span><span class="tl-tag warm">Water Safety</span><span class="tl-tag warm">Emergency Response</span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot dim"></div>
+      <div class="tl-year">2015 — 2021</div>
+      <div class="tl-company">Mediterranean Shipping Company</div>
+      <div class="tl-role">Shipping Agent</div>
+      <div class="tl-body">
+        <p data-i18n="tl-msc-body">Six years embedded in the operational heartbeat of one of the world's largest container carriers. Working 8h to 72h shifts across a 24/7 operation, I ensured container ship port stays were optimized — reducing turnaround costs by 10% through resourcefulness and last-minute problem-solving. Day-to-day responsibilities spanned crew changes, spare parts sourcing, bunker operations, and the full suite of logistic and crew support services, all around the clock.</p>
+        <div class="tl-highlight" data-pdf="resources/MSC Academy certificate.pdf" style="cursor:pointer"><span data-i18n="tl-msc-hl">Selected as 1 of 300+ employees for an international soft-skills development programme in Latvia.</span></div>
+      </div>
+      <div class="tl-tags"><span class="tl-tag">Port Operations</span><span class="tl-tag">Crew Management</span><span class="tl-tag">Bunker Operations</span><span class="tl-tag">Stakeholder Management</span><span class="tl-tag">Reporting</span><span class="tl-tag">24/7 Operations</span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">2021 — 2023</div>
+      <div class="tl-company">Universidade Nova de Lisboa</div>
+      <div class="tl-role">MSc · Impact Entrepreneurship & Innovation · GPA 17</div>
+      <div class="tl-body">
+        <p data-i18n="tl-nova-body">The pivot — the moment everything changed. Midway through, a subject called <em>Data Science for Innovation and Impact</em> completely redirected my search for a meaningful career. From then on, I spent six months learning programming, statistics, and data science from scratch — entirely self-taught, alongside the master's. My thesis, <em>"How to build a company with a scientific breakthrough"</em>, ran in parallel with this self-directed education, which culminated in earning a Data Science Associate certificate before graduation.</p>
+      </div>
+      <div class="tl-tags"><span class="tl-tag">Data Science</span><span class="tl-tag">Entrepreneurship</span><span class="tl-tag">Innovation</span><span class="tl-tag">Self-Teaching</span><span class="tl-tag">Python</span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">Jul 2023 — Nov 2025</div>
+      <div class="tl-company">Capgemini</div>
+      <div class="tl-role">Data Scientist · Machine Learning Engineer</div>
+      <div class="tl-body">
+        <p><span class="sector-pill">Life-sciences · Generis</span> <span data-i18n="tl-cap-lifesci">Led a +2,000-product pharmaceutical forecasting initiative. Built an end-to-end Python pipeline (Oracle DB extraction, cleaning, iterative GBR+SARIMAX training) with batching and parallelization — generating six-month forecasts and achieving production-ready results for over 50% of products. A JSON-driven orchestration script automated the full run in two days total (on the compute I was given), with robust error handling, automated fine-tuning per product, and hyperparameter registration for full reproducibility.</span></p>
+        <p><span class="sector-pill">Banking · BNA</span> <span data-i18n="tl-cap-banking">Reviewed legacy orchestration software reporting flows — from XMLs to database operations — and drafted a modernized Oracle DB approach. Designed, maintained, and modernized ETL flows using PL/SQL, refactoring stored procedures and optimizing complex queries.</span></p>
+        <p><span class="sector-pill">Public Sector · IPQ</span> <span data-i18n="tl-cap-pub">Implemented an Azure API-based computer-vision and machine translation pipeline that automatically extracts textual content from policy documents and translates it in a domain-specific context — achieving a 98% success rate.</span></p>
+        <p><span class="sector-pill">Automotive · Mockup</span> <span data-i18n="tl-cap-auto">Developed a price-forecast segmented regression model applied creatively to an internship-exam challenge — achieving 90% explained variance with marginal errors across all vehicle segments.</span></p>
+        <div class="tl-highlight" data-i18n="tl-cap-auto-hl">My problem-solving approach, paired with my artistic skills, is what made me stand out in the end-of-internship evaluation.</div>
+      </div>
+      <div class="tl-tags"><span class="tl-tag">Python</span><span class="tl-tag">Time Series</span><span class="tl-tag">GBR · SARIMAX</span><span class="tl-tag">ETL · PL/SQL</span><span class="tl-tag">Oracle DB</span><span class="tl-tag">Computer Vision</span><span class="tl-tag">Azure</span><span class="tl-tag">Regression</span><span class="tl-tag">MLOps</span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot dim"></div>
+      <div class="tl-year">Jan 2024 — Jan 2025</div>
+      <div class="tl-company">Self-Motivated Research</div>
+      <div class="tl-role">Independent Data Scientist</div>
+      <div class="tl-body">
+        <p data-i18n="tl-research-body">Curiosity-driven NLP research. Built an automated web-scraping pipeline in Python collecting ~13,000 Portuguese news items (36 articles/day over a full year). Engineered end-to-end NLP workflows — tokenization, lemmatization, vectorization, sentiment scoring, and topic modeling — storing results in a lightweight ChromaDB database. Compiled and delivered a comprehensive presentation tailored to both technical and non-technical stakeholders, mapping every insight directly back to the original research questions.</p>
+      </div>
+      <div class="tl-tags"><span class="tl-tag">NLP</span><span class="tl-tag">Web Scraping</span><span class="tl-tag">ChromaDB</span><span class="tl-tag">Sentiment Analysis</span><span class="tl-tag">Topic Modeling</span><span class="tl-tag">Python</span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">Mar 2025 — May 2025</div>
+      <div class="tl-company">Goparity</div>
+      <div class="tl-role">ML Engineer · Freelancer</div>
+      <div class="tl-body">
+        <p data-i18n="tl-goparity-body">Acted as an external consultant and data scientist. Designed a customer-segmentation solution recommending and implementing K-prototypes clustering to surface 5 distinct actionable personas across the entire active customer base. Built an end-to-end Python pipeline (Jupyter / VS Code) to ingest, clean, and transform records — experimenting across multiple cluster configurations to validate results and bring the client the strongest analysis.</p>
+        <div class="tl-highlight" data-i18n="tl-goparity-hl" data-secret="goparity" style="cursor:pointer">Authored an 80-page deliverable: methodology, data-processing workflows, 5 validated cluster profiles, and recommended next steps for marketing, operations, and risk strategies.</div>
+      </div>
+      <div class="tl-tags"><span class="tl-tag">K-Prototypes</span><span class="tl-tag">Clustering</span><span class="tl-tag">Regression</span><span class="tl-tag">Segmentation</span><span class="tl-tag">Python</span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot life"></div>
+      <div class="tl-year">Mar 2025 — Present</div>
+      <div class="tl-company">Freelance Photography</div>
+      <div class="tl-role life">Photographer · Visual Artist</div>
+      <div class="tl-body">
+        <p data-i18n="tl-photo-body">Self-taught practice in composition, light, and visual storytelling. Post-processing with Adobe Lightroom and Photoshop. It's the same work as with data — applying formulas at the pixel level, only instead of tables of variables, there's an RGB tensor with values from 0 to 255.</p>
+        <p data-i18n="tl-photo-workshop">Conducted an astrophotography workshop for Câmara Municipal de Sines — covering night-sky composition, long-exposure technique, and an introduction to post-processing.</p>
+      </div>
+      <div class="tl-tags"><span class="tl-tag warm">Composition</span><span class="tl-tag warm">Adobe Lightroom</span><span class="tl-tag warm">Adobe Photoshop</span><span class="tl-tag warm">Visual Storytelling</span><span class="tl-tag warm">Astrophotography</span><span class="tl-tag warm">Workshop</span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">May 2025 — Jun 2025</div>
+      <div class="tl-company">Instituto Superior Técnico</div>
+      <div class="tl-role">Deep Learning Specialization · GPA 18</div>
+      <div class="tl-body">
+        <p data-i18n="tl-ist-body">Deep learning training at one of Portugal's top technical universities. Neural networks, sequence modeling, and computer vision — the highest GPA of my academic career.</p>
+      </div>
+      <div class="tl-tags"><span class="tl-tag">Deep Learning</span><span class="tl-tag">PyTorch</span><span class="tl-tag">Computer Vision</span><span class="tl-tag">Sequence Modeling</span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot life"></div>
+      <div class="tl-year">Sep 2025 — Present · Sundays</div>
+      <div class="tl-company">Combi Coffee Roasters</div>
+      <div class="tl-role life">Front of House · Specialty Coffee</div>
+      <div class="tl-body">
+        <p data-i18n="tl-coffee-body">One day a week, intentionally analog. I serve tables at a specialty roastery in Porto — a deliberate break in the week to step away from screens. Coffee, people, soul.</p>
+      </div>
+      <div class="tl-tags"><span class="tl-tag warm">Hospitality</span><span class="tl-tag warm">Specialty Coffee</span><span class="tl-tag warm">Customer Experience</span></div>
+    </div>
+
+    <div class="tl-marker"><span data-i18n="tl-ai-marker">Adopted AI pair-programming from this point on — every project earlier on this timeline was written by hand.</span></div>
+
+    <div class="tl-item">
+      <div class="tl-dot green"></div>
+      <div class="tl-year">Dec 2025 — Present</div>
+      <div class="tl-company">Genesis Digital Solutions</div>
+      <div class="tl-role green">AI Engineer</div>
+      <div class="tl-body">
+        <p><span class="sector-pill">Finance · MoneyFlix</span> <span data-i18n="tl-genesis-fin">Architected a RAG chatbot backend on Microsoft Azure, intelligently orchestrating data across MySQL databases and real-time HTML web scraping — implementing semantic search and live querying to deliver contextual answers as an investment-strategy educator within an app.</span></p>
+        <p><span class="sector-pill">Marketing · Havas</span> <span data-i18n="tl-genesis-mkt">Implemented client-specific business rules in Dataform/BigQuery pipelines — customizing data transformations to technical requirements and handling metric filtering. Diagnosed and resolved data quality issues across 40+ forms end-to-end: analyzing multi-table dependencies — the thread that exposed grain mismatches — and applying SQL logic to ensure solution integrity. Built an on-prem pilot on the client's Dell GB10 machine to extract social-media publishing specs from multiple websites — web-scraping logic ran on Azure while passive governance runs stayed on the machine, which polled down the payload and served it through a custom AI workbench built to host the client's future projects.</span></p>
+        <p><span class="sector-pill">Public Sector · ProcurifAI</span> <span data-i18n="tl-genesis-pubsec2">Designed a public-contracting platform from POC to MVP on Azure, connecting public entities to private providers across a dual-platform, three-user-role, multi-tenant architecture — six services per platform, each carrying a persistent JSON payload forwarding the state of its predecessor. GPT-5.4 handles legal reasoning and contract generation from a law corpus and deterministic templates; GPT-5.1 mini routes lighter tasks across a turn-based multi-chat interface. Non-sequential phase purchases are guided through natural language interaction, deterministically fulfilling the required JSON payload, with full production observability via Langfuse and Sentry.</span></p>
+        <p><span class="sector-pill">Public Sector · Dell</span> <span data-i18n="tl-genesis-pubsec1">Deployed a document-processing POC on a Dell GB10 machine (Ubuntu, ARMx64) to absorb post-storm Kristin subsidy-application volume across parishes in Pombal and Leiria. Built an ingestion pipeline combining image preprocessing, Tesseract OCR, and Qwen VLMs within a Langchain framework — the application classifies damage types and verifies document consistency against legal requirements and Portuguese State reimbursement budgets. JSON payloads and deterministic templates auto-populate inventory spreadsheets and generate legally-reasoned email drafts for parish technical staff; ThreadPooling parallelization delivered 10–18× faster throughput over manual handling — a result that converted the initial POC into a formal services contract.</span></p>
+        <p><span class="sector-pill">Project Management · Shift Global</span> <span data-i18n="tl-genesis-pm">Developed a Teams-installable chatbot that triggers when a project manager's meeting ends — extracting and classifying RAID items from transcripts to guide project management. Integrated it with Microsoft Power Platform and Graph API, with read/write access to Dataverse tables, giving the agent faster, structural knowledge of each project.</span></p>
+        <p><span class="sector-pill">Logistics · Transfim</span> <span data-i18n="tl-genesis-log">Conceived the company's digital modernization by delivering a portal for multiple user groups secured with OAuth — integrated with Graph API for meeting management, TOConline for invoicing, and Frotcom for live vehicle positions and tachograph data, respecting worker rights and GDPR. Delivered a database that serves as a single source of truth for analytics and as the knowledge base for an agent that handles administrative work — reacting to notifications and assisting with fleet management.</span></p>
+        <div class="tl-highlight" data-i18n="tl-genesis-hl">Through my skills, mirroring Genesis's rigour, I solidified trust with client Dell — whose satisfaction earned a partnership of 20+ upcoming projects.</div>
+      </div>
+      <div class="tl-tags"><span class="tl-tag">RAG</span><span class="tl-tag">LLM</span><span class="tl-tag">Azure</span><span class="tl-tag">BigQuery</span><span class="tl-tag">Dataform</span><span class="tl-tag">Chatbots</span><span class="tl-tag">MySQL</span><span class="tl-tag">Semantic Search</span><span class="tl-tag">FastAPI</span><span class="tl-tag">Multi-Agent</span><span class="tl-tag">Langfuse</span><span class="tl-tag">Sentry</span><span class="tl-tag">GaleneAI</span><span class="tl-tag">GWEN</span><span class="tl-tag">Tesseract</span><span class="tl-tag">ThreadPooling</span><span class="tl-tag">OpenAI</span><span class="tl-tag">Claude</span><span class="tl-tag">Langchain</span><span class="tl-tag">Agentic Architectures</span><span class="tl-tag">Ruff</span><span class="tl-tag">Mypy</span><span class="tl-tag">CI/CD</span><span class="tl-tag">HTML</span><span class="tl-tag">GitHub</span><span class="tl-tag">Azure Foundry</span><span class="tl-tag">Graph API</span><span class="tl-tag">OAuth</span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot dim"></div>
+      <div class="tl-year">2026 — Present</div>
+      <div class="tl-company">MF Concepts</div>
+      <div class="tl-role">Founder · Independent AI Lab</div>
+      <div class="tl-body">
+        <p data-i18n="tl-mfc-body">My lab. With this new era of AI accelerating, I've devoted all my resources, experience, and ideas to it. This is where apps are born to solve everyday problems — and where I build the confidence to develop increasingly complex systems, local or in the cloud. I see myself as a craftsman of new ideas, and I intend to build my own technology.</p>
+      </div>
+      <div class="tl-tags"><span class="tl-tag">Product Building</span><span class="tl-tag">Local AI</span><span class="tl-tag">Cloud</span></div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="fancy"/>
+
+<section id="education">
+  <div class="section-label" data-i18n="section-education">Education</div>
+  <div class="edu-grid">
+
+    <div class="edu-card"
+         data-pdf="resources/Deep Learning Specialization course certificate.pdf"
+         tabindex="0">
+      <div class="edu-school">INSTITUTO SUPERIOR TÉCNICO</div>
+      <div class="edu-degree" data-i18n="edu-ist-degree">Deep Learning Specialization</div>
+      <div class="edu-years">May 2025 — Jun 2025</div>
+      <span class="edu-gpa">GPA 18</span>
+    </div>
+
+    <div class="edu-card"
+         data-pdf="resources/Impact Entrepreneurship and Innovation Master degree certificate.pdf"
+         tabindex="0">
+      <div class="edu-school">UNIVERSIDADE NOVA DE LISBOA</div>
+      <div class="edu-degree" data-i18n="edu-nova-degree">MSc Impact Entrepreneurship &amp; Innovation</div>
+      <div class="edu-years">Sep 2021 — Feb 2023</div>
+      <span class="edu-gpa">GPA 17</span>
+    </div>
+
+    <div class="edu-card"
+         data-pdf="resources/Port Management Bachelor degree certificate.pdf"
+         tabindex="0">
+      <div class="edu-school">ESCOLA SUPERIOR NÁUTICA INFANTE D. HENRIQUE</div>
+      <div class="edu-degree" data-i18n="edu-esn-degree">BSc Port Management</div>
+      <div class="edu-years">Sep 2012 — Jul 2015</div>
+      <span class="edu-gpa">GPA 14</span>
+    </div>
+
+  </div>
+</section>
+
+<hr class="fancy"/>
+
+<section id="stack">
+  <div class="section-label" data-i18n="section-stack">Tech Stack</div>
+  <div class="skills-grid">
+    <div class="skill-pill">Python<span class="skill-tip">Primary language for all data and ML work</span></div>
+    <div class="skill-pill">SQL / PL·SQL<span class="skill-tip">Relational querying and stored procedure engineering</span></div>
+    <div class="skill-pill">PyTorch<span class="skill-tip">Deep learning framework for neural network research</span></div>
+    <div class="skill-pill">Scikit-learn<span class="skill-tip">Classical ML — from regression to clustering</span></div>
+    <div class="skill-pill">Pandas<span class="skill-tip">DataFrame-based data wrangling and analysis</span></div>
+    <div class="skill-pill">NumPy<span class="skill-tip">Numerical computing and array operations</span></div>
+    <div class="skill-pill">Matplotlib<span class="skill-tip">Static plotting and chart generation</span></div>
+    <div class="skill-pill">Seaborn<span class="skill-tip">Statistical visualizations built on Matplotlib</span></div>
+    <div class="skill-pill">Plotly<span class="skill-tip">Interactive dashboards and visual analytics</span></div>
+    <div class="skill-pill">Statsmodels<span class="skill-tip">Statistical modeling and time series analysis</span></div>
+    <div class="skill-pill">NLTK<span class="skill-tip">Classical NLP toolkit for text processing</span></div>
+    <div class="skill-pill">spaCy<span class="skill-tip">Industrial-strength NLP for production pipelines</span></div>
+    <div class="skill-pill">OpenAI<span class="skill-tip">LLM integration and generative AI application development</span></div>
+    <div class="skill-pill">ChromaDB<span class="skill-tip">Vector database for semantic search and RAG</span></div>
+    <div class="skill-pill">Microsoft Azure<span class="skill-tip">Cloud platform for AI and data services</span></div>
+    <div class="skill-pill">Oracle DB<span class="skill-tip">Enterprise relational database management</span></div>
+    <div class="skill-pill">GCP · BigQuery<span class="skill-tip">Serverless analytics at Google Cloud scale</span></div>
+    <div class="skill-pill">Dataform<span class="skill-tip">SQL-based data transformation in BigQuery</span></div>
+    <div class="skill-pill">MySQL<span class="skill-tip">Open-source relational database management</span></div>
+    <div class="skill-pill">ETL<span class="skill-tip">Extract, transform, load — data pipeline engineering</span></div>
+    <div class="skill-pill">MLOps<span class="skill-tip">Operationalizing ML models from dev to production</span></div>
+    <div class="skill-pill">MLFlow<span class="skill-tip">Experiment tracking and model lifecycle management</span></div>
+    <div class="skill-pill">Docker<span class="skill-tip">Container-based deployment and environment isolation</span></div>
+    <div class="skill-pill">DVC<span class="skill-tip">Data version control for reproducible ML experiments</span></div>
+    <div class="skill-pill">Great Expectations<span class="skill-tip">Data validation and quality assurance</span></div>
+    <div class="skill-pill">FastAPI<span class="skill-tip">High-performance Python web framework for APIs</span></div>
+    <div class="skill-pill">REST API<span class="skill-tip">HTTP-based service design and integration</span></div>
+    <div class="skill-pill">RAG · LLM<span class="skill-tip">Retrieval-augmented generation with large language models</span></div>
+    <div class="skill-pill">Chatbots<span class="skill-tip">Conversational AI design and implementation</span></div>
+    <div class="skill-pill">GitHub Actions<span class="skill-tip">CI/CD automation and workflow orchestration</span></div>
+    <div class="skill-pill">Shell<span class="skill-tip">Bash scripting and command-line automation</span></div>
+    <div class="skill-pill">Jupyter<span class="skill-tip">Interactive computing and exploratory analysis</span></div>
+    <div class="skill-pill">Deep Learning<span class="skill-tip">Neural networks — CNNs, RNNs, Transformers</span></div>
+    <div class="skill-pill">Computer Vision<span class="skill-tip">Image recognition and visual AI pipelines</span></div>
+    <div class="skill-pill">NLP<span class="skill-tip">Natural language processing from tokens to semantics</span></div>
+    <div class="skill-pill">Time Series<span class="skill-tip">Forecasting and temporal pattern analysis</span></div>
+    <div class="skill-pill">Clustering<span class="skill-tip">Unsupervised learning for data segmentation</span></div>
+    <div class="skill-pill">Ensembles<span class="skill-tip">Boosting, bagging, and model combination methods</span></div>
+    <div class="skill-pill">Web Scraping<span class="skill-tip">Automated data extraction from online sources</span></div>
+    <div class="skill-pill">Langchain<span class="skill-tip">LLM orchestration framework for agent and RAG pipelines</span></div>
+    <div class="skill-pill">Multi-Agent<span class="skill-tip">Orchestrating multiple AI agents in coordinated pipelines</span></div>
+    <div class="skill-pill">Langfuse<span class="skill-tip">LLM observability — tracing and prompt management in production</span></div>
+    <div class="skill-pill">Sentry<span class="skill-tip">Error monitoring and performance tracking in production</span></div>
+    <div class="skill-pill">GaleneAI<span class="skill-tip">On-prem AI inference platform for edge deployments</span></div>
+    <div class="skill-pill">Qwen<span class="skill-tip">Vision-language model for image understanding and classification</span></div>
+    <div class="skill-pill">Tesseract<span class="skill-tip">Open-source OCR engine for text extraction from images</span></div>
+    <div class="skill-pill">ThreadPooling<span class="skill-tip">Python concurrent.futures-based parallel task execution</span></div>
+    <div class="skill-pill">Claude<span class="skill-tip">Anthropic's frontier AI model for intelligent applications</span></div>
+    <div class="skill-pill">Agentic Architectures<span class="skill-tip">Autonomous AI systems that plan, reason, and act across steps</span></div>
+    <div class="skill-pill">Ruff<span class="skill-tip">Extremely fast Python linter and code formatter</span></div>
+    <div class="skill-pill">Mypy<span class="skill-tip">Static type checking for Python codebases</span></div>
+    <div class="skill-pill">CI/CD<span class="skill-tip">Continuous integration and deployment pipeline automation</span></div>
+    <div class="skill-pill">HTML<span class="skill-tip">Semantic web markup and front-end structure</span></div>
+    <div class="skill-pill">GitHub<span class="skill-tip">Version control, collaboration, and code hosting</span></div>
+    <div class="skill-pill">Azure Foundry<span class="skill-tip">Enterprise AI model deployment and management on Azure</span></div>
+    <div class="skill-pill creative">Adobe Lightroom<span class="skill-tip">Professional photo editing and color grading</span></div>
+    <div class="skill-pill creative">Adobe Photoshop<span class="skill-tip">Advanced image manipulation and compositing</span></div>
+  </div>
+</section>
+
+<hr class="fancy"/>
+
+<section id="certs">
+  <div class="section-label" data-i18n="section-certs">Certificates</div>
+  <div class="certs-list">
+    <div class="cert-item" data-secret="copilot" tabindex="0">
+      <div class="cert-dot"></div>
+      <div><div class="cert-name">GitHub Copilot</div><div class="cert-org">GITHUB · 2025</div></div>
+    </div>
+    <div class="cert-item" data-pdf="resources/MOOCs datascience_kddX Certificate _ MOOC Técnico.pdf" tabindex="0">
+      <div class="cert-dot"></div>
+      <div><div class="cert-name">Data Science: KDD Process</div><div class="cert-org">INSTITUTO SUPERIOR TÉCNICO · 2024</div></div>
+    </div>
+    <div class="cert-item" data-pdf="resources/AI900 - AI Fundamentals.pdf" tabindex="0">
+      <div class="cert-dot"></div>
+      <div><div class="cert-name">Microsoft Azure AI-900</div><div class="cert-org">MICROSOFT · 2023</div></div>
+    </div>
+    <div class="cert-item" data-pdf="resources/DP900 - Data Fundamentals.pdf" tabindex="0">
+      <div class="cert-dot"></div>
+      <div><div class="cert-name">Microsoft Azure D-900</div><div class="cert-org">MICROSOFT · 2023</div></div>
+    </div>
+    <div class="cert-item" data-pdf="resources/Professional Scrum Master I.pdf" tabindex="0">
+      <div class="cert-dot"></div>
+      <div><div class="cert-name">PSM I — Scrum Master</div><div class="cert-org">SCRUM.ORG · 2023</div></div>
+    </div>
+    <div class="cert-item" data-pdf="resources/DataCamp - Data Scientist Associate certification - DSA0011556109506.pdf" tabindex="0">
+      <div class="cert-dot"></div>
+      <div><div class="cert-name">Associate Data Scientist</div><div class="cert-org">DATACAMP · 2023</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p class="footer-bio" data-i18n="footer-bio">With never-ending curiosity, I believe that my soul-purpose is firmly anchored in discovery. Deeply fascinated with the natural world, I do not wait for others to show me the way. From my profession to my hobbies, I learned that degrees are just tools or means to an end — it's through the self-taught path that I've been gathering a set of resources that lead me to build unique creations.</p>
+  <div class="footer-bottom">
+    <div class="footer-name">Miguel G.M. Freitas</div>
+    <div class="footer-links">
+      <a href="mailto:miguel_freitas_12@hotmail.com">Email</a>
+      <a href="https://github.com/MMFreitas1" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/miguel-freitas-770205157/" target="_blank">LinkedIn</a>
+      <a href="https://www.instagram.com/freitasfazinsta/" target="_blank">Instagram</a>
+      <a href="tel:+351969324093">+351 969 324 093</a>
+      <span style="font-family:'DM Mono',monospace;font-size:0.68rem;color:var(--muted)">Porto, Portugal</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ── Scroll reveal ── */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.tl-item, .edu-card').forEach(el => observer.observe(el));
+  document.querySelectorAll('.edu-card').forEach((card, i) => { card.style.transitionDelay = `${i * 0.12}s`; });
+
+  /* ── PDF Preview ── */
+  const panel = document.getElementById('pdf-preview-panel');
+  const panelEmbed = panel.querySelector('embed');
+  const panelDownload = panel.querySelector('.pdf-download-btn');
+  let hideTimer = null;
+
+  function showPanel(el) {
+    const pdf = el.dataset.pdf;
+    if (!pdf) return;
+    clearTimeout(hideTimer);
+    panelEmbed.src = pdf;
+    panelDownload.href = pdf;
+    panel.style.display = 'flex';
+    positionPanel(el);
+  }
+
+  function positionPanel(el) {
+    const rect = el.getBoundingClientRect();
+    const pw = 340;
+    const ph = 460;
+    let left = rect.left + window.scrollX;
+    let top = rect.bottom + window.scrollY + 12;
+
+    if (left + pw > window.innerWidth - 16) left = window.innerWidth - pw - 16;
+    if (left < 8) left = 8;
+    if (top + ph > window.scrollY + window.innerHeight - 16) {
+      top = rect.top + window.scrollY - ph - 12;
+    }
+    panel.style.left = left + 'px';
+    panel.style.top = top + 'px';
+  }
+
+  function hidePanel() {
+    hideTimer = setTimeout(() => { panel.style.display = 'none'; panelEmbed.src = ''; }, 180);
+  }
+
+  document.querySelectorAll('.edu-card[data-pdf], .cert-item[data-pdf], .tl-highlight[data-pdf]').forEach(el => {
+    el.addEventListener('mouseenter', () => showPanel(el));
+    el.addEventListener('mouseleave', hidePanel);
+    el.addEventListener('click', () => { if (el.dataset.pdf) window.open(el.dataset.pdf, '_blank'); });
+  });
+
+  panel.addEventListener('mouseenter', () => clearTimeout(hideTimer));
+  panel.addEventListener('mouseleave', hidePanel);
+
+  /* ── Secret modal ── */
+  const lostModal = document.getElementById('lost-cert-modal');
+  const secretModalMsg = document.getElementById('secret-modal-msg');
+  let currentSecret = null;
+
+  function openSecretModal(key) {
+    currentSecret = key;
+    updateSecretModalContent();
+    lostModal.classList.add('open');
+  }
+
+  function updateSecretModalContent() {
+    if (!currentSecret) return;
+    const t = translations[currentLang];
+    secretModalMsg.innerHTML = t['secret-' + currentSecret + '-msg'] || '';
+  }
+
+  document.getElementById('lost-cert-close').addEventListener('click', () => { lostModal.classList.remove('open'); currentSecret = null; });
+  lostModal.addEventListener('click', e => { if (e.target === lostModal) { lostModal.classList.remove('open'); currentSecret = null; } });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') { lostModal.classList.remove('open'); currentSecret = null; } });
+
+  document.querySelectorAll('[data-secret]').forEach(el => {
+    el.addEventListener('click', () => openSecretModal(el.dataset.secret));
+  });
+
+  /* ── Skill tips on timeline tags ── */
+  const SKILL_TIPS = {
+    'Python':             'Primary language for all data and ML work',
+    'SQL / PL·SQL':       'Relational querying and stored procedure engineering',
+    'PyTorch':            'Deep learning framework for neural network research',
+    'Scikit-learn':       'Classical ML — from regression to clustering',
+    'Pandas':             'DataFrame-based data wrangling and analysis',
+    'NumPy':              'Numerical computing and array operations',
+    'Matplotlib':         'Static plotting and chart generation',
+    'Seaborn':            'Statistical visualizations built on Matplotlib',
+    'Plotly':             'Interactive dashboards and visual analytics',
+    'Statsmodels':        'Statistical modeling and time series analysis',
+    'NLTK':               'Classical NLP toolkit for text processing',
+    'spaCy':              'Industrial-strength NLP for production pipelines',
+    'OpenAI API':         'LLM integration for generative AI applications',
+    'ChromaDB':           'Vector database for semantic search and RAG',
+    'Microsoft Azure':    'Cloud platform for AI and data services',
+    'Oracle DB':          'Enterprise relational database management',
+    'GCP · BigQuery':     'Serverless analytics at Google Cloud scale',
+    'Dataform':           'SQL-based data transformation in BigQuery',
+    'MySQL':              'Open-source relational database management',
+    'ETL':                'Extract, transform, load — data pipeline engineering',
+    'MLOps':              'Operationalizing ML models from dev to production',
+    'MLFlow':             'Experiment tracking and model lifecycle management',
+    'Docker':             'Container-based deployment and environment isolation',
+    'DVC':                'Data version control for reproducible ML experiments',
+    'Great Expectations': 'Data validation and quality assurance',
+    'FastAPI':            'High-performance Python web framework for APIs',
+    'REST API':           'HTTP-based service design and integration',
+    'RAG · LLM':          'Retrieval-augmented generation with large language models',
+    'Chatbots':           'Conversational AI design and implementation',
+    'GitHub Actions':     'CI/CD automation and workflow orchestration',
+    'Shell':              'Bash scripting and command-line automation',
+    'Jupyter':            'Interactive computing and exploratory analysis',
+    'Deep Learning':      'Neural networks — CNNs, RNNs, Transformers',
+    'Computer Vision':    'Image recognition and visual AI pipelines',
+    'NLP':                'Natural language processing from tokens to semantics',
+    'Time Series':        'Forecasting and temporal pattern analysis',
+    'Clustering':         'Unsupervised learning for data segmentation',
+    'Ensembles':          'Boosting, bagging, and model combination methods',
+    'Web Scraping':       'Automated data extraction from online sources',
+    'Adobe Lightroom':    'Professional photo editing and color grading',
+    'Adobe Photoshop':    'Advanced image manipulation and compositing',
+    'ETL · PL/SQL':       'Stored procedure modernization and query optimization',
+    'GBR · SARIMAX':      'Gradient boosting + seasonal ARIMA for forecasting',
+    'Azure':              'Cloud platform for AI and data services',
+    'BigQuery':           'Serverless analytics at Google Cloud scale',
+    'RAG':                'Retrieval-augmented generation pipeline design',
+    'LLM':                'Large language model integration and orchestration',
+    'Semantic Search':    'Embedding-based similarity search over vector stores',
+    'Sentiment Analysis': 'Scoring emotional polarity from text at scale',
+    'Topic Modeling':     'Unsupervised discovery of latent themes in corpora',
+    'K-Prototypes':       'Clustering for mixed numerical and categorical data',
+    'Regression':         'Supervised modeling of continuous output variables',
+    'Segmentation':       'Partitioning data into meaningful behavioral groups',
+    'Sequence Modeling':  'RNNs, LSTMs, and Transformers for sequential data',
+    'Multi-Agent':        'Orchestrating multiple AI agents in coordinated pipelines',
+    'Langfuse':           'LLM observability — tracing and prompt management in production',
+    'Sentry':             'Error monitoring and performance tracking in production',
+    'GaleneAI':           'On-prem AI inference platform for edge deployments',
+    'Qwen':               'Vision-language model for image understanding and classification',
+    'Tesseract':          'Open-source OCR engine for text extraction from images',
+    'ThreadPooling':      'Python concurrent.futures-based parallel task execution',
+    'Langchain':          'LLM orchestration framework for agent and RAG pipelines',
+    'OpenAI':             'LLM integration and generative AI application development',
+    'Claude':             'Anthropic\'s frontier AI model for intelligent applications',
+    'Agentic Architectures': 'Autonomous AI systems that plan, reason, and act across steps',
+    'Ruff':               'Extremely fast Python linter and code formatter',
+    'Mypy':               'Static type checking for Python codebases',
+    'CI/CD':              'Continuous integration and deployment pipeline automation',
+    'HTML':               'Semantic web markup and front-end structure',
+    'GitHub':             'Version control, collaboration, and code hosting',
+    'Azure Foundry':      'Enterprise AI model deployment and management on Azure',
+    'Astrophotography':   'Night-sky photography — long exposure, composition, and light capture',
+    'Workshop':           'Public teaching and knowledge transfer',
+  };
+
+  document.querySelectorAll('.tl-tag').forEach(tag => {
+    const text = tag.textContent.trim();
+    const tip = SKILL_TIPS[text];
+    if (tip) {
+      const span = document.createElement('span');
+      span.className = 'skill-tip';
+      span.textContent = tip;
+      tag.appendChild(span);
+    }
+  });
+
+  /* ── i18n ── */
+  const translations = {
+    en: {
+      /* nav / structure */
+      'nav-journey':      'Journey',
+      'nav-education':    'Education',
+      'nav-stack':        'Stack',
+      'nav-certs':        'Certs',
+      'hero-tag':         'Porto, Portugal · AI / ML Engineer · Est. 2012',
+      'hero-sub':         'From managing Mediterranean shipping lanes to architecting AI systems — a story of radical reinvention, scientific rigor, and a relentless drive to build things that matter. Shot through with salt water, coffee, and light.',
+      'scroll-hint':      'SCROLL TO EXPLORE',
+      'section-journey':  'The Journey',
+      'section-education':'Education',
+      'section-stack':    'Tech Stack',
+      'section-certs':    'Certificates',
+      'footer-bio':       "With never-ending curiosity, I believe that my soul-purpose is firmly anchored in discovery. Deeply fascinated with the natural world, I do not wait for others to show me the way. From my profession to my hobbies, I learned that degrees are just tools or means to an end — it's through the self-taught path that I've been gathering a set of resources that lead me to build unique creations.",
+      'pdf-download':     'Download',
+      /* timeline */
+      'tl-bsc-body':      'The beginning. Three years immersed in the practical realities of port and vessel operations. Studying supply chains, logistics operations, terminal management principles, and operations research laid the foundations of what would become my professional path for years to come.',
+      'tl-life-body':     'Ten summers on the Atlantic. Prevented countless situations with drowning potential and performed more than 20 water rescues in rough seas. Rapid, irreversible decisions became second nature — as did staying calm under stress.',
+      'tl-life-hl':       '100+ preventions. 20+ rescues. Every summer a different lesson in human nature and split-second judgment.',
+      'tl-msc-body':      'Six years embedded in the operational heartbeat of one of the world\'s largest container carriers. Working 8h to 72h shifts across a 24/7 operation, I ensured container ship port stays were optimized — reducing turnaround costs by 10% through resourcefulness and last-minute problem-solving. Day-to-day responsibilities spanned crew changes, spare parts sourcing, bunker operations, and the full suite of logistic and crew support services, all around the clock.',
+      'tl-msc-hl':        'Selected as 1 of 300+ employees for an international soft-skills development programme in Latvia.',
+      'tl-nova-body':     'The pivot — the moment everything changed. Midway through, a subject called <em>Data Science for Innovation and Impact</em> completely redirected my search for a meaningful career. From then on, I spent six months learning programming, statistics, and data science from scratch — entirely self-taught, alongside the master\'s. My thesis, <em>"How to build a company with a scientific breakthrough"</em>, ran in parallel with this self-directed education, which culminated in earning a Data Science Associate certificate before graduation.',
+      'tl-cap-lifesci':   'Led a +2,000-product pharmaceutical forecasting initiative. Built an end-to-end Python pipeline (Oracle DB extraction, cleaning, iterative GBR+SARIMAX training) with batching and parallelization — generating six-month forecasts and achieving production-ready results for over 50% of products. A JSON-driven orchestration script automated the full run in two days total (on the compute I was given), with robust error handling, automated fine-tuning per product, and hyperparameter registration for full reproducibility.',
+      'tl-cap-banking':   'Reviewed legacy orchestration software reporting flows — from XMLs to database operations — and drafted a modernized Oracle DB approach. Designed, maintained, and modernized ETL flows using PL/SQL, refactoring stored procedures and optimizing complex queries.',
+      'tl-cap-pub':       'Implemented an Azure API-based computer-vision and machine translation pipeline that automatically extracts textual content from policy documents and translates it in a domain-specific context — achieving a 98% success rate.',
+      'tl-cap-auto':      'Developed a price-forecast segmented regression model applied creatively to an internship-exam challenge — achieving 90% explained variance with marginal errors across all vehicle segments.',
+      'tl-cap-auto-hl':    'My problem-solving approach, paired with my artistic skills, is what made me stand out in the end-of-internship evaluation.',
+      'tl-research-body': 'Curiosity-driven NLP research. Built an automated web-scraping pipeline in Python collecting ~13,000 Portuguese news items (36 articles/day over a full year). Engineered end-to-end NLP workflows — tokenization, lemmatization, vectorization, sentiment scoring, and topic modeling — storing results in a lightweight ChromaDB database. Compiled and delivered a comprehensive presentation tailored to both technical and non-technical stakeholders, mapping every insight directly back to the original research questions.',
+      'tl-goparity-body': 'Acted as an external consultant and data scientist. Designed a customer-segmentation solution recommending and implementing K-prototypes clustering to surface 5 distinct actionable personas across the entire active customer base. Built an end-to-end Python pipeline (Jupyter / VS Code) to ingest, clean, and transform records — experimenting across multiple cluster configurations to validate results and bring the client the strongest analysis.',
+      'tl-goparity-hl':   'Authored an 80-page deliverable: methodology, data-processing workflows, 5 validated cluster profiles, and recommended next steps for marketing, operations, and risk strategies.',
+      'tl-photo-body':    'Self-taught practice in composition, light, and visual storytelling. Post-processing with Adobe Lightroom and Photoshop. It\'s the same work as with data — applying formulas at the pixel level, only instead of tables of variables, there\'s an RGB tensor with values from 0 to 255.',
+      'tl-photo-workshop': 'Conducted an astrophotography workshop for Câmara Municipal de Sines — covering night-sky composition, long-exposure technique, and an introduction to post-processing.',
+      'tl-ist-body':      "Deep learning training at one of Portugal's top technical universities. Neural networks, sequence modeling, and computer vision — the highest GPA of my academic career.",
+      'tl-coffee-body':   'One day a week, intentionally analog. I serve tables at a specialty roastery in Porto — a deliberate break in the week to step away from screens. Coffee, people, soul.',
+      'tl-ai-marker':      'Adopted AI pair-programming from this point on — every project earlier on this timeline was written by hand.',
+      'tl-genesis-fin':   'Architected a RAG chatbot backend on Microsoft Azure, intelligently orchestrating data across MySQL databases and real-time HTML web scraping — implementing semantic search and live querying to deliver contextual answers as an investment-strategy educator within an app.',
+      'tl-genesis-mkt':   'Implemented client-specific business rules in Dataform/BigQuery pipelines — customizing data transformations to technical requirements and handling metric filtering. Diagnosed and resolved data quality issues across 40+ forms end-to-end: analyzing multi-table dependencies — the thread that exposed grain mismatches — and applying SQL logic to ensure solution integrity. Built an on-prem pilot on the client\'s Dell GB10 machine to extract social-media publishing specs from multiple websites — web-scraping logic ran on Azure while passive governance runs stayed on the machine, which polled down the payload and served it through a custom AI workbench built to host the client\'s future projects.',
+      'tl-genesis-hl':    'Through my skills, mirroring Genesis\'s rigour, I solidified trust with client Dell — whose satisfaction earned a partnership of 20+ upcoming projects.',
+      'tl-mfc-body':       'My lab. With this new era of AI accelerating, I\'ve devoted all my resources, experience, and ideas to it. This is where apps are born to solve everyday problems — and where I build the confidence to develop increasingly complex systems, local or in the cloud. I see myself as a craftsman of new ideas, and I intend to build my own technology.',
+      'tl-genesis-pubsec2': 'Designed a public-contracting platform from POC to MVP on Azure, connecting public entities to private providers across a dual-platform, three-user-role, multi-tenant architecture — six services per platform, each carrying a persistent JSON payload forwarding the state of its predecessor. GPT-5.4 handles legal reasoning and contract generation from a law corpus and deterministic templates; GPT-5.1 mini routes lighter tasks across a turn-based multi-chat interface. Non-sequential phase purchases are guided through natural language interaction, deterministically fulfilling the required JSON payload, with full production observability via Langfuse and Sentry.',
+      'tl-genesis-pubsec1': 'Deployed a document-processing POC on a Dell GB10 machine (Ubuntu, ARMx64) to absorb post-storm Kristin subsidy-application volume across parishes in Pombal and Leiria. Built an ingestion pipeline combining image preprocessing, Tesseract OCR, and Qwen VLMs within a Langchain framework — the application classifies damage types and verifies document consistency against legal requirements and Portuguese State reimbursement budgets. JSON payloads and deterministic templates auto-populate inventory spreadsheets and generate legally-reasoned email drafts for parish technical staff; ThreadPooling parallelization delivered 10–18× faster throughput over manual handling — a result that converted the initial POC into a formal services contract.',
+      'tl-genesis-pm':     'Developed a Teams-installable chatbot that triggers when a project manager\'s meeting ends — extracting and classifying RAID items from transcripts to guide project management. Integrated it with Microsoft Power Platform and Graph API, with read/write access to Dataverse tables, giving the agent faster, structural knowledge of each project.',
+      'tl-genesis-log':    'Conceived the company\'s digital modernization by delivering a portal for multiple user groups secured with OAuth — integrated with Graph API for meeting management, TOConline for invoicing, and Frotcom for live vehicle positions and tachograph data, respecting worker rights and GDPR. Delivered a database that serves as a single source of truth for analytics and as the knowledge base for an agent that handles administrative work — reacting to notifications and assisting with fleet management.',
+      /* education */
+      'edu-ist-degree':   'Deep Learning Specialization',
+      'edu-nova-degree':  'MSc Impact Entrepreneurship &amp; Innovation',
+      'edu-esn-degree':   'BSc Port Management',
+      /* secret modals */
+      'secret-copilot-msg':  "Ups... I lost access to the email of the company I used to work for, hence I lost the certificate, but hey... there are more suitable pair-programming AIs anyways... 🤷‍♂️",
+      'secret-goparity-msg': "What? I'm not going to show the report... It was part of the NDA ☕️",
+    },
+
+    pt: {
+      /* nav / structure */
+      'nav-journey':      'Percurso',
+      'nav-education':    'Formação',
+      'nav-stack':        'Tecnologias',
+      'nav-certs':        'Certificações',
+      'hero-tag':         'Porto, Portugal · Engenheiro de IA / ML · desde 2012',
+      'hero-sub':         'De gerir rotas de contentores no Mediterrâneo a arquitetar sistemas de inteligência artificial — uma história de reinvenção radical, rigor científico e uma vontade inabalável de construir o que realmente importa. Com água salgada, café e luz.',
+      'scroll-hint':      'EXPLORAR',
+      'section-journey':  'O Percurso',
+      'section-education':'Formação',
+      'section-stack':    'Competências Técnicas',
+      'section-certs':    'Certificações',
+      'footer-bio':       'Com uma curiosidade que não tem fim, acredito que o meu propósito está firmemente ancorado em descoberta. Profundamente fascinado pelo mundo natural, não espero que os outros me mostrem o caminho. Da profissão aos passatempos, aprendi que os títulos académicos são apenas meios para um fim, pois é através do caminho autodidata que tenho colecionado um conjunto de recursos que me levam a desenvolver criações únicas.',
+      'pdf-download':     'Descarregar',
+      /* timeline */
+      'tl-bsc-body':      'O princípio. Três anos mergulhados nas realidades práticas das operações portuárias e de embarcações. Foi através do estudo de cadeias de abastecimento, operações logísticas, princípios de gestão de terminais e investigação operacional que foram lançados os fundamentos daquilo que haveria de ser a minha escolha profissional nos próximos anos.',
+      'tl-life-body':     'Dez verões no Atlântico. Prevenidas incontáveis situações com potencial de afogamento e realizados mais de 20 resgates aquáticos em mar violento. Decisões rápidas e irreversíveis tornaram-se segunda natureza, bem como reação calma sob stress.',
+      'tl-life-hl':       '100+ prevenções. 20+ resgates. Cada verão, uma lição diferente sobre a natureza humana e o julgamento em frações de segundo.',
+      'tl-msc-body':      'Seis anos no coração operacional de um dos maiores transportadores de contentores do mundo. A trabalhar em turnos de 8h a 72h numa operação 24/7, assegurei a otimização das estadias dos navios em porto, reduzindo os custos de rotação em 10% através da capacidade de improviso e da resolução de problemas de última hora. As responsabilidades diárias abrangiam mudanças de tripulação, aprovisionamento de peças sobressalentes, operações de abastecimento e um conjunto completo de serviços logísticos e de apoio à tripulação, sempre disponíveis.',
+      'tl-msc-hl':        'Selecionado entre 1 de mais de 300 colaboradores para um programa internacional de desenvolvimento de competências na Letónia.',
+      'tl-nova-body':     'A viragem, o momento em que tudo mudou. A meio do percurso, uma cadeira chamada <em>Data Science for Innovation and Impact</em> redirecionou por completo a minha busca por uma carreira de significado. Desde então, passei seis meses a aprender programação, estatística e ciência de dados do zero, de forma totalmente autodidata, em paralelo com o mestrado. A minha tese, <em>"Como construir uma empresa com uma descoberta científica"</em>, decorreu em simultâneo com esta aprendizagem, culminando com a obtenção de um certificado de Cientista de Dados antes de terminar o curso.',
+      'tl-cap-lifesci':   'Liderei uma iniciativa de previsão farmacêutica para mais de 2.000 produtos. Construí uma pipeline Python end-to-end (extração Oracle DB, limpeza, treino iterativo GBR+SARIMAX) com batching e paralelização, gerando previsões de seis meses e atingindo resultados prontos para produção em mais de 50% dos produtos. Um script de orquestração em JSON automatizou as execuções num total de dois dias (com a computação que me foi fornecida), com tratamento robusto de erros, fine-tuning automático por produto e registo de hiperparâmetros para plena reprodutibilidade.',
+      'tl-cap-banking':   'Revi os fluxos de reporting de software de orquestração legacy, de XMLs a operações de base de dados e elaborei uma abordagem modernizada em Oracle DB. Concebi, mantive e modernizei fluxos ETL em PL/SQL, fazendo o refactoring de procedimentos armazenados e otimização de queries complexas.',
+      'tl-cap-pub':       'Implementei uma pipeline de visão computacional e tradução automática baseada na API Azure, que extrai automaticamente conteúdo textual de documentos de políticas e o traduz num contexto específico do domínio, atingindo uma taxa de sucesso de 98%.',
+      'tl-cap-auto':      'Desenvolvi um modelo de regressão segmentada para previsão de preços, aplicado de forma criativa a um desafio de exame de estágio, atingindo 90% de variância explicada com erros marginais em todos os segmentos de veículos.',
+      'tl-cap-auto-hl':    'Foi a minha abordagem à resolução do problema, aliada às minhas capacidades artísticas, que me fez destacar na avaliação de final de estágio.',
+      'tl-research-body': 'Investigação orientada pela curiosidade em NLP. Construí uma pipeline automatizada de web scraping em Python, recolhendo ~13.000 notícias portuguesas (36 artigos/dia ao longo de um ano completo). Desenvolvi fluxos NLP end-to-end; tokenização, lematização, vetorização, análise de sentimentos e modelação de tópicos, armazenando os resultados numa base de dados ChromaDB. Compilei e apresentei uma exposição abrangente, adaptada a públicos técnicos e não técnicos, mapeando cada insight diretamente às questões de investigação originais.',
+      'tl-goparity-body': 'Atuei como consultor externo e cientista de dados. Concebi uma solução de segmentação de clientes, recomendando e implementando o algoritmo K-prototypes para identificar 5 personas acionáveis distintas na totalidade da base de clientes ativos. Construí uma pipeline Python end-to-end (Jupyter / VS Code) para ingestão, limpeza e transformação de dados, experimentando múltiplas configurações de clusters para validar os resultados e trazer a melhor análise para o cliente.',
+      'tl-goparity-hl':   'Elaborei um relatório final de 80 páginas: metodologia, fluxos de processamento de dados, 5 perfis de clusters validados e recomendações para as estratégias de marketing, operações e risco.',
+      'tl-photo-body':    'Prática autodidata em composição, luz e narrativa visual. Pós-processamento com Adobe Lightroom e Photoshop. Acaba por ser o mesmo trabalho com dados, de aplicação de fórmulas ao pixel, só que em vez de tabelas com variáveis, existe um tensor RGB com valores do 0 ao 255.',
+      'tl-photo-workshop': 'Conduzi um workshop de astrofotografia para a Câmara Municipal de Sines, abordando composição de céu noturno, técnica de longa exposição e uma introdução ao pós-processamento.',
+      'tl-ist-body':      'Formação em deep learning numa das melhores universidades técnicas de Portugal. Redes neuronais, modelação de sequências e visão computacional — o melhor GPA de toda a carreira académica.',
+      'tl-coffee-body':   'Um dia por semana, intencionalmente analógico, sirvo às mesas numa torrefadora especializada na cidade do Porto, uma pausa deliberada na semana para me abstrair dos ecrãs. Café, pessoas, alma.',
+      'tl-ai-marker':      'Adotei a programação em par com IA a partir daqui — todos os projetos anteriores nesta cronologia foram escritos à mão.',
+      'tl-genesis-fin':   'Arquitetei o backend de um chatbot RAG em Microsoft Azure, com orquestração inteligente de dados, entre bases de dados MySQL e web scraping HTML em tempo real, implementando pesquisa semântica e capacidades de consulta em direto para fornecer respostas contextualizadas, ao que iria servir como educador de estratégia de investimentos numa aplicação.',
+      'tl-genesis-mkt':   'Implementei regras de negócio específicas por cliente em pipelines Dataform/BigQuery, personalizando transformações de dados segundo requisitos técnicos e tratando a filtragem de métricas. Diagnostiquei e resolvi problemas de qualidade de dados em mais de 40 formulários end-to-end: analisando dependências entre múltiplas tabelas — que serviram de fio condutor para identificar inconsistências de granularidade — e aplicando lógica SQL para garantir a integridade da solução. Construí um piloto para extrair informação de diversos sites sobre o formato de specs de publicação de conteúdo em redes sociais, on-prem, usando a máquina Dell GB10 do cliente. Toda a lógica de web scraping era feita em Azure, ao passo que as execuções passivas de governance ficavam na máquina. O payload era descarregado via polling através da máquina e disponibilizado num AI workbench feito à medida do cliente, para acomodar futuros projetos.',
+      'tl-genesis-hl':    'Através das minhas competências, espelhando o rigor da Genesis, consegui solidificar a confiança com o cliente Dell, cuja satisfação rendeu uma parceria com mais de 20 projetos a realizar.',
+      'tl-mfc-body':       'O meu laboratório. Com a aceleração desta nova era da IA, acabei por lhe consagrar todos os meus recursos, experiência e ideias. Aqui nascem aplicações que visam resolver problemas comuns. É aqui que ganho confiança para desenvolver sistemas cada vez mais complexos, locais ou na cloud. Vejo-me como artesão de novas ideias e tenciono desenvolver a minha própria tecnologia.',
+      'tl-genesis-pubsec2': 'Desenhei uma plataforma de contratação pública de POC a MVP, em Azure, ligando entidades públicas a fornecedores privados numa arquitetura multi-tenant de duas plataformas, três perfis de utilizador e seis serviços por plataforma. Cada serviço com um JSON payload persistente que propaga o estado do seu predecessor. O GPT-5.4 trata do raciocínio jurídico e da geração de contratos a partir de um corpus legal e templates determinísticos; o GPT-5.1 mini faz o routing de tarefas mais leves numa interface multi-chat por turnos. A aquisição de fases não consecutivas é guiada por interação em linguagem natural, preenchendo deterministicamente o JSON payload, com observabilidade em produção via Langfuse e Sentry.',
+      'tl-genesis-pubsec1': 'Implementei um POC de processamento documental numa máquina Dell GB10 (Ubuntu, ARMx64) para absorver o volume de candidaturas a subsídios pós-tempestade Kristin nas freguesias portuguesas de Pombal e Leiria. Construí uma pipeline de ingestão com pré-processamento de imagem, OCR Tesseract e modelos VLM da Qwen em framework Langchain. A aplicação classifica os tipos de danos e verifica a coerência documental face aos requisitos legais e orçamentos de reembolso do Estado Português. JSON payloads e templates determinísticos preenchem automaticamente folhas de inventário e geram rascunhos de email com fundamentação jurídica para os técnicos de freguesia; a paralelização via ThreadPooling alcançou uma velocidade 10–18× superior ao processamento manual — um resultado que converteu o POC inicial num contrato de serviços formal.',
+      'tl-genesis-pm':     'Desenvolvi um chatbot instalável no Teams, reativo ao término das reuniões do gestor de projeto, com o intuito de extrair e classificar itens RAID das transcrições e guiar a gestão de projeto. Fiz a integração do mesmo com a Microsoft Power Platform e Graph API, com privilégios de leitura e escrita em bases de dados Dataverse, para uma agilização e conhecimento estrutural dos projetos por parte do agente.',
+      'tl-genesis-log':    'Conceptualizei a modernização digital da empresa ao entregar um portal, para diversos grupos de utilizadores, aplicando o protocolo OAuth. O mesmo foi integrado com Graph API para gestão de reuniões, TOConline para emissão de faturas e Frotcom para retorno de posições reais de viaturas e extração de informação dos respetivos tacógrafos, respeitando os direitos do trabalhador e em conformidade com o RGPD. Entreguei também uma base de dados para servir de unidade íntegra de análise de dados e fonte de conhecimento de um agente que trata do trabalho administrativo, reagindo a notificações e assistindo na gestão da frota.',
+      /* education */
+      'edu-ist-degree':   'Especialização em Deep Learning',
+      'edu-nova-degree':  'MSc em Empreendedorismo de Impacto e Inovação',
+      'edu-esn-degree':   'Licenciatura em Gestão Portuária',
+      /* secret modals */
+      'secret-copilot-msg':  "Ups... perdi o acesso ao email da empresa onde trabalhava e, com isso, perdi o certificado. Mas pronto... há IAs mais adequadas para pair programming de qualquer das formas... 🤷‍♂️",
+      'secret-goparity-msg': "Quê? Não vou mostrar o relatório... Fazia parte do NDA ☕️",
+    },
+
+    es: {
+      /* nav / structure */
+      'nav-journey':      'Trayectoria',
+      'nav-education':    'Formación',
+      'nav-stack':        'Tecnologías',
+      'nav-certs':        'Certificaciones',
+      'hero-tag':         'Oporto, Portugal · Ingeniero de IA / ML · desde 2012',
+      'hero-sub':         'De gestionar rutas de contenedores en el Mediterráneo a arquitectar sistemas de inteligencia artificial — una historia de reinvención radical, rigor científico y una determinación inquebrantable de construir lo que verdaderamente importa. Con agua salada, café y luz.',
+      'scroll-hint':      'EXPLORAR',
+      'section-journey':  'La Trayectoria',
+      'section-education':'Formación',
+      'section-stack':    'Competencias Técnicas',
+      'section-certs':    'Certificaciones',
+      'footer-bio':       'Con una curiosidad que no tiene fin, creo que mi propósito está firmemente anclado en el descubrimiento. Profundamente fascinado por el mundo natural, no espero que otros me muestren el camino. De mi profesión a mis aficiones, aprendí que los títulos académicos son solo medios para un fin, pues es a través del camino autodidacta que he ido reuniendo un conjunto de recursos que me llevan a desarrollar creaciones únicas.',
+      'pdf-download':     'Descargar',
+      /* timeline */
+      'tl-bsc-body':      'El comienzo. Tres años inmerso en las realidades prácticas de las operaciones portuarias y de embarcaciones. Fue a través del estudio de cadenas de suministro, operaciones logísticas, principios de gestión de terminales e investigación operativa que se sentaron las bases de lo que sería mi elección profesional en los años siguientes.',
+      'tl-life-body':     'Diez veranos en el Atlántico. Prevení incontables situaciones con potencial de ahogamiento y realicé más de 20 rescates acuáticos en mar embravecido. Las decisiones rápidas e irreversibles se volvieron segunda naturaleza, al igual que la reacción serena bajo estrés.',
+      'tl-life-hl':       '100+ prevenciones. 20+ rescates. Cada verano, una lección diferente sobre la naturaleza humana y el juicio en fracciones de segundo.',
+      'tl-msc-body':      'Seis años en el corazón operativo de uno de los mayores transportistas de contenedores del mundo. Trabajando en turnos de 8h a 72h en una operación 24/7, aseguré la optimización de las estancias de los buques en puerto — reduciendo los costes de rotación un 10% mediante el ingenio y la resolución de problemas de última hora. Las responsabilidades diarias abarcaban cambios de tripulación, aprovisionamiento de repuestos, operaciones de abastecimiento y un conjunto completo de servicios logísticos y de apoyo a la tripulación, disponibles en todo momento.',
+      'tl-msc-hl':        'Seleccionado entre 1 de más de 300 empleados para un programa internacional de desarrollo de competencias en Letonia.',
+      'tl-nova-body':     'El giro, el momento en que todo cambió. A mitad del camino, una asignatura llamada <em>Data Science for Innovation and Impact</em> reorientó por completo mi búsqueda de una carrera con significado. Desde entonces, dediqué seis meses a aprender programación, estadística y ciencia de datos desde cero, de forma totalmente autodidacta, en paralelo con el máster. Mi tesis, <em>"Cómo construir una empresa con un descubrimiento científico"</em>, transcurrió en paralelo con este aprendizaje, que culminó con la obtención de un certificado de Científico de Datos antes de terminar el programa.',
+      'tl-cap-lifesci':   'Lideré una iniciativa de previsión farmacéutica para más de 2.000 productos. Construí un pipeline Python end-to-end (extracción Oracle DB, limpieza, entrenamiento iterativo GBR+SARIMAX) con batching y paralelización, generando previsiones a seis meses y alcanzando resultados listos para producción en más del 50% de los productos. Un script de orquestación basado en JSON automatizó las ejecuciones en un total de dos días (con la capacidad de cómputo que me proporcionaron), con gestión robusta de errores, fine-tuning automático por producto y registro de hiperparámetros para plena reproducibilidad.',
+      'tl-cap-banking':   'Revisé los flujos de reporting del software de orquestación legacy, de XMLs a operaciones de base de datos, y elaboré un enfoque modernizado en Oracle DB. Diseñé, mantuve y modernicé flujos ETL en PL/SQL, refactorizando procedimientos almacenados y optimizando queries complejas.',
+      'tl-cap-pub':       'Implementé un pipeline de visión por computadora y traducción automática basado en la API de Azure, que extrae automáticamente contenido textual de documentos de políticas y lo traduce en un contexto específico del dominio, alcanzando una tasa de éxito del 98%.',
+      'tl-cap-auto':      'Desarrollé un modelo de regresión segmentada para previsión de precios, aplicado creativamente a un desafío de examen de prácticas, alcanzando un 90% de varianza explicada con errores marginales en todos los segmentos de vehículos.',
+      'tl-cap-auto-hl':    'Fue mi enfoque para la resolución del problema, junto con mis capacidades artísticas, lo que me hizo destacar en la evaluación final de las prácticas.',
+      'tl-research-body': 'Investigación en NLP impulsada por la curiosidad. Construí un pipeline automatizado de web scraping en Python, recopilando ~13.000 noticias portuguesas (36 artículos/día durante un año completo). Desarrollé flujos NLP end-to-end: tokenización, lematización, vectorización, análisis de sentimientos y modelado de temas, almacenando los resultados en una base de datos ChromaDB. Compilé y presenté un informe completo, adaptado a audiencias técnicas y no técnicas, relacionando cada insight directamente con las preguntas de investigación originales.',
+      'tl-goparity-body': 'Actué como consultor externo y científico de datos. Diseñé una solución de segmentación de clientes, recomendando e implementando el algoritmo K-prototypes para identificar 5 personas distintas y accionables en toda la base de clientes activos. Construí un pipeline Python end-to-end (Jupyter / VS Code) para ingestión, limpieza y transformación de datos, experimentando con múltiples configuraciones de clústeres para validar los resultados y ofrecer el mejor análisis al cliente.',
+      'tl-goparity-hl':   'Elaboré un informe final de 80 páginas: metodología, flujos de procesamiento de datos, 5 perfiles de clústeres validados y recomendaciones para las estrategias de marketing, operaciones y riesgo.',
+      'tl-photo-body':    'Práctica autodidacta en composición, luz y narrativa visual. Postprocesado con Adobe Lightroom y Photoshop. En el fondo es el mismo trabajo que con datos, aplicar fórmulas al píxel, solo que en lugar de tablas con variables, hay un tensor RGB con valores de 0 a 255.',
+      'tl-photo-workshop': 'Impartí un taller de astrofotografía para la Câmara Municipal de Sines, cubriendo composición de cielo nocturno, técnica de larga exposición e introducción al postprocesado.',
+      'tl-ist-body':      'Formación en deep learning en una de las mejores universidades técnicas de Portugal. Redes neuronales, modelado de secuencias y visión por computadora — el mejor GPA de toda mi carrera académica.',
+      'tl-coffee-body':   'Un día a la semana, intencionalmente analógico, sirvo mesas en una tostadora de especialidad en la ciudad de Oporto, una pausa deliberada en la semana para desconectar de las pantallas. Café, personas, alma.',
+      'tl-ai-marker':      'Adopté la programación en pareja con IA a partir de aquí — todos los proyectos anteriores de esta cronología fueron escritos a mano.',
+      'tl-genesis-fin':   'Arquitecté el backend de un chatbot RAG en Microsoft Azure, con orquestación inteligente de datos entre bases de datos MySQL y web scraping HTML en tiempo real, implementando búsqueda semántica y capacidades de consulta en vivo para ofrecer respuestas contextualizadas, como educador de estrategias de inversión dentro de una aplicación.',
+      'tl-genesis-mkt':   'Implementé reglas de negocio específicas por cliente en pipelines Dataform/BigQuery, personalizando transformaciones de datos según requisitos técnicos y gestionando el filtrado de métricas. Diagnostiqué y resolví problemas de calidad de datos en más de 40 formularios end-to-end: analizando dependencias entre múltiples tablas — que sirvieron de hilo conductor para identificar discrepancias de granularidad — y aplicando lógica SQL para garantizar la integridad de la solución. Construí un piloto para extraer información de diversos sitios web sobre el formato de las especificaciones de publicación de contenido en redes sociales, on-prem, usando la máquina Dell GB10 del cliente. Toda la lógica de web scraping se ejecutaba en Azure, mientras que las ejecuciones pasivas de governance permanecían en la máquina. El payload se descargaba mediante polling desde la máquina y se ponía a disposición en un AI workbench hecho a medida para el cliente, preparado para acoger futuros proyectos.',
+      'tl-genesis-hl':    'Gracias a mis competencias, reflejando el rigor de Genesis, consolidé la confianza del cliente Dell, cuya satisfacción se tradujo en una alianza de más de 20 proyectos por realizar.',
+      'tl-mfc-body':       'Mi laboratorio. Con la aceleración de esta nueva era de la IA, terminé por consagrarle todos mis recursos, experiencia e ideas. Aquí nacen aplicaciones que buscan resolver problemas comunes. Es aquí donde gano confianza para desarrollar sistemas cada vez más complejos, locales o en la nube. Me veo como artesano de nuevas ideas y tengo la intención de desarrollar mi propia tecnología.',
+      'tl-genesis-pubsec2': 'Diseñé una plataforma de contratación pública de POC a MVP en Azure, conectando entidades públicas con proveedores privados en una arquitectura multi-tenant de dos plataformas, tres perfiles de usuario y seis servicios por plataforma. Cada servicio con un JSON payload persistente que propaga el estado de su predecesor. GPT-5.4 gestiona el razonamiento jurídico y la generación de contratos a partir de un corpus legal y plantillas determinísticas; GPT-5.1 mini hace el routing de tareas más ligeras en una interfaz multi-chat por turnos. La adquisición de fases no consecutivas se guía mediante interacción en lenguaje natural, cumplimentando determinísticamente el JSON payload, con observabilidad en producción vía Langfuse y Sentry.',
+      'tl-genesis-pubsec1': 'Implementé un POC de procesamiento documental en una máquina Dell GB10 (Ubuntu, ARMx64) para absorber el volumen de solicitudes de subsidios post-tormenta Kristin en las parroquias portuguesas de Pombal y Leiria. Construí un pipeline de ingestión con preprocesamiento de imagen, OCR Tesseract y modelos VLM de Qwen en framework Langchain. La aplicación clasifica los tipos de daños y verifica la coherencia documental frente a los requisitos legales y presupuestos de reembolso del Estado portugués. Los JSON payloads y plantillas determinísticas rellenan automáticamente hojas de inventario y generan borradores de correo con razonamiento jurídico para los técnicos de parroquia; la paralelización mediante ThreadPooling alcanzó una velocidad 10–18× superior al procesamiento manual — un resultado que convirtió el POC inicial en un contrato de servicios formal.',
+      'tl-genesis-pm':     'Desarrollé un chatbot instalable en Teams, reactivo al término de las reuniones del gestor de proyecto, con el objetivo de extraer y clasificar elementos RAID de las transcripciones y guiar la gestión del proyecto. Lo integré con Microsoft Power Platform y Graph API, con privilegios de lectura y escritura en bases de datos Dataverse, para agilizar y dotar al agente de un conocimiento estructural de los proyectos.',
+      'tl-genesis-log':    'Conceptualicé la modernización digital de la empresa al entregar un portal para diversos grupos de usuarios, aplicando el protocolo OAuth. El portal se integró con Graph API para la gestión de reuniones, TOConline para la emisión de facturas y Frotcom para obtener las posiciones reales de los vehículos y extraer la información de sus tacógrafos, respetando los derechos del trabajador y en conformidad con el RGPD. También entregué una base de datos que sirve como unidad íntegra de análisis de datos y fuente de conocimiento de un agente que se encarga del trabajo administrativo, reaccionando a notificaciones y asistiendo en la gestión de la flota.',
+      /* education */
+      'edu-ist-degree':   'Especialización en Deep Learning',
+      'edu-nova-degree':  'MSc en Emprendimiento de Impacto e Innovación',
+      'edu-esn-degree':   'Grado en Gestión Portuaria',
+      /* secret modals */
+      'secret-copilot-msg':  "Ups... perdí el acceso al correo de la empresa donde trabajaba y, con eso, perdí el certificado. Pero bueno... hay IAs más adecuadas para pair programming de todas formas... 🤷‍♂️",
+      'secret-goparity-msg': "¿Qué? No voy a enseñar el informe... Formaba parte del NDA ☕️",
+    }
+  };
+
+  let currentLang = 'en';
+
+  function applyLang(lang) {
+    currentLang = lang;
+    const t = translations[lang];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
+      if (t[key] !== undefined) el.innerHTML = t[key];
+    });
+    document.documentElement.lang = lang === 'pt' ? 'pt' : lang === 'es' ? 'es' : 'en';
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+    updateSecretModalContent();
+    if (window.__netOnLang) window.__netOnLang(lang);
+  }
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+  });
+
+  /* network UI strings merged into translations */
+  Object.assign(translations.en, {
+    'nav-network':'Network','net-fab':'Constellation','net-title':'The Constellation','net-subtitle':'One career, many lenses','net-close':'Close ✕','net-hint':'Hover a category · click a node'
+  });
+  Object.assign(translations.pt, {
+    'nav-network':'Rede','net-fab':'Constelação','net-title':'A Constelação','net-subtitle':'Uma carreira, várias lentes','net-close':'Fechar ✕','net-hint':'Passa sobre uma categoria · clica num nó'
+  });
+  Object.assign(translations.es, {
+    'nav-network':'Red','net-fab':'Constelación','net-title':'La Constelación','net-subtitle':'Una carrera, varias lentes','net-close':'Cerrar ✕','net-hint':'Pasa sobre una categoría · clic en un nodo'
+  });
+</script>
+<script>
+/* ════════════ Network Constellation ════════════ */
+(function(){
+  const KIND = { gold:'#c9a84c', dim:'#9a9486', life:'#b07c5a', green:'#4a7c59' };
+  const TONE = { pro:'#c9a84c', tech:'#e8c97a', edu:'#9a9486', ops:'#6f9e7e', life:'#b07c5a' };
+  const TIP = {
+    bsc:'Ports, vessels, maritime scheduling', lifeguard:'100+ preventions · calm under pressure',
+    msc:'24/7 container ops · −10% turnaround', nova:'The pivot — self-taught data science',
+    capgemini:'Pharma forecasting, CV & ETL', research:'~13k news items · full NLP pipeline',
+    goparity:'K-prototypes → 5 customer personas', photo:'Composition, light, visual stories',
+    ist:'Deep learning · highest GPA', coffee:'One analog day a week, by design',
+    genesis:'RAG · agents · edge OCR · −6×'
+  };
+
+  const EXP = {
+    bsc:      { co:'Escola Superior Náutica', short:'Port Mgmt', role:'BSc · Port Management', kind:'gold', years:'2012—2015',
+      sum:'Three years in the practical realities of port and vessel operations — berth coordination, cargo flows, maritime scheduling. Where organization and stakeholder management were first forged.' },
+    lifeguard:{ co:'Resgate, ANSLA', short:'Lifeguard', role:'Lifeguard', kind:'life', years:'2012—2022',
+      sum:'Ten Atlantic summers. 100+ drowning preventions, 20+ rescues. Irreversible decisions under stress — the kind of composure no classroom manufactures.' },
+    msc:      { co:'Mediterranean Shipping Company', short:'MSC', role:'Shipping Agent', kind:'dim', years:'2015—2021',
+      sum:'Six years in the operational heartbeat of a top global container carrier. 8–72h shifts, 24/7 — cut turnaround costs 10% through last-minute problem-solving.' },
+    nova:     { co:'Universidade Nova de Lisboa', short:'Nova MSc', role:'MSc · Impact Entrepreneurship', kind:'gold', years:'2021—2023',
+      sum:'The pivot. A Data Science subject redirected the compass entirely — six months self-teaching programming, statistics and data science alongside the thesis.' },
+    capgemini:{ co:'Capgemini', short:'Capgemini', role:'Data Scientist · ML Engineer', kind:'gold', years:'2023—2025',
+      sum:'Consulting across life-sciences, banking, public sector and automotive — pharma forecasting at 2,000+ products, ETL modernization, an Azure CV + translation pipeline at 98%.' },
+    research: { co:'Self-Motivated Research', short:'NLP Research', role:'Independent Data Scientist', kind:'dim', years:'2024—2025',
+      sum:'Curiosity-driven NLP. Scraped ~13,000 Portuguese news items over a year; a full pipeline — tokenization to topic modeling — stored in ChromaDB.' },
+    goparity: { co:'Goparity', short:'Goparity', role:'ML Engineer · Freelance', kind:'gold', years:'2025',
+      sum:'External data scientist. K-prototypes clustering surfaced 5 actionable customer personas; an 80-page deliverable across marketing, ops and risk.' },
+    photo:    { co:'Freelance Photography', short:'Photography', role:'Photographer · Visual Artist', kind:'life', years:'2025—present',
+      sum:'Self-taught composition, light and visual storytelling. The same eye for signal-in-noise that drives data work — plus an astrophotography workshop for Câmara de Sines.' },
+    ist:      { co:'Instituto Superior Técnico', short:'IST DL', role:'Deep Learning Specialization', kind:'gold', years:'2025',
+      sum:'Formal deep learning — neural architectures, sequence modeling, computer vision. The highest GPA of an academic career.' },
+    coffee:   { co:'Combi Coffee Roasters', short:'Combi Coffee', role:'Front of House', kind:'life', years:'2025—present',
+      sum:'One day a week, intentionally analog. Serving in a Porto specialty roastery — a deliberate counterweight to a week spent in data and abstraction.' },
+    genesis:  { co:'Genesis Digital Solutions', short:'Genesis', role:'AI Engineer · Current', kind:'green', years:'2025—present',
+      sum:'Multi-source RAG backends, multi-agent public-contracting platforms, edge OCR pipelines, and client BigQuery pipelines — plus a cost framework cutting spend 6-fold.' },
+  };
+
+  const LENS = {
+    sector: { hubs:[
+      {id:'lifesci',  label:'Life Sciences',       tone:'pro',  exp:['capgemini'],            desc:'Pharmaceutical demand forecasting at scale.'},
+      {id:'banking',  label:'Banking',             tone:'pro',  exp:['capgemini'],            desc:'Legacy ETL and Oracle modernization.'},
+      {id:'public',   label:'Public Sector',       tone:'pro',  exp:['capgemini','genesis'],  desc:'Policy-document CV, public-contracting platforms, post-storm subsidy processing.'},
+      {id:'auto',     label:'Automotive',          tone:'pro',  exp:['capgemini'],            desc:'Segmented price-forecast regression.'},
+      {id:'finance',  label:'Finance',             tone:'pro',  exp:['genesis'],              desc:'Multi-source RAG financial chatbot.'},
+      {id:'marketing',label:'Marketing',           tone:'pro',  exp:['genesis'],              desc:'Client-specific BigQuery / Dataform pipelines.'},
+      {id:'freelance',label:'Freelance',           tone:'pro',  exp:['goparity','photo'],     desc:'Independent engagements — K-prototypes clustering for Goparity, freelance photography.'},
+      {id:'maritime', label:'Maritime & Logistics',tone:'ops',  exp:['bsc','msc'],            desc:'Where it began — ports, vessels, 24/7 operations.'},
+      {id:'academia', label:'Research & Academia',  tone:'edu',  exp:['nova','research','ist'],desc:'The self-directed pivot and formal study.'},
+      {id:'beyond',   label:'Beyond the Desk',     tone:'life', exp:['lifeguard','photo','coffee'], desc:"The human thread sectors can't hold — water, light, coffee."},
+    ]},
+    skill: { hubs:[
+      {id:'python',  label:'Python',           tone:'tech', exp:['nova','capgemini','research','goparity','genesis'], desc:'The through-line of every data and ML role.', stack:'Python'},
+      {id:'llm',     label:'LLM & RAG',        tone:'tech', exp:['genesis'],                desc:'Retrieval-augmented generation and agents.', stack:'RAG'},
+      {id:'nlp',     label:'NLP',              tone:'tech', exp:['research','genesis'],     desc:'From tokenization to semantic search.', stack:'NLP'},
+      {id:'cv',      label:'Computer Vision',  tone:'tech', exp:['capgemini','ist','genesis'], desc:'OCR, document understanding, visual models.', stack:'Computer Vision'},
+      {id:'forecast',label:'Forecasting',      tone:'tech', exp:['capgemini'],              desc:'Time-series and regression at product scale.', stack:'Time Series'},
+      {id:'dataeng', label:'Data Engineering', tone:'tech', exp:['capgemini','genesis'],    desc:'ETL, SQL, BigQuery, pipeline plumbing.', stack:'ETL'},
+      {id:'cluster', label:'Clustering',       tone:'tech', exp:['goparity'],               desc:'Unsupervised segmentation into personas.', stack:'Clustering'},
+      {id:'cloud',   label:'Cloud & MLOps',    tone:'tech', exp:['capgemini','genesis'],    desc:'Azure, deployment, observability.', stack:'MLOps'},
+      {id:'opsk',    label:'Operations & People',tone:'ops', exp:['bsc','msc','lifeguard','coffee'], desc:'Logistics, crisis response, hospitality — the non-code skillset.'},
+      {id:'visual',  label:'Visual Craft',     tone:'life', exp:['photo'],                  desc:'Composition, light, post-processing.', stack:'Adobe Lightroom'},
+    ]},
+    domain: { hubs:[
+      {id:'d-nlp',    label:'NLP',                 tone:'tech', exp:['research','genesis'],       desc:'Language understanding pipelines.'},
+      {id:'d-cv',     label:'Computer Vision',     tone:'tech', exp:['capgemini','genesis','ist'],desc:'Image and document intelligence.'},
+      {id:'d-fore',   label:'Forecasting',         tone:'tech', exp:['capgemini'],                desc:'Temporal prediction.'},
+      {id:'d-agents', label:'LLM Agents',          tone:'tech', exp:['genesis'],                  desc:'Multi-agent, tool-using systems.'},
+      {id:'d-seg',    label:'Segmentation',        tone:'tech', exp:['goparity'],                 desc:'Behavioral clustering.'},
+      {id:'d-data',   label:'Data Engineering',    tone:'tech', exp:['capgemini','genesis'],      desc:'Pipelines and warehouses.'},
+      {id:'d-found',  label:'Pre-Data Foundations',tone:'edu',  exp:['bsc','msc','lifeguard','nova','photo','coffee'], desc:'Everything before — and beside — the models.'},
+    ]},
+    arc: { hubs:[
+      {id:'a-mar', label:'Maritime Years', tone:'ops',  exp:['bsc','msc','lifeguard'],                 desc:'2012—2021 · ports, vessels, the Atlantic.'},
+      {id:'a-piv', label:'The Pivot',      tone:'pro',  exp:['nova'],                                  desc:'2021—2023 · the compass turns to data.'},
+      {id:'a-ai',  label:'AI Era',         tone:'tech', exp:['capgemini','research','goparity','ist','genesis'], desc:'2023—present · data science to AI engineering.'},
+      {id:'a-ana', label:'Analog Thread',  tone:'life', exp:['lifeguard','photo','coffee'],            desc:'Always running in parallel — life off the screen.'},
+    ]},
+  };
+
+  const ORDER = ['sector','skill','domain','arc'];
+  const UI = {
+    en:{ lens:{sector:'By Sector',skill:'By Skill',domain:'By Domain',arc:'By Arc'}, leg:{gold:'Milestone',dim:'Self-directed',life:'Analog / life',green:'Current'}, connected:'In this cluster', viewStack:'View in Tech Stack', jump:'Jump to CV →' },
+    pt:{ lens:{sector:'Por Setor',skill:'Por Competência',domain:'Por Domínio',arc:'Por Percurso'}, leg:{gold:'Marco',dim:'Autodidata',life:'Analógico / vida',green:'Atual'}, connected:'Neste grupo', viewStack:'Ver nas Tecnologias', jump:'Ir para o CV →' },
+    es:{ lens:{sector:'Por Sector',skill:'Por Competencia',domain:'Por Dominio',arc:'Por Trayectoria'}, leg:{gold:'Hito',dim:'Autodidacta',life:'Analógico / vida',green:'Actual'}, connected:'En este grupo', viewStack:'Ver en Tecnologías', jump:'Ir al CV →' },
+  };
+  function lang(){ return UI[typeof currentLang !== 'undefined' ? currentLang : 'en'] ? (typeof currentLang!=='undefined'?currentLang:'en') : 'en'; }
+
+  const SVGNS = 'http://www.w3.org/2000/svg';
+  const view   = document.getElementById('network-view');
+  const canvas = document.getElementById('net-canvas');
+  const edgesSvg = document.getElementById('net-edges');
+  const gridSvg = document.getElementById('net-grid');
+  const globe = document.getElementById('net-globe');
+  const lensBar = document.getElementById('net-lenses');
+  const legend = document.getElementById('net-legend');
+  const panel  = document.getElementById('net-panel');
+
+  let nodes=[], edges=[], nodeById={}, gridSegs=[], activeLens='sector', selected=null, hoverNode=null, rafId=null, built=false, focusing=false, paused=false;
+  const F=1050;
+  const FLAT=true;
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let rotX=FLAT?0:-0.16, rotY=FLAT?0:0.5, velX=0, velY=0, dragging=false, lastX=0, lastY=0, downX=0, downY=0, downNode=null, moved=false;
+  function kick(){ if(!rafId && view.classList.contains('open')) frame(); }
+  function spin(v){ if(!reduceMotion && !FLAT){ velY=v; } kick(); }
+
+  function metrics(){ const r=canvas.getBoundingClientRect(); return { W:r.width, H:r.height, cx:r.width/2, cy:r.height/2, R:Math.min(r.width,r.height)*0.32 }; }
+  function projectVec(vx,vy,vz,m){
+    const cy=Math.cos(rotY), sy=Math.sin(rotY);
+    let x=vx*cy - vz*sy, z=vx*sy + vz*cy;
+    const cx=Math.cos(rotX), sx=Math.sin(rotX);
+    let y=vy*cx - z*sx; z=vy*sx + z*cx;
+    const s=F/(F+z);
+    return { x:m.cx + x*s, y:m.cy + y*s, z:z, s:s };
+  }
+  function project(n,m){ const p=projectVec(n.x,n.y,n.z,m); n.px=p.x; n.py=p.y; n.pz=p.z; n.ps=p.s; }
+  function place(n,m){
+    n.el.style.left=n.px+'px'; n.el.style.top=n.py+'px';
+    n.el.style.transform='translate(-50%,-50%) scale('+n.ps.toFixed(3)+')';
+    n.el.style.zIndex=Math.round(3000 - n.pz);
+    let o = n.type==='center' ? 1 : Math.max(0.3, Math.min(1, 1 - n.pz/(m.R*2.4)));
+    if(focusing && n.type!=='center' && !n.el.classList.contains('lit')) o*=0.2;
+    n.el.style.opacity=o;
+  }
+
+  function makeNode(cfg){
+    const n = Object.assign({ x:0, y:0, z:0, tx:0, ty:0, tz:0 }, cfg);
+    const el = document.createElement('div');
+    el.className = 'net-node ' + cfg.type + (cfg.type==='exp' ? ' '+cfg.kind : '');
+    el.dataset.id = cfg.id;
+    const dot = document.createElement('div'); dot.className='net-dot';
+    if(cfg.type==='exp') dot.style.background = KIND[cfg.kind];
+    if(cfg.type==='hub') el.style.color = TONE[cfg.tone];
+    if(cfg.type==='center'){ const cl=document.createElement('div'); cl.className='net-center-label'; cl.textContent='Miguel'; dot.appendChild(cl); }
+    el.appendChild(dot);
+    if(cfg.type!=='center'){ const lab=document.createElement('div'); lab.className='net-label'; lab.textContent=cfg.label; el.appendChild(lab); }
+    if(cfg.type==='exp'){
+      const d=document.createElement('div'); d.className='net-desc';
+      const t=document.createElement('strong'); t.textContent=cfg.data.co; d.appendChild(t);
+      const p=document.createElement('span'); p.textContent=TIP[cfg.id]||cfg.data.role; d.appendChild(p);
+      el.appendChild(d);
+    }
+    n.el=el; n.dot=dot; canvas.appendChild(el);
+    if(cfg.type!=='center'){
+      el.addEventListener('mouseenter', ()=>{ if(!dragging){ hoverNode=n; setLit(n); } });
+      el.addEventListener('mouseleave', ()=>{ if(!dragging){ hoverNode=null; setLit(selected); } });
+    }
+    return n;
+  }
+
+  function addEdge(a,b,type){ const el=document.createElementNS(SVGNS, type==='he'&&!FLAT?'polyline':'line'); edgesSvg.appendChild(el); const e={a,b,type,el}; edges.push(e); return e; }
+
+  function buildGlobe(m){
+    gridSvg.innerHTML=''; gridSegs=[];
+    if(FLAT) return;
+    const R=m.R, seg=40;
+    const ring=(fn)=>{ let prev=fn(0); for(let i=1;i<=seg;i++){ const cur=fn(i/seg); const el=document.createElementNS(SVGNS,'line'); gridSvg.appendChild(el); gridSegs.push({a:prev,b:cur,el}); prev=cur; } };
+    [-62,-36,0,36,62].forEach(d=>{ const lat=d*Math.PI/180, cl=Math.cos(lat), sl=Math.sin(lat); ring(t=>{ const lon=t*2*Math.PI; return [cl*Math.cos(lon)*R, sl*R, cl*Math.sin(lon)*R]; }); });
+    for(let mi=0; mi<6; mi++){ const lon=mi/6*Math.PI, cl=Math.cos(lon), sl=Math.sin(lon); ring(t=>{ const lat=-Math.PI/2 + t*Math.PI; return [Math.cos(lat)*cl*R, Math.sin(lat)*R, Math.cos(lat)*sl*R]; }); }
+  }
+  function layoutGlobe(m){ globe.style.display=FLAT?'none':''; const d=Math.round(m.R*2); globe.style.width=d+'px'; globe.style.height=d+'px'; }
+
+  function greatArc(a,b,m){
+    const la=Math.hypot(a.x,a.y,a.z)||1, lb=Math.hypot(b.x,b.y,b.z)||1;
+    const u1=[a.x/la,a.y/la,a.z/la], u2=[b.x/lb,b.y/lb,b.z/lb];
+    const dot=Math.max(-1,Math.min(1,u1[0]*u2[0]+u1[1]*u2[1]+u1[2]*u2[2]));
+    const O=Math.acos(dot), R=(la+lb)/2, sO=Math.sin(O), steps=12;
+    let s='', zsum=0;
+    for(let i=0;i<=steps;i++){ const t=i/steps; let k1,k2;
+      if(O<1e-3){ k1=1-t; k2=t; } else { k1=Math.sin((1-t)*O)/sO; k2=Math.sin(t*O)/sO; }
+      const pr=projectVec((u1[0]*k1+u2[0]*k2)*R,(u1[1]*k1+u2[1]*k2)*R,(u1[2]*k1+u2[2]*k2)*R, m);
+      s+=pr.x.toFixed(1)+','+pr.y.toFixed(1)+' '; zsum+=pr.z;
+    }
+    return { pts:s, z:zsum/(steps+1) };
+  }
+
+  function renderScene(m){
+    for(const n of nodes){ project(n,m); place(n,m); }
+    for(const g of gridSegs){
+      const pa=projectVec(g.a[0],g.a[1],g.a[2],m), pb=projectVec(g.b[0],g.b[1],g.b[2],m);
+      g.el.setAttribute('x1',pa.x.toFixed(1)); g.el.setAttribute('y1',pa.y.toFixed(1));
+      g.el.setAttribute('x2',pb.x.toFixed(1)); g.el.setAttribute('y2',pb.y.toFixed(1));
+      g.el.style.opacity = Math.max(0.05, Math.min(0.5, 0.46 - (pa.z+pb.z)/2/(m.R*2.4)));
+    }
+    for(const e of edges){
+      const lit=e.el.classList.contains('lit');
+      if(e.type==='he' && !FLAT){ const a=greatArc(e.a,e.b,m); e.el.setAttribute('points',a.pts); e.el.style.opacity = lit?'':Math.max(0.06,Math.min(0.5,0.5 - a.z/(m.R*4))); }
+      else { e.el.setAttribute('x1',e.a.px.toFixed(1)); e.el.setAttribute('y1',e.a.py.toFixed(1)); e.el.setAttribute('x2',e.b.px.toFixed(1)); e.el.setAttribute('y2',e.b.py.toFixed(1)); e.el.style.opacity = lit?'':Math.max(0.05,Math.min(0.4,0.35 - (e.a.pz+e.b.pz)/2/(m.R*5))); }
+    }
+  }
+
+  function hash(s){ let h=2166136261; for(let i=0;i<s.length;i++){ h^=s.charCodeAt(i); h=Math.imul(h,16777619); } return h>>>0; }
+  function rnd(seed){ const x=Math.sin(seed)*43758.5453; return x-Math.floor(x); }
+
+  function buildLens(key){
+    activeLens=key;
+    const prev={}; nodes.forEach(n=>{ prev[n.id]={x:n.x,y:n.y,z:n.z}; });
+    canvas.querySelectorAll('.net-node').forEach(el=>el.remove());
+    edgesSvg.innerHTML=''; nodes=[]; edges=[]; nodeById={};
+    const m=metrics(), RH=m.R, RE=m.R*1.06;
+    const c=makeNode({id:'__c',type:'center',label:'Miguel'}); c.fixed=true; nodes.push(c); nodeById['__c']=c;
+    const hubs=LENS[key].hubs, N=hubs.length;
+    hubs.forEach((h,i)=>{
+      if(FLAT){ const a=-Math.PI/2 + i/N*2*Math.PI; h.dir=[Math.cos(a), Math.sin(a), 0]; }
+      else { const yy=1-(i+0.5)/N*2, rr=Math.sqrt(Math.max(0,1-yy*yy)), phi=i*2.399963; h.dir=[Math.cos(phi)*rr, yy*0.82, Math.sin(phi)*rr]; }
+      const n=makeNode({id:h.id,type:'hub',label:h.label,tone:h.tone,desc:h.desc,exp:h.exp,stack:h.stack});
+      const rh=FLAT?RH*0.55:RH;
+      n.tx=h.dir[0]*rh; n.ty=h.dir[1]*rh; n.tz=h.dir[2]*rh;
+      const pp=prev[h.id]; n.x=pp?pp.x:n.tx; n.y=pp?pp.y:n.ty; n.z=pp?pp.z:n.tz;
+      nodes.push(n); nodeById[h.id]=n; addEdge(c,n,'ch');
+    });
+    Object.keys(EXP).forEach(id=>{
+      const e=EXP[id];
+      const n=makeNode({id:id,type:'exp',kind:e.kind,label:e.short,data:e});
+      let dx=0,dy=0,dz=0,cnt=0;
+      hubs.forEach(h=>{ if(h.exp.indexOf(id)>=0){ dx+=h.dir[0];dy+=h.dir[1];dz+=h.dir[2];cnt++; } });
+      const s=hash(id);
+      if(cnt===0){ dx=rnd(s)*2-1; dy=rnd(s+1)*2-1; dz=FLAT?0:rnd(s+2)*2-1; }
+      let L=Math.hypot(dx,dy,dz)||1; dx/=L; dy/=L; dz/=L;
+      const j=FLAT?0.35:0.5; dx+=(rnd(s)*2-1)*j; dy+=(rnd(s+7)*2-1)*j; if(!FLAT) dz+=(rnd(s+13)*2-1)*j;
+      L=Math.hypot(dx,dy,dz)||1; dx/=L; dy/=L; dz/=L;
+      n.tx=dx*RE; n.ty=dy*RE; n.tz=dz*RE;
+      const pp=prev[id]; n.x=pp?pp.x:n.tx; n.y=pp?pp.y:n.ty; n.z=pp?pp.z:n.tz;
+      nodes.push(n); nodeById[id]=n;
+    });
+    hubs.forEach(h=> h.exp.forEach(eid=>{ if(nodeById[eid]) addEdge(nodeById[h.id], nodeById[eid], 'he'); }));
+    if(selected && !nodeById[selected.id]){ selected=null; closePanel(); }
+    setLit(selected);
+    renderChrome();
+    buildGlobe(m); layoutGlobe(m); renderScene(m);
+    spin(0.012);
+  }
+
+  function frame(){
+    const m=metrics();
+    const auto = (FLAT||paused||reduceMotion) ? 0 : 0.0024;
+    if(!dragging){ rotY+=velY+auto; rotX+=velX; velY*=0.94; velX*=0.94; }
+    rotX=Math.max(-0.95, Math.min(0.95, rotX));
+    let moving = !!auto || dragging || Math.abs(velY)>0.0005 || Math.abs(velX)>0.0005;
+    for(const n of nodes){
+      if(Math.abs(n.tx-n.x)+Math.abs(n.ty-n.y)+Math.abs(n.tz-n.z)>0.5) moving=true;
+      n.x+=(n.tx-n.x)*0.1; n.y+=(n.ty-n.y)*0.1; n.z+=(n.tz-n.z)*0.1;
+    }
+    renderScene(m);
+    if(!moving){ rafId=null; return; }
+    rafId=requestAnimationFrame(frame);
+  }
+
+  function setLit(node){
+    edges.forEach(e=> e.el.classList.remove('lit','dim'));
+    nodes.forEach(n=> n.el.classList.remove('lit','expand'));
+    if(!node){ focusing=false; paused=false; canvas.classList.remove('focusing'); kick(); return; }
+    focusing=true; paused=true; canvas.classList.add('focusing');
+    const lit=new Set([node.id]);
+    edges.forEach(e=>{ if(e.a===node||e.b===node){ lit.add(e.a.id); lit.add(e.b.id); e.el.classList.add('lit'); } else e.el.classList.add('dim'); });
+    nodes.forEach(n=>{ if(lit.has(n.id)) n.el.classList.add('lit'); });
+    if(node.type==='hub'){ node.exp.forEach(eid=>{ const en=nodeById[eid]; if(en) en.el.classList.add('expand'); }); }
+    else if(node.type==='exp'){ node.el.classList.add('expand'); }
+    kick();
+  }
+
+  function openPanel(n){
+    const L=UI[lang()]; panel.innerHTML='';
+    const close=document.createElement('button'); close.className='net-panel-close'; close.textContent='✕'; close.onclick=()=>{ selected=null; closePanel(); setLit(null); };
+    panel.appendChild(close);
+    const kick=document.createElement('div'); kick.className='net-panel-kicker';
+    const kdot=document.createElement('span'); kdot.className='net-legend-dot';
+    if(n.type==='exp'){ kdot.style.background=KIND[n.kind]; kick.appendChild(kdot); kick.appendChild(document.createTextNode(n.data.years)); }
+    else { kdot.style.background=TONE[n.tone]; kick.appendChild(kdot); kick.appendChild(document.createTextNode(L.lens[activeLens])); }
+    panel.appendChild(kick);
+    const title=document.createElement('div'); title.className='net-panel-title'; title.textContent = n.type==='exp' ? n.data.co : n.label; panel.appendChild(title);
+    if(n.type==='exp'){ const meta=document.createElement('div'); meta.className='net-panel-meta'; meta.textContent=n.data.role; panel.appendChild(meta); }
+    const body=document.createElement('div'); body.className='net-panel-body'; body.textContent = n.type==='exp' ? n.data.sum : n.desc; panel.appendChild(body);
+    if(n.type==='hub'){
+      const sub=document.createElement('div'); sub.className='net-panel-sub'; sub.textContent=L.connected; panel.appendChild(sub);
+      const chips=document.createElement('div'); chips.className='net-chips';
+      n.exp.forEach(eid=>{ const c=document.createElement('span'); c.className='net-chip'; c.textContent=EXP[eid].short; c.onclick=()=>{ const tn=nodeById[eid]; selected=tn; openPanel(tn); setLit(tn); }; chips.appendChild(c); });
+      panel.appendChild(chips);
+    }
+    if(n.type==='exp'){ const j=document.createElement('button'); j.className='net-jump'; j.textContent=L.jump; j.onclick=()=>jumpToCV(n.data.co); panel.appendChild(j); }
+    else if(n.stack){ const j=document.createElement('button'); j.className='net-jump'; j.textContent=L.viewStack; j.onclick=()=>viewStack(n.stack); panel.appendChild(j); }
+    panel.classList.add('open');
+  }
+  function closePanel(){ panel.classList.remove('open'); }
+
+  function flash(el){ if(!el) return; el.classList.remove('cv-flash'); void el.offsetWidth; el.classList.add('cv-flash'); setTimeout(()=>el.classList.remove('cv-flash'), 2300); }
+  function jumpToCV(co){
+    closeView();
+    const comp=[...document.querySelectorAll('.tl-company')].find(el=>el.textContent.trim()===co);
+    if(!comp) return; const item=comp.closest('.tl-item');
+    setTimeout(()=>{ const y=item.getBoundingClientRect().top+window.scrollY-90; window.scrollTo({top:y,behavior:'smooth'}); flash(item); }, 420);
+  }
+  function viewStack(name){
+    closeView();
+    const pill=[...document.querySelectorAll('.skill-pill')].find(p=>(p.childNodes[0].textContent||'').trim().startsWith(name));
+    setTimeout(()=>{ const stack=document.getElementById('stack'); const y=stack.getBoundingClientRect().top+window.scrollY-80; window.scrollTo({top:y,behavior:'smooth'}); flash(pill); }, 420);
+  }
+
+  function renderChrome(){
+    const L=UI[lang()];
+    lensBar.innerHTML='';
+    ORDER.forEach(k=>{ const b=document.createElement('button'); b.className='net-lens-btn'+(k===activeLens?' active':''); b.textContent=L.lens[k]; b.onclick=()=>{ if(k!==activeLens) buildLens(k); }; lensBar.appendChild(b); });
+    legend.innerHTML='';
+    [['gold',KIND.gold],['dim',KIND.dim],['life',KIND.life],['green',KIND.green]].forEach(([key,col])=>{
+      const row=document.createElement('div'); row.className='net-legend-row';
+      const d=document.createElement('span'); d.className='net-legend-dot'; d.style.background=col; row.appendChild(d);
+      row.appendChild(document.createTextNode(L.leg[key])); legend.appendChild(row);
+    });
+  }
+  window.__netOnLang=function(){ renderChrome(); if(selected) openPanel(selected); };
+
+  function openView(){
+    document.body.classList.add('net-open'); view.classList.add('open'); view.setAttribute('aria-hidden','false');
+    document.querySelector('.net-fab').classList.add('hidden');
+    if(!built){ buildLens('sector'); built=true; } else { renderChrome(); const m=metrics(); buildGlobe(m); layoutGlobe(m); renderScene(m); spin(0.012); }
+  }
+  function closeView(){
+    view.classList.remove('open'); view.setAttribute('aria-hidden','true'); document.body.classList.remove('net-open');
+    document.querySelector('.net-fab').classList.remove('hidden');
+    if(rafId){ cancelAnimationFrame(rafId); rafId=null; }
+  }
+
+  window.addEventListener('resize', ()=>{ if(view.classList.contains('open')){ const m=metrics(); buildGlobe(m); layoutGlobe(m); kick(); } });
+  document.querySelectorAll('[data-net-open]').forEach(b=> b.addEventListener('click', e=>{ e.preventDefault(); openView(); }));
+  document.getElementById('net-close').addEventListener('click', closeView);
+  document.addEventListener('keydown', e=>{ if(e.key==='Escape' && view.classList.contains('open')) closeView(); });
+  canvas.addEventListener('pointerdown', e=>{
+    e.preventDefault();
+    dragging=true; moved=false; downX=lastX=e.clientX; downY=lastY=e.clientY;
+    downNode = e.target.closest('.net-node'); velX=velY=0;
+    try{ canvas.setPointerCapture(e.pointerId); }catch(_){}
+  });
+  canvas.addEventListener('pointermove', e=>{
+    if(!dragging) return;
+    const dx=e.clientX-lastX, dy=e.clientY-lastY; lastX=e.clientX; lastY=e.clientY;
+    if(Math.abs(e.clientX-downX)+Math.abs(e.clientY-downY)>5) moved=true;
+    if(moved && !FLAT){ rotY+=dx*0.007; rotX+=dy*0.007; velY=dx*0.007; velX=dy*0.007; kick(); }
+  });
+  canvas.addEventListener('pointerup', e=>{
+    dragging=false;
+    if(!moved){
+      const n = downNode ? nodeById[downNode.dataset.id] : null;
+      if(n && n.type!=='center'){ selected=n; openPanel(n); setLit(n); }
+      else { selected=null; closePanel(); setLit(null); }
+    }
+    downNode=null; kick();
+  });
+  canvas.addEventListener('pointercancel', ()=>{ dragging=false; downNode=null; });
+})();
+</script>
+</body>
+</html>

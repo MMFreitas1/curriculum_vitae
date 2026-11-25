@@ -1,0 +1,732 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Miguel Freitas — CV · Tide</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&amp;family=Instrument+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#EEF3F2}
+.theme{--bg:#EEF3F2;--ink:#0E2A30;--on-ink:#FFFFFF;--muted:#4A6168;--deep:#0F5F63;--deep-hi:#0A4245;--on-deep:#FFFFFF;--band:#0F5F63;--rule:#C9D6D4;--body:#2C454B;--coral-text:#B93A1C;--soft:#8FA5A8;--chip:#DCEAE8;--grid:#DCE6E4;--past:#6B8086;--hdr:rgba(238,243,242,0.9);--proj:rgba(15,95,99,0.25);transition:background-color .45s ease,color .45s ease}
+.theme[data-theme="dark"]{--bg:#0A171A;--ink:#E4EFED;--on-ink:#0A171A;--muted:#93AAAE;--deep:#4DB3AA;--deep-hi:#7FD3CB;--on-deep:#0A171A;--band:#10363A;--rule:#22383C;--body:#C3D3D1;--coral-text:#FF8F70;--soft:#4F666A;--chip:#15302F;--grid:#18292C;--past:#6F878B;--hdr:rgba(10,23,26,0.88);--proj:rgba(77,179,170,0.25)}
+a{color:var(--deep)}a:hover{color:var(--deep-hi)}
+@media (max-width:820px){.lens{grid-template-columns:1fr !important;grid-auto-rows:260px !important}.lens>*{grid-column:auto !important;grid-row:auto !important}}
+@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.marq{animation:marq 44s linear infinite}
+.marq:hover{animation-play-state:paused}
+.rise{animation:rise .55s cubic-bezier(.2,.7,.2,1) both}
+.pulse{animation:pulse 1.8s ease-in-out infinite}
+@keyframes blink{50%{opacity:0}}
+.blink{animation:blink 1s steps(1) infinite}
+button:focus-visible,a:focus-visible{outline:2px solid #FF6B4A;outline-offset:3px}
+@media (max-width:820px){.hide-sm{display:none !important}.big-name{font-size:24vw !important}.seq-sticky{padding:130px 20px 24px !important}}
+@media (prefers-reduced-motion:reduce){.marq,.rise,.pulse,.blink{animation:none}}
+</style>
+</helmet>
+<div class="theme" data-theme="{{theme}}" ref="{{setEl}}" onScroll="{{onScroll}}" style="height: 100vh; overflow-y: auto; overflow-x: hidden; position: relative; background: var(--bg); color: var(--ink); font-family: 'Instrument Sans', system-ui, sans-serif">
+
+<header style="position: sticky; top: 0; z-index: 20; background: var(--hdr); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px)">
+<div style="max-width: 1360px; margin: 0 auto; padding: 14px 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 32px; border-bottom: 1px solid var(--rule)">
+<div style="font-family: Archivo, sans-serif; font-weight: 900; font-stretch: 75%; font-size: 24px; letter-spacing: -0.01em; text-transform: uppercase">Freitas<span style="color: {{punch}}">.</span></div>
+<nav aria-label="Sections" style="display: flex; gap: 24px">
+<button type="button" onClick="{{showStory}}" aria-pressed="{{storyPressed}}" style="min-height: 44px; padding: 0 2px; border: 0; background: none; cursor: pointer; font: 600 15px 'Instrument Sans', sans-serif; color: {{storyFg}}; border-bottom: 3px solid {{storyLine}}">Story</button>
+<button type="button" onClick="{{showNumbers}}" aria-pressed="{{numbersPressed}}" style="min-height: 44px; padding: 0 2px; border: 0; background: none; cursor: pointer; font: 600 15px 'Instrument Sans', sans-serif; color: {{numbersFg}}; border-bottom: 3px solid {{numbersLine}}">Numbers</button>
+</nav>
+<div style="flex: 1 1 auto"></div>
+<div class="hide-sm" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted)">41.15°N 8.61°W · Porto {{clock}}</div>
+<button type="button" onClick="{{toggleTheme}}" aria-pressed="{{darkPressed}}" style="min-height: 44px; display: inline-flex; align-items: center; gap: 8px; padding: 0 14px; border: 1.5px solid var(--ink); border-radius: 4px; background: none; color: var(--ink); cursor: pointer; font: 600 14px 'Instrument Sans', sans-serif">
+<sc-if value="{{isLight}}" hint-placeholder-val="{{true}}">
+<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>Night
+</sc-if>
+<sc-if value="{{isDark}}" hint-placeholder-val="{{false}}">
+<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>Day
+</sc-if>
+</button>
+<a href="assets/cv/Miguel-Freitas-CV-Tide.pdf" download="Miguel-Freitas-CV-Tide.pdf" style="min-height: 44px; display: inline-flex; align-items: center; padding: 0 20px; background: var(--ink); color: var(--on-ink); font-weight: 600; font-size: 14px; text-decoration: none; border-radius: 4px">Download CV</a>
+</div>
+<div style="display: flex; align-items: center; overflow: hidden; height: 42px; background: var(--band); color: #E9F5F3">
+<div style="flex: none; display: flex; align-items: center; gap: 8px; height: 100%; padding: 0 18px 0 32px; background: {{punch}}; color: #2A0E06; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.14em; z-index: 1"><span class="pulse" style="width: 8px; height: 8px; border-radius: 50%; background: #2A0E06; display: inline-block"></span>CURRENTLY</div>
+<div style="overflow: hidden; flex: 1 1 auto">
+<div class="marq" style="display: flex; width: max-content">
+<sc-for list="{{nowLoop}}" as="n" hint-placeholder-count="10">
+<div style="display: flex; align-items: center; gap: 10px; padding: 0 26px; white-space: nowrap; font-size: 14px"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: #9FD3CF">{{n.k}}</span>{{n.t}}<span aria-hidden="true" style="color: #3E8C8C; padding-left: 16px">~</span></div>
+</sc-for>
+</div>
+</div>
+</div>
+</header>
+
+<sc-if value="{{isStory}}" hint-placeholder-val="{{true}}">
+<main>
+
+<section data-scene="hero" style="height: 240vh; position: relative">
+<div style="position: sticky; top: 0; height: 100vh; overflow: hidden">
+<div style="position: absolute; left: 0; right: 0; top: 115px; bottom: 0; overflow: hidden">
+<div style="position: absolute; inset: 0; clip-path: {{clip}}; -webkit-clip-path: {{clip}}">
+<img src="assets/img/portrait.jpg" alt="Portrait of Miguel Freitas, smiling" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 26%; display: block; transform: scale({{imgScale}})">
+<div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(6,20,23,0.86) 0%, rgba(6,20,23,0.35) 55%, rgba(6,20,23,0) 100%); opacity: {{copyO}}"></div>
+</div>
+<div class="big-name" aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 50%; margin-bottom: 20px; text-align: center; font-family: Archivo, sans-serif; font-weight: 900; font-stretch: 62%; font-size: min(17vw, 30vh); line-height: 0.8; letter-spacing: -0.01em; text-transform: uppercase; color: var(--ink); transform: translateY({{upShift}})">Miguel</div>
+<div class="big-name" aria-hidden="true" style="position: absolute; left: 0; right: 0; top: 50%; margin-top: 20px; text-align: center; font-family: Archivo, sans-serif; font-weight: 900; font-stretch: 62%; font-size: min(17vw, 30vh); line-height: 0.8; letter-spacing: -0.01em; text-transform: uppercase; color: var(--deep); transform: translateY({{downShift}})">Freitas</div>
+<div aria-hidden="true" style="position: absolute; left: 32px; right: 32px; top: 50%; display: flex; align-items: center; gap: 18px; transform: translateY(-50%); opacity: {{lineO}}">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.16em; color: var(--muted); white-space: nowrap">AI ENGINEER</span>
+<span style="flex: 1 1 auto; height: 2px; background: var(--ink)"></span>
+<span style="width: 10px; height: 10px; border-radius: 50%; background: {{punch}}; flex: none"></span>
+<span style="flex: 1 1 auto; height: 2px; background: var(--ink)"></span>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.16em; color: var(--muted); white-space: nowrap">PORTO · EST. 2012</span>
+</div>
+<div style="position: absolute; left: 0; right: 0; bottom: 3vh; text-align: center; opacity: {{cueO}}">
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; color: var(--muted)">SCROLL TO OPEN ↓</div>
+</div>
+</div>
+<div style="position: absolute; left: max(32px, calc((100vw - 1360px) / 2 + 32px)); top: 50%; max-width: 600px; color: #FFFFFF; transform: translateY(calc(-45% + {{copyY}})); opacity: {{copyO}}">
+<div style="display: inline-block; padding: 6px 12px; background: {{punch}}; color: #2A0E06; font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.12em">EST. 2012 · SHIPPING → AI</div>
+<h1 style="margin: 20px 0 0; font-family: Archivo, sans-serif; font-weight: 900; font-stretch: 70%; font-size: clamp(56px, 7vw, 112px); line-height: 0.86; letter-spacing: -0.01em; text-transform: uppercase">Miguel<br>G.M. Freitas</h1>
+<p style="margin: 22px 0 0; font-size: 19px; line-height: 1.55; color: #E3EEEC">From managing Mediterranean shipping lanes to architecting AI systems — radical reinvention, scientific rigor, and things that matter. Shot through with salt water, coffee, and light.</p>
+<div style="margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px">
+<a href="#journey" style="min-height: 50px; display: inline-flex; align-items: center; padding: 0 26px; background: {{punch}}; color: #2A0E06; font-weight: 700; text-decoration: none; border-radius: 4px">See the journey</a>
+<a href="mailto:miguel_freitas_12@hotmail.com" style="min-height: 50px; display: inline-flex; align-items: center; padding: 0 26px; border: 1.5px solid rgba(255,255,255,0.7); color: #FFFFFF; font-weight: 600; text-decoration: none; border-radius: 4px">Get in touch</a>
+</div>
+</div>
+</div>
+</section>
+
+<section id="journey" data-scene="seq" style="height: 700vh; position: relative">
+<div class="seq-sticky" style="position: sticky; top: 0; height: 100vh; box-sizing: border-box; padding: 136px 32px 32px; max-width: 1360px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px">
+<div>
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px">
+<h2 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 900; font-stretch: 70%; font-size: 52px; text-transform: uppercase; line-height: 1">The journey</h2>
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--muted)">Chapter {{activeNum}} of {{chapterCount}}</div>
+</div>
+<div class="hide-sm" style="margin-top: 22px; position: relative; height: 44px">
+<div style="position: absolute; left: 0; right: 0; top: 21px; height: 2px; background: var(--rule)"></div>
+<div style="position: absolute; left: 0; top: 21px; height: 2px; width: {{seqPct}}; background: var(--deep); transition: width .3s"></div>
+<div style="position: absolute; inset: 0; display: flex; justify-content: space-between">
+<sc-for list="{{chapters}}" as="c" hint-placeholder-count="8">
+<button type="button" onClick="{{c.pick}}" aria-label="Go to {{c.org}}" style="width: 44px; height: 44px; border: 0; background: none; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0">
+<span style="width: {{c.dot}}; height: {{c.dot}}; border-radius: 50%; background: {{c.dotBg}}; border: 2px solid {{c.dotRing}}; transition: all .3s"></span>
+</button>
+</sc-for>
+</div>
+</div>
+</div>
+<div style="flex: 1 1 auto; min-height: 0; display: flex; flex-wrap: wrap; gap: 40px">
+<div class="hide-sm" style="flex: 1 1 440px; min-width: 0; display: flex">
+<sc-for list="{{chapters}}" as="c" hint-placeholder-count="1">
+<sc-if value="{{c.openPhoto}}" hint-placeholder-val="{{false}}">
+<div class="rise" style="width: 100%; box-sizing: border-box; padding: 40px; color: #FFFFFF; display: flex; flex-direction: column; justify-content: space-between; border-radius: 6px; position: relative; overflow: hidden; background: #05080B">
+<img src="assets/img/andromeda.jpg" alt="The Andromeda Galaxy with two companion galaxies, photographed by Miguel" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%">
+<div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5,8,11,0.1) 30%, rgba(5,8,11,0.85) 100%)"></div>
+<div style="position: relative; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #9FD3CF">{{c.sector}} · ANDROMEDA GALAXY</div>
+<div style="position: relative">
+<div style="font-family: Archivo, sans-serif; font-weight: 900; font-stretch: 70%; font-size: {{c.bigSize}}; line-height: 0.85; color: {{punch}}">{{c.big}}</div>
+<div style="margin-top: 16px; font-size: 19px; line-height: 1.45; max-width: 380px">{{c.cap}}</div>
+<div style="margin-top: 18px; display: flex; flex-wrap: wrap; gap: 10px">
+<a href="#lens" style="min-height: 44px; display: inline-flex; align-items: center; padding: 0 20px; background: {{punch}}; color: #2A0E06; font-weight: 700; font-size: 14px; text-decoration: none; border-radius: 4px">Gallery ↓</a>
+<a href="{{c.link}}" style="min-height: 44px; display: inline-flex; align-items: center; padding: 0 20px; border: 1.5px solid rgba(255,255,255,0.7); color: #FFFFFF; font-weight: 600; font-size: 14px; text-decoration: none; border-radius: 4px">Instagram →</a>
+</div>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{c.openText}}" hint-placeholder-val="{{false}}">
+<div class="rise" style="width: 100%; box-sizing: border-box; padding: 40px; background: var(--band); color: #FFFFFF; display: flex; flex-direction: column; justify-content: space-between; border-radius: 6px; position: relative; overflow: hidden">
+<div aria-hidden="true" style="position: absolute; right: -10px; bottom: -70px; font-family: Archivo, sans-serif; font-weight: 900; font-stretch: 62%; font-size: 340px; line-height: 1; color: rgba(159,211,207,0.12)">{{c.num}}</div>
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #9FD3CF">{{c.sector}} · {{c.yr}}</div>
+<div style="position: relative">
+<div style="font-family: Archivo, sans-serif; font-weight: 900; font-stretch: 70%; font-size: {{c.bigSize}}; line-height: 0.85; color: {{punch}}">{{c.big}}</div>
+<div style="margin-top: 16px; font-size: 19px; line-height: 1.45; max-width: 380px">{{c.cap}}</div>
+<sc-if value="{{c.hasLink}}" hint-placeholder-val="{{false}}">
+<a href="{{c.link}}" style="margin-top: 18px; min-height: 44px; display: inline-flex; align-items: center; padding: 0 20px; background: {{punch}}; color: #2A0E06; font-weight: 700; font-size: 14px; text-decoration: none; border-radius: 4px">{{c.linkText}}</a>
+</sc-if>
+</div>
+</div>
+</sc-if>
+</sc-for>
+</div>
+<div data-list="1" style="flex: 1 1 560px; min-width: 0; max-height: 100%; position: relative; overflow-y: auto; border-top: 2px solid var(--ink)">
+<sc-for list="{{chapters}}" as="c" hint-placeholder-count="10">
+<div data-row="{{c.idx}}" style="border-bottom: 1px solid var(--rule)">
+<button type="button" onClick="{{c.pick}}" aria-expanded="{{c.expanded}}" style="width: 100%; min-height: 44px; display: flex; align-items: baseline; gap: 16px; padding: 8px 0; background: none; border: 0; cursor: pointer; text-align: left; color: {{c.fg}}; font-family: 'Instrument Sans', sans-serif">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: {{c.numFg}}; width: 22px">{{c.num}}</span>
+<span style="flex: 1 1 auto; font-family: Archivo, sans-serif; font-stretch: 85%; font-weight: 800; font-size: {{c.size}}; transition: font-size .3s">{{c.org}}</span>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); white-space: nowrap">{{c.yr}}</span>
+</button>
+<sc-if value="{{c.open}}" hint-placeholder-val="{{false}}">
+<div class="rise" style="padding: 0 0 18px 38px">
+<div style="font-size: 14px; font-weight: 700; color: var(--coral-text)">{{c.role}}</div>
+<p style="margin: 6px 0 0; font-size: 15px; line-height: 1.6; color: var(--body)">{{c.body}}</p>
+<div style="margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px">
+<sc-for list="{{c.tags}}" as="t" hint-placeholder-count="3">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; padding: 4px 9px; background: var(--chip); color: var(--deep); border-radius: 3px">{{t}}</span>
+</sc-for>
+</div>
+</div>
+</sc-if>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+</section>
+
+<section id="lab" style="max-width: 1360px; margin: 0 auto; padding: 120px 32px 20px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; border-bottom: 2px solid var(--ink); padding-bottom: 16px">
+<h2 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 900; font-stretch: 70%; font-size: 64px; text-transform: uppercase; line-height: 0.9">Built in the lab</h2>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--muted)">MF Concepts · two apps in daily use</span>
+</div>
+
+<article style="display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start; padding: 36px 0; border-bottom: 1px solid var(--rule)">
+<div style="flex: 999 1 600px; min-width: 0">
+<video src="assets/video/aimlr-highlight.mp4" poster="assets/video/aimlr-poster.jpg" autoplay="autoplay" loop="loop" muted="muted" playsinline="playsinline" preload="auto" aria-label="AI-ML Refresher highlights, looping" style="width: 100%; aspect-ratio: 16 / 10; display: block; background: #0A171A"></video>
+<a href="assets/video/aimlr-demo.mp4" target="_blank" rel="noopener" style="margin-top: 10px; display: inline-flex; align-items: center; min-height: 44px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--deep)">Watch the full demo · 1:00 →</a>
+</div>
+<div style="flex: 1 1 320px; min-width: 0">
+<div style="font-family: Archivo, sans-serif; font-weight: 900; font-stretch: 62%; font-size: 72px; line-height: 0.85; color: var(--coral-text)">01</div>
+<h3 style="margin: 14px 0 0; font-family: Archivo, sans-serif; font-weight: 800; font-stretch: 85%; font-size: 30px">AI-ML Refresher</h3>
+<div style="margin-top: 6px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted)">macOS widget · Windows · Android widget</div>
+<p style="margin: 14px 0 0; font-size: 16px; line-height: 1.6; color: var(--body)">A 15-minute daily reading habit in AI &amp; ML. After noon it gathers what's trending on GitHub, Hugging Face, Hacker News, Reddit and research blogs, ranks it with a fixed formula and keeps the top 15 — on a home-screen widget.</p>
+<p style="margin: 10px 0 0; font-size: 14px; line-height: 1.6; color: var(--muted)">No AI summaries, no API keys: the same inputs always give the same list. Saved items sync across Mac, PC and phone.</p>
+<div style="margin-top: 14px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; line-height: 1.7; color: var(--muted)">SwiftUI · WidgetKit / C# · .NET · Avalonia / Kotlin · Jetpack Compose</div>
+<a href="https://github.com/MMFreitas1/AI-ML-refresher" style="margin-top: 20px; min-height: 48px; display: inline-flex; align-items: center; padding: 0 22px; background: var(--ink); color: var(--on-ink); font-weight: 700; text-decoration: none; border-radius: 4px">View on GitHub →</a>
+</div>
+</article>
+
+<article style="display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start; padding: 36px 0">
+<div style="flex: 999 1 600px; min-width: 0">
+<video src="assets/video/3dsp-highlight.mp4" poster="assets/video/3dsp-poster.jpg" autoplay="autoplay" loop="loop" muted="muted" playsinline="playsinline" preload="auto" aria-label="3D S&amp;P 500 Visualizer highlights, looping" style="width: 100%; aspect-ratio: 16 / 10; display: block; background: #0A171A"></video>
+<a href="assets/video/3dsp-demo.mp4" target="_blank" rel="noopener" style="margin-top: 10px; display: inline-flex; align-items: center; min-height: 44px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--deep)">Watch the full demo · 4:25 →</a>
+</div>
+<div style="flex: 1 1 320px; min-width: 0">
+<div style="font-family: Archivo, sans-serif; font-weight: 900; font-stretch: 62%; font-size: 72px; line-height: 0.85; color: var(--coral-text)">02</div>
+<h3 style="margin: 14px 0 0; font-family: Archivo, sans-serif; font-weight: 800; font-stretch: 85%; font-size: 30px">3D S&amp;P 500 Visualizer</h3>
+<div style="margin-top: 6px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted)">Markets in 3D · with an analyst assistant</div>
+<p style="margin: 14px 0 0; font-size: 16px; line-height: 1.6; color: var(--body)">Decades of S&amp;P 500 history as a 3D sector cube and skyline you can scrub through week by week — with sector rotation, warning signs and the market events that moved them, from the dot-com peak onwards.</p>
+<p style="margin: 10px 0 0; font-size: 14px; line-height: 1.6; color: var(--muted)">A built-in analyst assistant reads a stock's fundamentals and the news you pick, over the time frames you choose, and answers short or long.</p>
+<a href="https://github.com/MMFreitas1/3d-sp500-historical-visualizer" style="margin-top: 20px; min-height: 48px; display: inline-flex; align-items: center; padding: 0 22px; background: var(--ink); color: var(--on-ink); font-weight: 700; text-decoration: none; border-radius: 4px">View on GitHub →</a>
+</div>
+</article>
+</section>
+
+<section id="lens" style="max-width: 1360px; margin: 0 auto; padding: 120px 32px 20px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; border-bottom: 2px solid var(--ink); padding-bottom: 16px">
+<h2 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 900; font-stretch: 70%; font-size: 64px; text-transform: uppercase; line-height: 0.9">Through the lens</h2>
+<div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--muted)">Canon EOS 80D · edited in Lightroom</span><a href="https://www.instagram.com/freitasfazinsta/" style="font-weight: 700; color: var(--coral-text)">More on Instagram →</a></div>
+</div>
+<div class="lens" style="margin-top: 32px; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-auto-rows: 210px; gap: 24px">
+<figure style="margin: 0; grid-column: 1 / span 7; grid-row: 1 / span 2; display: flex; flex-direction: column">
+<img src="assets/img/falls.jpg" alt="A white waterfall falling between dark basalt columns" style="flex: 1 1 auto; min-height: 0; width: 100%; object-fit: cover; display: block">
+<figcaption style="padding-top: 8px; display: flex; gap: 12px; font-size: 13px; color: var(--body)"><span style="font-family: 'IBM Plex Mono', monospace; color: var(--coral-text)">01</span>Basalt &amp; water</figcaption>
+</figure>
+<figure style="margin: 0; grid-column: 8 / span 5; grid-row: 1 / span 3; display: flex; flex-direction: column">
+<img src="assets/img/street.jpg" alt="A narrow old-town street of green, coral and white houses under a street lamp" style="flex: 1 1 auto; min-height: 0; width: 100%; object-fit: cover; display: block">
+<figcaption style="padding-top: 8px; display: flex; gap: 12px; font-size: 13px; color: var(--body)"><span style="font-family: 'IBM Plex Mono', monospace; color: var(--coral-text)">02</span>Old-town light</figcaption>
+</figure>
+<figure style="margin: 0; grid-column: 1 / span 7; grid-row: 3 / span 2; display: flex; flex-direction: column">
+<img src="assets/img/veil.jpg" alt="The Western and Eastern Veil nebulae in a dense star field" style="flex: 1 1 auto; min-height: 0; width: 100%; object-fit: cover; display: block">
+<figcaption style="padding-top: 8px; display: flex; gap: 12px; font-size: 13px; color: var(--body)"><span style="font-family: 'IBM Plex Mono', monospace; color: var(--coral-text)">03</span>Western &amp; Eastern Veil Nebulae</figcaption>
+</figure>
+<figure style="margin: 0; grid-column: 8 / span 5; grid-row: 4 / span 3; display: flex; flex-direction: column">
+<img src="assets/img/doorway.jpg" alt="Black-and-white portrait of a man leaning in a doorway, a small dog resting on a chair beside him" style="flex: 1 1 auto; min-height: 0; width: 100%; object-fit: cover; display: block">
+<figcaption style="padding-top: 8px; display: flex; gap: 12px; font-size: 13px; color: var(--body)"><span style="font-family: 'IBM Plex Mono', monospace; color: var(--coral-text)">04</span>Doorway, with company</figcaption>
+</figure>
+<figure style="margin: 0; grid-column: 1 / span 7; grid-row: 5 / span 2; display: flex; flex-direction: column">
+<img src="assets/img/plane.jpg" alt="A green and gold aerobatic plane flying inverted, trailing white smoke" style="flex: 1 1 auto; min-height: 0; width: 100%; object-fit: cover; display: block">
+<figcaption style="padding-top: 8px; display: flex; gap: 12px; font-size: 13px; color: var(--body)"><span style="font-family: 'IBM Plex Mono', monospace; color: var(--coral-text)">05</span>Inverted pass</figcaption>
+</figure>
+</div>
+</section>
+
+<section style="max-width: 1360px; margin: 0 auto; padding: 120px 32px 40px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; border-bottom: 2px solid var(--ink); padding-bottom: 16px">
+<h2 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 900; font-stretch: 70%; font-size: 64px; text-transform: uppercase; line-height: 0.9">Toolkit</h2>
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--muted)">57 tools · 6 families</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); column-gap: 40px">
+<sc-for list="{{stack}}" as="g" hint-placeholder-count="6">
+<div style="padding: 24px 0; border-bottom: 1px solid var(--rule)">
+<div style="display: flex; align-items: center; gap: 10px"><span style="width: 12px; height: 12px; background: {{g.color}}"></span><span style="font-family: Archivo, sans-serif; font-stretch: 85%; font-weight: 800; font-size: 18px">{{g.name}}</span><span style="margin-left: auto; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted)">{{g.count}}</span></div>
+<p style="margin: 12px 0 0; font-size: 15px; line-height: 1.7; color: var(--body)">{{g.line}}</p>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section style="max-width: 1360px; margin: 0 auto; padding: 60px 32px; display: flex; flex-wrap: wrap; gap: 40px">
+<div style="flex: 1 1 520px; min-width: 0">
+<h3 style="margin: 0 0 8px; font-family: Archivo, sans-serif; font-weight: 900; font-stretch: 75%; font-size: 32px; text-transform: uppercase">Education</h3>
+<sc-for list="{{education}}" as="e" hint-placeholder-count="3">
+<div style="display: flex; gap: 20px; align-items: center; padding: 18px 0; border-top: 1px solid var(--rule)">
+<div style="font-family: Archivo, sans-serif; font-weight: 900; font-stretch: 62%; font-size: 52px; line-height: 1; color: var(--deep); width: 60px">{{e.gpa}}</div>
+<div><div style="font-weight: 700; font-size: 17px">{{e.what}}</div><div style="margin-top: 4px; font-size: 14px; color: var(--muted)">{{e.where}} · {{e.when}}</div></div>
+</div>
+</sc-for>
+</div>
+<div style="flex: 1 1 420px; min-width: 0">
+<h3 style="margin: 0 0 8px; font-family: Archivo, sans-serif; font-weight: 900; font-stretch: 75%; font-size: 32px; text-transform: uppercase">Certificates</h3>
+<sc-for list="{{certs}}" as="c" hint-placeholder-count="6">
+<div style="display: flex; justify-content: space-between; gap: 12px; padding: 13px 0; border-top: 1px solid var(--rule); font-size: 15px"><span style="font-weight: 600">{{c.n}}</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted)">{{c.by}}</span></div>
+</sc-for>
+</div>
+</section>
+
+<section style="position: relative; min-height: 640px; display: flex; align-items: flex-end; overflow: hidden; margin-top: 60px">
+<img src="assets/img/surf.jpg" alt="Miguel surfing a green wave" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+<div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6,20,23,0) 35%, rgba(6,20,23,0.85) 100%)"></div>
+<div style="position: relative; max-width: 1360px; width: 100%; margin: 0 auto; padding: 0 32px 64px; box-sizing: border-box; color: #FFFFFF; display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-end; justify-content: space-between">
+<p style="margin: 0; max-width: 760px; font-family: Archivo, sans-serif; font-weight: 800; font-stretch: 80%; font-size: clamp(26px, 3.2vw, 44px); line-height: 1.08">“Degrees are just tools — it’s through the self-taught path that I’ve gathered what I need to build unique creations.”</p>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<a href="mailto:miguel_freitas_12@hotmail.com" style="min-height: 48px; display: inline-flex; align-items: center; padding: 0 22px; background: {{punch}}; color: #2A0E06; font-weight: 700; text-decoration: none; border-radius: 4px">Email</a>
+<a href="https://www.linkedin.com/in/miguel-freitas-770205157/" style="min-height: 48px; display: inline-flex; align-items: center; padding: 0 22px; border: 1.5px solid rgba(255,255,255,0.7); color: #FFFFFF; text-decoration: none; border-radius: 4px">LinkedIn</a>
+<a href="https://github.com/MMFreitas1" style="min-height: 48px; display: inline-flex; align-items: center; padding: 0 22px; border: 1.5px solid rgba(255,255,255,0.7); color: #FFFFFF; text-decoration: none; border-radius: 4px">GitHub</a>
+<a href="https://www.instagram.com/freitasfazinsta/" style="min-height: 48px; display: inline-flex; align-items: center; padding: 0 22px; border: 1.5px solid rgba(255,255,255,0.7); color: #FFFFFF; text-decoration: none; border-radius: 4px">Instagram</a>
+</div>
+</div>
+</section>
+</main>
+</sc-if>
+
+<sc-if value="{{isNumbers}}" hint-placeholder-val="{{false}}">
+<main style="max-width: 1360px; margin: 0 auto; padding: 56px 32px 120px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; border-bottom: 2px solid var(--ink); padding-bottom: 18px">
+<h1 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 900; font-stretch: 65%; font-size: clamp(56px, 7vw, 104px); line-height: 0.85; text-transform: uppercase">By the<br>numbers</h1>
+<p style="margin: 0; max-width: 360px; color: var(--muted); font-size: 17px; line-height: 1.5">Thirteen projects, fourteen years, one pivot — aggregated from the CV.</p>
+</div>
+
+<div class="rise" style="margin-top: 40px; padding-bottom: 32px; border-bottom: 1px solid var(--rule)">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+<div><h2 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 900; font-stretch: 75%; font-size: 34px; text-transform: uppercase">Projects per year</h2><div style="margin-top: 4px; font-size: 14px; color: var(--muted)">Data &amp; AI builds since the pivot — hover a bar to see which, or the {{nextYear}} bar for the model</div></div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 13px; color: var(--body)">
+<span style="display: inline-flex; align-items: center; gap: 8px"><span style="width: 14px; height: 14px; background: var(--deep)"></span>Delivered</span>
+<span style="display: inline-flex; align-items: center; gap: 8px"><span style="width: 14px; height: 14px; box-sizing: border-box; background: var(--proj); border: 1.5px dashed var(--deep)"></span>Projected</span>
+<span style="display: inline-flex; align-items: center; gap: 8px"><span style="width: 22px; height: 3px; background: {{punch}}"></span>Trend</span>
+</div>
+</div>
+<div role="group" aria-label="Projects per year — {{summary}}" style="margin: 44px 0 0 32px; position: relative; height: 320px; border-bottom: 2px solid var(--ink)">
+<sc-for list="{{ticks}}" as="t" hint-placeholder-count="5">
+<div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: {{t.pos}}; border-top: 1px solid var(--grid)"><span style="position: absolute; left: -32px; top: -9px; width: 24px; text-align: right; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--muted)">{{t.v}}</span></div>
+</sc-for>
+<div style="position: absolute; inset: 0; display: flex">
+<sc-for list="{{years}}" as="y" hint-placeholder-count="5">
+<div title="{{y.title}}" style="flex: 1 1 0; min-width: 0; position: relative; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center">
+<div style="position: absolute; left: 0; right: 0; bottom: calc({{y.labelB}} + 12px); text-align: center; font-family: Archivo, sans-serif; font-weight: 900; font-stretch: 70%; font-size: 30px; line-height: 1; color: var(--ink)">{{y.label}}</div>
+<sc-if value="{{y.notForecast}}" hint-placeholder-val="{{true}}">
+<div style="width: 46%; height: {{y.projH}}; box-sizing: border-box; background: var(--proj); border: 1.5px dashed var(--deep); border-bottom: 0"></div>
+<div style="width: 46%; height: {{y.doneH}}; background: var(--deep)"></div>
+</sc-if>
+<sc-if value="{{y.isForecast}}" hint-placeholder-val="{{false}}">
+<span aria-hidden="true" style="position: absolute; left: 50%; width: 16px; margin-left: -8px; bottom: {{y.loB}}; height: {{y.whiskH}}; box-sizing: border-box; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); background: linear-gradient(90deg, transparent 7px, var(--ink) 7px, var(--ink) 9px, transparent 9px); opacity: 0.5"></span>
+<div style="width: 46%; height: {{y.fcH}}; box-sizing: border-box; border: 1.5px dashed var(--deep); border-bottom: 0; background: var(--proj); cursor: help"></div>
+</sc-if>
+</div>
+</sc-for>
+</div>
+<svg aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none" style="position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none"><path d="{{histPath}}" fill="none" stroke="{{punch}}" stroke-width="3.5" stroke-linecap="round" vector-effect="non-scaling-stroke"></path><path d="{{fcPath}}" fill="none" stroke="{{punch}}" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="6 7" vector-effect="non-scaling-stroke"></path></svg>
+<sc-for list="{{dots}}" as="d" hint-placeholder-count="5">
+<span aria-hidden="true" style="position: absolute; left: {{d.left}}; bottom: {{d.bottom}}; width: 12px; height: 12px; margin: 0 0 -6px -6px; box-sizing: border-box; border-radius: 50%; background: {{d.bg}}; border: 2.5px solid {{punch}}; pointer-events: none"></span>
+</sc-for>
+</div>
+<div aria-hidden="true" style="display: flex; margin: 10px 0 0 32px">
+<sc-for list="{{years}}" as="y" hint-placeholder-count="5">
+<div style="flex: 1 1 0; text-align: center"><div style="font-family: Archivo, sans-serif; font-weight: 800; font-stretch: 85%; font-size: 17px">{{y.year}}</div><div style="min-height: 16px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--muted)">{{y.sub}}</div></div>
+</sc-for>
+</div>
+</div>
+
+<div style="margin-top: 48px; display: flex; flex-wrap: wrap; gap: 48px">
+<div style="flex: 999 1 560px; min-width: 0">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+<div><h2 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 900; font-stretch: 75%; font-size: 34px; text-transform: uppercase">Where the work landed</h2><div style="margin-top: 4px; font-size: 14px; color: var(--muted)">13 client and research projects</div></div>
+<div role="group" aria-label="Group projects by" style="display: flex; border: 1.5px solid var(--ink); border-radius: 4px; overflow: hidden">
+<button type="button" onClick="{{bySector}}" aria-pressed="{{sectorPressed}}" style="min-height: 40px; padding: 0 16px; border: 0; cursor: pointer; font: 600 13px 'Instrument Sans', sans-serif; background: {{sectorBg}}; color: {{sectorFg}}">By sector</button>
+<button type="button" onClick="{{byCap}}" aria-pressed="{{capPressed}}" style="min-height: 40px; padding: 0 16px; border: 0; cursor: pointer; font: 600 13px 'Instrument Sans', sans-serif; background: {{capBg}}; color: {{capFg}}">By capability</button>
+</div>
+</div>
+<div style="margin-top: 24px; display: flex; flex-direction: column">
+<sc-for list="{{bars}}" as="b" hint-placeholder-count="7">
+<div class="rise" style="display: grid; grid-template-columns: 170px minmax(0, 1fr) 36px; gap: 16px; align-items: center; padding: 12px 0; border-top: 1px solid var(--rule)">
+<div style="font-weight: 700; font-size: 15px">{{b.label}}</div>
+<div><div style="height: 26px; width: {{b.w}}; background: {{b.color}}; transition: width .5s cubic-bezier(.2,.7,.2,1)"></div><div style="margin-top: 5px; font-size: 12px; color: var(--muted)">{{b.names}}</div></div>
+<div style="font-family: Archivo, sans-serif; font-weight: 900; font-stretch: 70%; font-size: 28px; text-align: right; color: {{b.text}}">{{b.count}}</div>
+</div>
+</sc-for>
+</div>
+</div>
+
+<div style="flex: 1 1 380px; min-width: 0">
+<h2 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 900; font-stretch: 75%; font-size: 34px; text-transform: uppercase">The rigor curve</h2>
+<div style="margin-top: 4px; font-size: 14px; color: var(--muted)">Final grade, out of 20</div>
+<div style="margin-top: 28px; display: flex; flex-direction: column; gap: 26px">
+<sc-for list="{{gpa}}" as="g" hint-placeholder-count="3">
+<div>
+<div style="display: flex; justify-content: space-between; font-size: 14px"><span style="font-weight: 700">{{g.l}}</span><span style="font-family: 'IBM Plex Mono', monospace; color: var(--muted)">{{g.y}}</span></div>
+<div style="margin-top: 10px; position: relative; height: 28px">
+<div style="position: absolute; left: 0; right: 0; top: 13px; height: 2px; background: var(--rule)"></div>
+<div style="position: absolute; left: 0; top: 13px; height: 2px; width: {{g.h}}; background: {{g.color}}"></div>
+<div style="position: absolute; left: {{g.h}}; top: 0; width: 28px; height: 28px; margin-left: -14px; border-radius: 50%; background: {{g.color}}; color: {{g.fg}}; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">{{g.v}}</div>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+
+<div style="margin-top: 64px">
+<h2 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 900; font-stretch: 75%; font-size: 34px; text-transform: uppercase">Fourteen years, three tides</h2>
+<div style="margin-top: 4px; font-size: 14px; color: var(--muted)">Share of career by domain, 2012 to now</div>
+<div style="margin-top: 24px; display: flex; height: 80px; gap: 3px">
+<sc-for list="{{eras}}" as="e" hint-placeholder-count="3">
+<div style="width: {{e.w}}; background: {{e.color}}; display: flex; flex-direction: column; justify-content: center; padding: 0 16px; box-sizing: border-box; color: {{e.fg}}; white-space: nowrap; overflow: hidden"><span style="font-family: Archivo, sans-serif; font-weight: 900; font-stretch: 70%; font-size: 26px">{{e.pct}}</span><span style="font-size: 12px">{{e.l}}</span></div>
+</sc-for>
+</div>
+<div style="margin-top: 8px; display: flex; justify-content: space-between; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted)"><span>2012</span><span>2021</span><span>2023</span><span>now</span></div>
+<div style="margin-top: 24px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap">
+<span style="font-size: 14px; color: var(--muted)">Lifeguard summers, alongside it all</span>
+<div style="display: flex; gap: 6px">
+<sc-for list="{{summers}}" as="s" hint-placeholder-count="10">
+<span title="{{s}}" style="width: 16px; height: 16px; border-radius: 50%; background: {{punch}}"></span>
+</sc-for>
+</div>
+</div>
+</div>
+
+<div style="margin-top: 64px">
+<h2 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 900; font-stretch: 75%; font-size: 34px; text-transform: uppercase">Toolkit composition</h2>
+<div style="margin-top: 4px; font-size: 14px; color: var(--muted)">57 tools, one tile each — hover a tile for its name</div>
+<div style="margin-top: 24px; display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start">
+<div style="display: grid; grid-template-columns: repeat(12, 30px); gap: 4px">
+<sc-for list="{{waffle}}" as="w" hint-placeholder-count="57">
+<span title="{{w.t}}" style="width: 30px; height: 30px; background: {{w.c}}"></span>
+</sc-for>
+</div>
+<div style="display: flex; flex-direction: column; flex: 1 1 260px">
+<sc-for list="{{stack}}" as="g" hint-placeholder-count="6">
+<div style="display: flex; align-items: center; gap: 12px; padding: 10px 0; border-top: 1px solid var(--rule); font-size: 15px"><span style="width: 14px; height: 14px; background: {{g.color}}"></span><span style="flex: 1 1 auto; font-weight: 600">{{g.name}}</span><span style="font-family: Archivo, sans-serif; font-weight: 900; font-stretch: 70%; font-size: 22px">{{g.count}}</span></div>
+</sc-for>
+</div>
+</div>
+</div>
+</main>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"punch":{"editor":"color","default":"#FF6B4A","options":["#FF6B4A","#FF8A3D","#F2C14E"]},"$preview":{"width":1440,"height":900}}'>
+const NOW = [
+  { k: "WORK", t: "AI Engineer at Genesis Digital Solutions" },
+  { k: "LAB", t: "Founding MF Concepts, an independent AI lab" },
+  { k: "SUNDAYS", t: "Front of house at Combi Coffee Roasters, Porto" },
+  { k: "LENS", t: "Freelance photography & astrophotography" }
+];
+const CHAPTERS = [
+  { yr: "2012 — 2015", org: "Escola Superior Náutica", role: "BSc · Port Management", sector: "MARITIME", body: "Three years inside port and vessel operations — supply chains, terminal management and operations research.", big: "14", cap: "final GPA — where the logistics instinct started.", tags: ["Port Operations", "Logistics", "Operations Research"] },
+  { yr: "2012 — 2022", org: "Resgate, ANSLA", role: "Lifeguard · Seasonal", sector: "LIFE", body: "Ten summers on the Atlantic. Rapid, irreversible decisions became second nature — as did staying calm under stress.", big: "20+", cap: "water rescues in rough seas, and 100+ preventions.", tags: ["Crisis Response", "Situational Awareness", "Water Safety"] },
+  { yr: "2015 — 2021", org: "Mediterranean Shipping Company", role: "Shipping Agent", sector: "LOGISTICS", body: "Six years in the 24/7 heartbeat of one of the world's largest container carriers — crew changes, spare parts, bunker operations, 8h to 72h shifts.", big: "−10%", cap: "port-stay turnaround costs, through last-minute problem-solving.", tags: ["Port Operations", "Bunker Operations", "Stakeholders"] },
+  { yr: "2021 — 2023", org: "Universidade Nova de Lisboa", role: "MSc · Impact Entrepreneurship & Innovation", sector: "THE PIVOT", body: "One subject — Data Science for Innovation and Impact — redirected everything. Six months of self-taught programming and statistics, alongside the thesis.", big: "17", cap: "final GPA, plus a Data Science Associate certificate before graduating.", tags: ["Data Science", "Python", "Self-Teaching"] },
+  { yr: "2023 — 2025", org: "Capgemini", role: "Data Scientist · ML Engineer", sector: "CONSULTING", body: "Led a 2,000+ product pharmaceutical forecasting pipeline (GBR + SARIMAX), modernized banking ETL in PL/SQL, and shipped a computer-vision translation pipeline for the public sector.", big: "2,000+", cap: "pharma products forecast in one automated two-day run — across four industries in two years.", tags: ["Time Series", "ETL · PL/SQL", "Computer Vision", "Azure"] },
+  { yr: "Jan 2024 — Jan 2025", org: "Independent Research", role: "Independent Data Scientist", sector: "RESEARCH", body: "Curiosity-driven NLP research: a scraper collected 36 Portuguese news articles a day for a full year, then tokenization, sentiment scoring and topic modeling, stored in ChromaDB.", big: "13k", cap: "news articles, scraped daily for a full year — every insight mapped back to the research questions.", tags: ["NLP", "Web Scraping", "ChromaDB", "Topic Modeling"] },
+  { yr: "Mar 2025 — May 2025", org: "Goparity", role: "ML Engineer · Freelancer", sector: "FINTECH", body: "External consultant on customer segmentation: K-prototypes clustering across the entire active customer base, validated over multiple cluster configurations.", big: "5", cap: "actionable personas discovered — delivered in an 80-page report.", tags: ["K-Prototypes", "Clustering", "Segmentation"] },
+  { yr: "Mar 2025 — Now", isPhoto: true, org: "Freelance Photography", role: "Photographer · Visual Artist", sector: "THE LENS", body: "Self-taught composition, light and visual storytelling, edited in Lightroom and Photoshop — the same work as data, only the table is an RGB tensor.", big: "80D", cap: "Shot on a Canon EOS 80D — plus an astrophotography workshop for Câmara Municipal de Sines.", tags: ["Canon EOS 80D", "Astrophotography", "Lightroom", "Photoshop"], link: "https://www.instagram.com/freitasfazinsta/", linkText: "See the photos →" },
+  { yr: "Dec 2025 — Now", org: "Genesis Digital Solutions", role: "AI Engineer", sector: "AI ENGINEERING", body: "RAG chatbots, a multi-tenant public-procurement platform with GPT routing, Teams agents on Graph API, and an on-prem OCR + VLM pipeline on a Dell GB10 that became a services contract.", big: "6", cap: "client AI systems shipped in under a year — one POC grew into a 20+ project Dell partnership.", tags: ["RAG", "Multi-Agent", "Langchain", "Azure Foundry"] },
+  { yr: "2026 — Now", org: "MF Concepts", role: "Founder · Independent AI Lab", sector: "THE LAB", body: "Where apps are born to solve everyday problems — and where I build the confidence to develop increasingly complex systems, local or in the cloud.", big: "2", cap: "working apps I use every day — built in my own lab.", link: "#lab", linkText: "See the apps ↓", tags: ["Product Building", "Local AI", "Cloud"] }
+];
+const PROJECTS = [
+  { n: "Generis", sec: "Life sciences", cap: "Forecasting" },
+  { n: "BNA", sec: "Finance & banking", cap: "Data engineering" },
+  { n: "IPQ", sec: "Public sector", cap: "Vision & OCR" },
+  { n: "Automotive", sec: "Automotive", cap: "Forecasting" },
+  { n: "News NLP", sec: "Media", cap: "NLP" },
+  { n: "Goparity", sec: "Finance & banking", cap: "Segmentation" },
+  { n: "MoneyFlix", sec: "Finance & banking", cap: "LLM & agents" },
+  { n: "Havas", sec: "Marketing", cap: "Data engineering" },
+  { n: "ProcurifAI", sec: "Public sector", cap: "LLM & agents" },
+  { n: "Dell · Pombal & Leiria", sec: "Public sector", cap: "Vision & OCR" },
+  { n: "Shift Global", sec: "Project management", cap: "LLM & agents" },
+  { n: "Transfim", sec: "Logistics", cap: "LLM & agents" },
+  { n: "MSC", sec: "Logistics", cap: "Operations" }
+];
+const YEARLY = [
+  { y: 2023, items: ["BNA", "IPQ", "Automotive"] },
+  { y: 2024, items: ["Generis · phase I", "News NLP research"] },
+  { y: 2025, items: ["Generis · phase II", "Goparity"] },
+  { y: 2026, items: ["MoneyFlix", "Havas", "ProcurifAI", "Dell · Pombal & Leiria", "Shift Global", "Transfim", "MF Concepts app 1", "MF Concepts app 2"] }
+];
+const CURRENT_YEAR = 2026;
+const HOLT = { alpha: 0.9, beta: 0.5 };
+
+function yearlyForecast() {
+  const now = new Date();
+  const frac = (yr) => {
+    if (now.getFullYear() > yr) return 1;
+    if (now.getFullYear() < yr) return 0.05;
+    const s = new Date(yr, 0, 1).getTime(), t = new Date(yr + 1, 0, 1).getTime();
+    return Math.max(0.05, (now.getTime() - s) / (t - s));
+  };
+  const series = YEARLY.map((r) => {
+    const done = r.items.length;
+    const f = r.y === CURRENT_YEAR ? frac(r.y) : 1;
+    return { y: r.y, items: r.items, done, full: done / f, frac: f };
+  });
+  let lvl = series[0].full, trend = series[1].full - series[0].full;
+  const level = [lvl], errs = [];
+  for (let t = 1; t < series.length; t++) {
+    const obs = series[t].full;
+    errs.push(obs - (lvl + trend));
+    const nl = HOLT.alpha * obs + (1 - HOLT.alpha) * (lvl + trend);
+    trend = HOLT.beta * (nl - lvl) + (1 - HOLT.beta) * trend;
+    lvl = nl;
+    level.push(lvl);
+  }
+  const fc = Math.max(0, lvl + trend);
+  const sigma = Math.sqrt(errs.reduce((s, x) => s + x * x, 0) / errs.length);
+  const lo = Math.max(0, fc - 1.28 * sigma), hi = fc + 1.28 * sigma;
+  const maxY = Math.max(5, Math.ceil(Math.max(hi, ...series.map((r) => r.full)) / 5) * 5);
+  const pct = (v) => ((Math.min(Math.max(v, 0), maxY) / maxY) * 100).toFixed(2) + "%";
+  const n = series.length + 1;
+  const pts = level.concat([fc]).map((v, i) => ({ x: ((i + 0.5) / n) * 100, y: 100 - (Math.min(Math.max(v, 0), maxY) / maxY) * 100 }));
+  const seg = (i) => {
+    const p0 = pts[i - 1] || pts[i], p1 = pts[i], p2 = pts[i + 1], p3 = pts[i + 2] || p2;
+    return " C" + [p1.x + (p2.x - p0.x) / 6, p1.y + (p2.y - p0.y) / 6, p2.x - (p3.x - p1.x) / 6, p2.y - (p3.y - p1.y) / 6, p2.x, p2.y].map((v) => v.toFixed(2)).join(" ");
+  };
+  const mv = (p) => "M" + p.x.toFixed(2) + " " + p.y.toFixed(2);
+  let histPath = mv(pts[0]);
+  for (let i = 0; i < pts.length - 2; i++) histPath += seg(i);
+  const fcPath = mv(pts[pts.length - 2]) + seg(pts.length - 2);
+  const nextYear = YEARLY[YEARLY.length - 1].y + 1;
+  const years = series.map((r) => {
+    const extra = r.full - r.done;
+    return {
+      year: String(r.y), sub: r.y === CURRENT_YEAR ? "in progress" : "", isForecast: false, notForecast: true,
+      doneH: pct(r.done), projH: pct(extra), labelB: pct(r.full),
+      label: extra >= 0.5 ? r.done + " + ~" + Math.round(extra) : String(r.done),
+      title: r.y + ": " + r.items.join(" · ")
+    };
+  }).concat([{
+    year: String(nextYear), sub: "forecast", isForecast: true, notForecast: false,
+    fcH: pct(fc), loB: pct(lo), whiskH: pct(hi - lo), labelB: pct(hi), label: "~" + Math.round(fc),
+    title: "Forecast " + nextYear + ": ~" + Math.round(fc) + " projects (80% interval " + Math.round(lo) + "–" + Math.round(hi) + ")\nHolt’s linear trend — double exponential smoothing\nα = " + HOLT.alpha + " (level), β = " + HOLT.beta + " (trend)\nFitted on " + YEARLY[0].y + "–" + YEARLY[YEARLY.length - 1].y + ", " + CURRENT_YEAR + " annualised from the days so far"
+  }]);
+  const ticks = [];
+  for (let v = 0; v <= maxY; v += 5) ticks.push({ v: String(v), pos: pct(v) });
+  const cur = series[series.length - 1];
+  return {
+    years, ticks, histPath, fcPath,
+    dots: pts.map((p, i) => ({ left: p.x.toFixed(2) + "%", bottom: (100 - p.y).toFixed(2) + "%", fc: i === pts.length - 1 })),
+    fcRound: String(Math.round(fc)), loRound: String(Math.round(lo)), hiRound: String(Math.round(hi)),
+    daysSoFar: String(Math.round(cur.frac * 365)), alphaS: String(HOLT.alpha), betaS: String(HOLT.beta),
+    nextYear: String(nextYear),
+    summary: series.map((r) => r.y + ": " + r.done).join(", ") + ", " + nextYear + " forecast: about " + Math.round(fc)
+  };
+}
+
+const STACK = [
+  { name: "Languages & core", items: ["Python", "SQL / PL·SQL", "Shell", "HTML", "Jupyter"] },
+  { name: "Data & analytics", items: ["Pandas", "NumPy", "Matplotlib", "Seaborn", "Plotly", "Statsmodels", "Oracle DB", "BigQuery", "Dataform", "MySQL", "ETL", "Great Expectations", "Web Scraping", "Time Series", "Clustering", "Ensembles"] },
+  { name: "ML & deep learning", items: ["PyTorch", "Scikit-learn", "Deep Learning", "Computer Vision", "NLP", "NLTK", "spaCy", "Tesseract", "Qwen"] },
+  { name: "LLMs & agents", items: ["OpenAI", "Claude", "RAG · LLM", "Langchain", "Multi-Agent", "Agentic Architectures", "Chatbots", "ChromaDB", "Langfuse", "GaleneAI"] },
+  { name: "Cloud & MLOps", items: ["Azure", "Azure Foundry", "MLOps", "MLFlow", "Docker", "DVC", "FastAPI", "REST API", "GitHub Actions", "CI/CD", "GitHub", "Sentry", "Ruff", "Mypy", "ThreadPooling"] },
+  { name: "Creative", items: ["Lightroom", "Photoshop"] }
+];
+const EDUCATION = [
+  { what: "Deep Learning Specialization", where: "Instituto Superior Técnico", when: "2025", gpa: "18" },
+  { what: "MSc Impact Entrepreneurship & Innovation", where: "Universidade Nova de Lisboa", when: "2021 — 2023", gpa: "17" },
+  { what: "BSc Port Management", where: "Escola Superior Náutica Infante D. Henrique", when: "2012 — 2015", gpa: "14" }
+];
+const CERTS = [
+  { n: "GitHub Copilot", by: "GitHub · 2025" },
+  { n: "Data Science: KDD Process", by: "IST · 2024" },
+  { n: "Azure AI-900", by: "Microsoft · 2023" },
+  { n: "Azure DP-900", by: "Microsoft · 2023" },
+  { n: "PSM I — Scrum Master", by: "Scrum.org · 2023" },
+  { n: "Associate Data Scientist", by: "DataCamp · 2023" }
+];
+const PAL = { ink: "var(--ink)", muted: "var(--muted)", deep: "var(--deep)", sea: "#1F8A8A", ocean: "#1D5C8C", foam: "#9FD3CF", mist: "var(--rule)", coralText: "var(--coral-text)" };
+
+class Component extends DCLogic {
+  componentDidMount() {
+    try {
+      const saved = window.localStorage.getItem("cv-theme-tide");
+      if (saved === "dark" || saved === "light") this.setState({ theme: saved });
+    } catch (e) {}
+    this._tick = () => {
+      let t = "";
+      try { t = new Date().toLocaleTimeString("en-GB", { timeZone: "Europe/Lisbon", hour: "2-digit", minute: "2-digit" }); } catch (e) { t = ""; }
+      if (t !== (this.state || {}).clock) this.setState({ clock: t });
+    };
+    this._tick();
+    this._timer = setInterval(this._tick, 15000);
+  }
+  componentDidUpdate(pp, ps) {
+    const s = this.state || {};
+    if (!ps || ps.active === s.active || !this._el) return;
+    const list = this._el.querySelector("[data-list]");
+    const row = list && list.querySelector('[data-row="' + s.active + '"]');
+    if (!row) return;
+    const top = row.offsetTop, bottom = top + row.offsetHeight;
+    if (top < list.scrollTop || bottom > list.scrollTop + list.clientHeight) list.scrollTo({ top: Math.max(0, top - 24), behavior: "smooth" });
+  }
+  componentWillUnmount() {
+    clearInterval(this._timer);
+    if (this._raf) cancelAnimationFrame(this._raf);
+  }
+  measure(el) {
+    const vh = el.clientHeight;
+    const base = el.getBoundingClientRect().top;
+    const prog = (sel) => {
+      const n = el.querySelector(sel);
+      if (!n) return 0;
+      const span = Math.max(1, n.offsetHeight - vh);
+      return Math.min(1, Math.max(0, (base - n.getBoundingClientRect().top) / span));
+    };
+    const heroP = Math.round(prog('[data-scene="hero"]') * 100) / 100;
+    const seqP = Math.round(prog('[data-scene="seq"]') * 200) / 200;
+    const active = Math.min(CHAPTERS.length - 1, Math.floor(seqP * CHAPTERS.length));
+    const s = this.state || {};
+    if (heroP !== s.heroP || seqP !== s.seqP || active !== s.active) this.setState({ heroP, seqP, active });
+  }
+  jump(sel, frac) {
+    const el = this._el;
+    if (!el) return false;
+    const n = el.querySelector(sel);
+    if (!n) return false;
+    const top = n.getBoundingClientRect().top - el.getBoundingClientRect().top + el.scrollTop;
+    el.scrollTo({ top: top + frac * Math.max(0, n.offsetHeight - el.clientHeight), behavior: "smooth" });
+    return true;
+  }
+  renderVals() {
+    const s = this.state || {};
+    const punch = this.props.punch ?? "#FF6B4A";
+    const theme = s.theme === "dark" ? "dark" : "light";
+    const tab = s.tab || "story";
+    const view = s.view || "sector";
+    const p = s.heroP || 0;
+    const active = s.active || 0;
+    const N = CHAPTERS.length;
+    const clamp = (v) => Math.min(1, Math.max(0, v));
+    const q = clamp(p / 0.65);
+    const e = q < 0.5 ? 2 * q * q : 1 - Math.pow(-2 * q + 2, 2) / 2;
+    const half = (50 * (1 - e)).toFixed(2);
+    const copyO = clamp((p - 0.6) / 0.3);
+    const clip = "inset(" + half + "% 0 " + half + "% 0)";
+
+    const chapters = CHAPTERS.map((c, i) => ({
+      ...c,
+      num: String(i + 1).padStart(2, "0"),
+      idx: String(i),
+      bigSize: c.big.length > 4 ? "92px" : "136px",
+      hasLink: !!c.link,
+      open: i === active,
+      openPhoto: i === active && !!c.isPhoto,
+      openText: i === active && !c.isPhoto,
+      expanded: i === active ? "true" : "false",
+      fg: i === active ? PAL.ink : (i < active ? "var(--past)" : "var(--body)"),
+      numFg: i === active ? PAL.coralText : PAL.muted,
+      size: i === active ? "26px" : "18px",
+      dot: i === active ? "22px" : "14px",
+      dotBg: i === active ? punch : (i < active ? PAL.deep : "var(--bg)"),
+      dotRing: i === active ? punch : (i < active ? PAL.deep : "var(--soft)"),
+      pick: () => { if (!this.jump('[data-scene="seq"]', (i + 0.5) / N)) this.setState({ active: i }); }
+    }));
+
+    const yf = yearlyForecast();
+    const key = view === "sector" ? "sec" : "cap";
+    const groups = {};
+    PROJECTS.forEach((pr) => { (groups[pr[key]] = groups[pr[key]] || []).push(pr.n); });
+    const max = Math.max(...Object.values(groups).map((a) => a.length));
+    const tones = [PAL.deep, PAL.sea, PAL.ocean];
+    const bars = Object.entries(groups)
+      .sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]))
+      .map(([label, names], i) => {
+        const top = names.length === max;
+        return { label, count: names.length, names: names.join(" · "), w: Math.round((names.length / max) * 100) + "%", color: top ? punch : tones[i % 3], text: top ? PAL.coralText : PAL.ink };
+      });
+
+    const groupColors = [PAL.foam, PAL.sea, PAL.deep, punch, PAL.ocean, "var(--soft)"];
+    const stack = STACK.map((g, i) => ({ ...g, color: groupColors[i], count: g.items.length, line: g.items.join(" · ") }));
+    const waffle = [];
+    stack.forEach((g) => g.items.forEach((t) => waffle.push({ t: t + " · " + g.name, c: g.color })));
+
+    const tabOn = (yes) => ({ fg: yes ? PAL.ink : PAL.muted, line: yes ? punch : "transparent", pressed: yes ? "true" : "false" });
+    const segOn = (yes) => ({ bg: yes ? PAL.ink : "transparent", fg: yes ? "var(--on-ink)" : PAL.ink, pressed: yes ? "true" : "false" });
+    const tS = tabOn(tab === "story"), tN = tabOn(tab === "numbers"), vS = segOn(view === "sector"), vC = segOn(view === "cap");
+
+    return {
+      punch,
+      theme,
+      isDark: theme === "dark",
+      isLight: theme !== "dark",
+      darkPressed: theme === "dark" ? "true" : "false",
+      toggleTheme: () => {
+        const next = theme === "dark" ? "light" : "dark";
+        this.setState({ theme: next });
+        try { window.localStorage.setItem("cv-theme-tide", next); } catch (e) {}
+      },
+      clock: s.clock || "—",
+      setEl: (el) => { if (el) this._el = el; },
+      onScroll: (ev) => {
+        const el = ev.currentTarget;
+        this._el = el;
+        if (this._raf) return;
+        this._raf = requestAnimationFrame(() => { this._raf = 0; this.measure(el); });
+      },
+      isStory: tab === "story",
+      isNumbers: tab === "numbers",
+      storyFg: tS.fg, storyLine: tS.line, storyPressed: tS.pressed,
+      numbersFg: tN.fg, numbersLine: tN.line, numbersPressed: tN.pressed,
+      showStory: () => { this.setState({ tab: "story", heroP: 0, active: 0, seqP: 0 }); if (this._el) this._el.scrollTop = 0; },
+      showNumbers: () => { this.setState({ tab: "numbers" }); if (this._el) this._el.scrollTop = 0; },
+      nowLoop: NOW.concat(NOW),
+      clip,
+      imgScale: (1.15 - 0.15 * e).toFixed(3),
+      upShift: "calc((50vh - 58px) * " + (-e).toFixed(3) + ")",
+      downShift: "calc((50vh - 58px) * " + e.toFixed(3) + ")",
+      lineO: clamp(1 - e * 5).toFixed(2),
+      cueO: clamp(1 - p * 5).toFixed(2),
+      copyO: copyO.toFixed(2),
+      copyY: Math.round((1 - copyO) * 40) + "px",
+      chapters,
+      chapterCount: String(N).padStart(2, "0"),
+      activeNum: String(active + 1).padStart(2, "0"),
+      seqPct: Math.round((active / (N - 1)) * 100) + "%",
+      stack,
+      waffle,
+      education: EDUCATION,
+      certs: CERTS,
+      kpis: [
+        { v: "10–18×", l: "faster document throughput over manual handling", s: "GENESIS · DELL GB10", color: PAL.coralText },
+        { v: "6", l: "client AI systems shipped in under a year", s: "GENESIS", color: PAL.deep },
+        { v: "2,000+", l: "pharma products forecast end to end", s: "CAPGEMINI · GENERIS", color: PAL.deep },
+        { v: "~13k", l: "Portuguese news items scraped and modeled", s: "INDEPENDENT RESEARCH", color: PAL.ocean },
+        { v: "20+", l: "upcoming projects in the Dell partnership", s: "GENESIS", color: PAL.coralText },
+        { v: "20+", l: "water rescues across ten Atlantic summers", s: "ANSLA", color: PAL.ocean }
+      ],
+      ...yf,
+      dots: yf.dots.map((d) => ({ ...d, bg: d.fc ? "var(--bg)" : punch })),
+      bars,
+      bySector: () => this.setState({ view: "sector" }),
+      byCap: () => this.setState({ view: "cap" }),
+      sectorBg: vS.bg, sectorFg: vS.fg, sectorPressed: vS.pressed,
+      capBg: vC.bg, capFg: vC.fg, capPressed: vC.pressed,
+      gpa: [
+        { l: "BSc Port Management", y: "2015", v: 14, h: "70%", color: PAL.ocean, fg: "#FFFFFF" },
+        { l: "MSc Nova", y: "2023", v: 17, h: "85%", color: PAL.deep, fg: "var(--on-deep)" },
+        { l: "Deep Learning · IST", y: "2025", v: 18, h: "90%", color: punch, fg: "#2A0E06" }
+      ],
+      eras: [
+        { l: "Maritime & operations", y: "2012 — 2021", w: "62%", pct: "62%", color: PAL.ocean, fg: "#FFFFFF" },
+        { l: "The pivot", y: "2021 — 2023", w: "14%", pct: "14%", color: PAL.foam, fg: PAL.ink },
+        { l: "Data & AI", y: "2023 — now", w: "24%", pct: "24%", color: punch, fg: "#2A0E06" }
+      ],
+      summers: ["2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021"]
+    };
+  }
+}
+</script>
+</body>
+</html>
